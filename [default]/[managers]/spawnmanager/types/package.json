@@ -1,0 +1,11 @@
+{
+  "name": "@spawnmanager/types",
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9.5"
+  }
+}

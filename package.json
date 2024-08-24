@@ -1,0 +1,17 @@
+{
+  "name": "experimental-rp",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "pnpm --recursive clean",
+    "clean:all": "rm -rf node_modules && pnpm --recursive clean",
+    "build": "pnpm --recursive build",
+    "watch": "pnpm --recursive --workspace-concurrency=Infinity watch"
+  },
+  "devDependencies": {
+    
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  }
+}
