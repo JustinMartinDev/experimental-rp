@@ -2,6 +2,9 @@
   "name": "experimental-rp",
   "version": "1.0.0",
   "scripts": {
+    "migrate:reset": "pnpm --filter=database migrate:reset",
+    "migrate": "pnpm --filter=database migrate",
+    "studio": "pnpm --filter=database studio",
     "clean": "pnpm --recursive clean",
     "clean:all": "rm -rf node_modules && pnpm --recursive clean",
     "build": "pnpm --recursive build",
@@ -11,7 +14,7 @@
     
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=7"
+    "node": ">=18",
+    "pnpm": ">=9.5"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "pregenerate": "ts-node ./tools/merge-schema.ts",
+    "generate": "prisma generate",
+    "premigrate": "ts-node ./tools/merge-schema.ts",
+    "migrate": "prisma migrate",
+    "migrate:reset": "prisma migrate reset",
+    "studio": "prisma studio"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "prisma": "catalog:",
+    "ts-node": "catalog:",
+    "typescript": "catalog:",
+    "@player/prisma": "workspace:*",
+    "@inventory/prisma": "workspace:*"
+  },
+  "dependencies": {
+    "@prisma/client": "catalog:"
+  }
+}

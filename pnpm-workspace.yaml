@@ -5,17 +5,23 @@ packages:
   - "**/server/"
   - "**/types/"
   - "**/web/"
+  - "database/"
+  - "inventory/**"
+  - "player/**"
 
-catalog: 
+catalog:
   typescript: ^5.5.4
-  '@types/node': ^20.14.12
-  # FiveM  
-  '@citizenfx/client': 2.0.9282-1
-  '@citizenfx/server': 2.0.9282-1
+  ts-node: ^10.9.2
+  "@types/node": ^20.14.12
+  # FiveM
+  "@citizenfx/client": 2.0.9282-1
+  "@citizenfx/server": 2.0.9282-1
   # Bundle
   rollup: ^4.20.0
   tslib: ^2.6.3
-  '@rollup/plugin-commonjs': ^26.0.1
-  '@rollup/plugin-node-resolve': ^15.2.3
-  '@rollup/plugin-typescript': ^11.1.6
-  fast-glob: "^3.3.2" #Used to detech all entry files
+  "@rollup/plugin-commonjs": ^26.0.1
+  "@rollup/plugin-node-resolve": ^15.2.3
+  "@rollup/plugin-typescript": ^11.1.6
+  # Database
+  "@prisma/client": ^5.18.0
+  prisma: ^5.18.0
