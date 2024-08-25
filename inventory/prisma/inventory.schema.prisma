@@ -1,0 +1,8 @@
+model Inventory {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  player   Player @relation(fields: [playerId], references: [id])
+  playerId Int  @unique // relation scalar field (used in the `@relation` attribute above)
+}
