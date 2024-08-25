@@ -1,0 +1,11 @@
+{
+  "name": "@forum-drive-spawnert-ts-vanilla/types",
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  }
+}
