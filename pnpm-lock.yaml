@@ -65,15 +65,30 @@ importers:
       '@player/prisma':
         specifier: workspace:*
         version: link:../player/prisma
+      '@rollup/plugin-commonjs':
+        specifier: 'catalog:'
+        version: 26.0.1(rollup@4.21.0)
+      '@rollup/plugin-node-resolve':
+        specifier: 'catalog:'
+        version: 15.2.3(rollup@4.21.0)
+      '@rollup/plugin-typescript':
+        specifier: 'catalog:'
+        version: 11.1.6(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.1
       prisma:
         specifier: 'catalog:'
         version: 5.18.0
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
       ts-node:
         specifier: 'catalog:'
         version: 10.9.2(@types/node@20.16.1)(typescript@5.5.4)
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
@@ -184,6 +199,33 @@ importers:
         specifier: ^5.3.4
         version: 5.4.2(@types/node@20.16.1)
 
+  player/client:
+    devDependencies:
+      '@citizenfx/client':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@rollup/plugin-commonjs':
+        specifier: 'catalog:'
+        version: 26.0.1(rollup@4.21.0)
+      '@rollup/plugin-node-resolve':
+        specifier: 'catalog:'
+        version: 15.2.3(rollup@4.21.0)
+      '@rollup/plugin-typescript':
+        specifier: 'catalog:'
+        version: 11.1.6(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
   player/prisma:
     devDependencies:
       typescript:
@@ -191,6 +233,10 @@ importers:
         version: 5.5.4
 
   player/server:
+    dependencies:
+      database:
+        specifier: workspace:*
+        version: link:../../database
     devDependencies:
       '@citizenfx/server':
         specifier: 'catalog:'
