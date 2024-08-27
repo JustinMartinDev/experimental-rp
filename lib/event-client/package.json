@@ -1,0 +1,17 @@
+{
+  "name": "@lib/event-client",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@citizenfx/client": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "@types/node": "catalog:",
+    "rollup": "catalog:",
+    "tslib": "catalog:",
+    "typescript": "catalog:"
+  }
+}
