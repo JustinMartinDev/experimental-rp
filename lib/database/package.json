@@ -1,8 +1,6 @@
 {
-  "name": "database",
+  "name": "@lib/database",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/index.js"
@@ -27,7 +25,6 @@
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-typescript": "catalog:",
-    "rollup-plugin-node-globals": ""
     "rollup": "catalog:",
     "tslib": "catalog:"
   },

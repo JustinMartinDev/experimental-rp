@@ -5,7 +5,7 @@ packages:
   - "**/server/"
   - "**/types/"
   - "**/web/"
-  - "database/"
+  - "lib/**"
   - "inventory/**"
   - "player/**"
 
