@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js"
+  },
   "scripts": {
     "pregenerate": "ts-node ./tools/merge-schema.ts",
     "generate": "prisma generate",
     "premigrate": "ts-node ./tools/merge-schema.ts",
     "migrate": "prisma migrate",
     "migrate:reset": "prisma migrate reset",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "--------- BUILD ---------": "--------- BUILD ---------",
+    "build": "rollup -c"
   },
   "devDependencies": {
     "@types/node": "catalog:",
@@ -17,7 +23,13 @@
     "ts-node": "catalog:",
     "typescript": "catalog:",
     "@player/prisma": "workspace:*",
-    "@inventory/prisma": "workspace:*"
+    "@inventory/prisma": "workspace:*",
+    "@rollup/plugin-commonjs": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "rollup-plugin-node-globals": ""
+    "rollup": "catalog:",
+    "tslib": "catalog:"
   },
   "dependencies": {
     "@prisma/client": "catalog:"
