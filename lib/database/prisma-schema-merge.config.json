@@ -1,0 +1,5 @@
+{
+  "banner": "./prisma/banner.schema.prisma",
+  "schemas": ["@player/prisma/player.schema.prisma", "@inventory/prisma/inventory.schema.prisma"],
+  "output": "./prisma/schmea.prisma"
+}

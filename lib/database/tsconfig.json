@@ -9,7 +9,13 @@
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
+<<<<<<< HEAD:lib/database/tsconfig.json
     "declaration": true
   },
   "include": ["src/**/*.ts"],
+=======
+    "declaration": true,
+  },
+  "include": ["index.ts"]
+>>>>>>> 3c4f611 (created splitted prisma):database/tsconfig.json
 }
