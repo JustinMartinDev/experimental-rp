@@ -43,6 +43,11 @@ catalogs:
       specifier: ^5.5.4
       version: 5.5.4
 
+patchedDependencies:
+  prisma@5.18.0:
+    hash: rvatnwwfskfpq3b2ocezohkxme
+    path: patches/prisma@5.18.0.patch
+
 importers:
 
   .: {}
@@ -57,7 +62,7 @@ importers:
     dependencies:
       '@prisma/client':
         specifier: 'catalog:'
-        version: 5.18.0(prisma@5.18.0)
+        version: 5.18.0(prisma@5.18.0(patch_hash=rvatnwwfskfpq3b2ocezohkxme))
     devDependencies:
       '@inventory/prisma':
         specifier: workspace:*
@@ -79,7 +84,7 @@ importers:
         version: 20.16.1
       prisma:
         specifier: 'catalog:'
-        version: 5.18.0
+        version: 5.18.0(patch_hash=rvatnwwfskfpq3b2ocezohkxme)
       rollup:
         specifier: 'catalog:'
         version: 4.21.0
@@ -2148,9 +2153,9 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@prisma/client@5.18.0(prisma@5.18.0)':
+  '@prisma/client@5.18.0(prisma@5.18.0(patch_hash=rvatnwwfskfpq3b2ocezohkxme))':
     optionalDependencies:
-      prisma: 5.18.0
+      prisma: 5.18.0(patch_hash=rvatnwwfskfpq3b2ocezohkxme)
 
   '@prisma/debug@5.18.0': {}
 
@@ -2959,7 +2964,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prisma@5.18.0:
+  prisma@5.18.0(patch_hash=rvatnwwfskfpq3b2ocezohkxme):
     dependencies:
       '@prisma/engines': 5.18.0
 
