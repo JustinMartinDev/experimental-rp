@@ -1,6 +1,7 @@
 # https://nx.dev/more-concepts/folder-structure
 # https://pnpm.io/workspaces
 packages:
+<<<<<<< HEAD
   - "**/client/"
   - "**/server/"
   - "**/types/"
@@ -8,6 +9,10 @@ packages:
   - "lib/**"
   - "inventory/**"
   - "player/**"
+=======
+  - "lib/*"
+  - "[core]/**"
+>>>>>>> 3d720aa (re-organise folder and package)
 
 catalog:
   typescript: ^5.5.4
