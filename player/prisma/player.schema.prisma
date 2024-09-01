@@ -1,7 +1,0 @@
-model Player {
-  id          Int      @id @default(autoincrement())
-  steamId     String   @unique 
-  lastname    String
-  firstname   String
-  inventory   Inventory?
-}

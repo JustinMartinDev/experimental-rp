@@ -1,13 +1,8 @@
 # https://nx.dev/more-concepts/folder-structure
 # https://pnpm.io/workspaces
 packages:
-  - "**/client/"
-  - "**/server/"
-  - "**/types/"
-  - "**/web/"
-  - "database/"
-  - "inventory/**"
-  - "player/**"
+  - "lib/*"
+  - "[core]/**"
 
 catalog:
   typescript: ^5.5.4
