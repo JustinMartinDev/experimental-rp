@@ -8,7 +8,7 @@ type PrismaSchemaConfig = {
 
 const cwd = process.cwd();
 const prismaSchemaConfig = JSON.parse(
-  readFileSync(join(cwd, "schema.prisma.json"), "utf-8")
+  readFileSync(join(cwd, "schema.prisma.config.json"), "utf-8")
 ) as PrismaSchemaConfig;
 
 console.log(`Merging ${prismaSchemaConfig.schemas.length} schemas...`);
