@@ -28,7 +28,6 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "ts-node": "catalog:",
     "tslib": "catalog:",
-    "tsx": "^4.19.0",
     "typescript": "catalog:"
   },
   "dependencies": {
