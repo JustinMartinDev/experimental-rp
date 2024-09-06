@@ -1,5 +1,5 @@
 {
-  "name": "database",
+  "name": "@lib/database",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
@@ -31,7 +31,6 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "ts-node": "catalog:",
     "tslib": "catalog:",
-    "tsx": "^4.19.0",
     "typescript": "catalog:"
   },
   "dependencies": {
