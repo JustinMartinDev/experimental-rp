@@ -10,13 +10,14 @@
     "watch": "rollup -c -w"
   },
   "dependencies": {
-    "database": "workspace:*"
+    "@lib/database": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/server": "catalog:",
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-typescript": "catalog:",
+    "rollup-plugin-node-polyfills": "0.2.1",
     "@types/node": "catalog:",
     "rollup": "catalog:",
     "tslib": "catalog:",

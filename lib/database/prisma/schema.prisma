@@ -1,29 +1,51 @@
-// Generated at 2024-08-25T15:43:46.612Z
+<<<<<<< HEAD
+// Generated at 2024-08-29T23:15:48.270Z
+=======
+// Generated at 2024-09-01T22:19:21.392Z by "merge-prisma-schema"
+>>>>>>> 3d720aa (re-organise folder and package)
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  engineType    = "binary"
+  binaryTargets = ["windows"]
+  output        = "./generated"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
 }
 
 model Player {
+<<<<<<< HEAD
   id          Int      @id @default(autoincrement())
   steamId     String   @unique 
   lastname    String
   firstname   String
   inventory   Inventory?
 }
+=======
+  id        Int        @id @default(autoincrement())
+  steamId   String     @unique
+  lastname  String
+  firstname String
+  inventory Inventory?
+}
+
+>>>>>>> 3d720aa (re-organise folder and package)
 model Inventory {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   player   Player @relation(fields: [playerId], references: [id])
+<<<<<<< HEAD
   playerId Int  @unique // relation scalar field (used in the `@relation` attribute above)
 }
+=======
+  playerId Int    @unique // relation scalar field (used in the `@relation` attribute above)
+}
+>>>>>>> 3d720aa (re-organise folder and package)
