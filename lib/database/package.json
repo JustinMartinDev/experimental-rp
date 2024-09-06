@@ -8,11 +8,13 @@
   "scripts": {
     "studio": "prisma studio",
     "--------- BUILD ---------": "--------- BUILD ---------",
-    "build": "pnpm genrate && rollup -c",
+    "build-only": "rollup -c",
+    "build": "pnpm generate && rollup -c",
     "pregenerate": "npx merge-prisma-schema",
+    "postgenerate": "npx tsx ./tools/post-generated.ts",
     "generate": "prisma generate",
     "--------- MIGRATE ---------": "--------- MIGRATE ---------",
-    "premigrate": "tsx ./tools/merge-schema.ts",
+    "premigrate": "npx merge-prisma-schema",
     "migrate": "prisma migrate"
   },
   "devDependencies": {
@@ -28,7 +30,7 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "ts-node": "catalog:",
     "tslib": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:"    
   },
   "dependencies": {
     "@prisma/client": "catalog:"
