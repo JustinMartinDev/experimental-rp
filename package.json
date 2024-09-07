@@ -13,10 +13,5 @@
   "engines": {
     "node": ">=18",
     "pnpm": ">=9.5"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "prisma@5.18.0": "patches/prisma@5.18.0.patch"
-    }
   }
 }

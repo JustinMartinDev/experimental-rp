@@ -10,7 +10,7 @@
     "--------- BUILD ---------": "--------- BUILD ---------",
     "build-only": "rollup -c",
     "build": "pnpm generate && rollup -c",
-    "pregenerate": "npx merge-prisma-schema",
+    "pregenerate": "npx merge-prisma-schema && rm -rf ./prisma/generated",
     "postgenerate": "npx tsx ./tools/post-generated.ts",
     "generate": "prisma generate",
     "--------- MIGRATE ---------": "--------- MIGRATE ---------",
@@ -30,7 +30,8 @@
     "rollup-plugin-node-polyfills": "0.2.1",
     "ts-node": "catalog:",
     "tslib": "catalog:",
-    "typescript": "catalog:"    
+    "typescript": "catalog:",
+    "tsx": "^4.19.0"
   },
   "dependencies": {
     "@prisma/client": "catalog:"
