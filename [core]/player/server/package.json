@@ -10,7 +10,8 @@
     "watch": "rollup -c -w"
   },
   "dependencies": {
-    "@lib/database": "workspace:*"
+    "@lib/database": "workspace:*",
+    "@lib/event": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/server": "catalog:",

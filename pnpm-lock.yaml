@@ -154,6 +154,10 @@ importers:
         version: 5.4.2(@types/node@20.16.1)
 
   '[core]/player/client':
+    dependencies:
+      '@lib/event':
+        specifier: workspace:*
+        version: link:../../../lib/event
     devDependencies:
       '@citizenfx/client':
         specifier: 'catalog:'
@@ -191,6 +195,9 @@ importers:
       '@lib/database':
         specifier: workspace:*
         version: link:../../../lib/database
+      '@lib/event':
+        specifier: workspace:*
+        version: link:../../../lib/event
     devDependencies:
       '@citizenfx/server':
         specifier: 'catalog:'

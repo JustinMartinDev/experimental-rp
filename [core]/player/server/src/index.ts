@@ -1,4 +1,5 @@
 import { prisma } from "@lib/database"
+import { onClientEvent } from "@lib/event/server"
 
 /*
 on("onResourceStart", async (resName: string) => {
@@ -10,10 +11,8 @@ on("onResourceStart", async (resName: string) => {
 });
 */
 
-onNet("player:get-players:request", async (cb: Function) => {
+onClientEvent("player:get-players", async () => { 
   const players = await prisma.player.findMany();
 
-  await prisma.player.findMany().then(
-    (players: any) => { console.log("players", players) }
-  )
+  return players;
 });
