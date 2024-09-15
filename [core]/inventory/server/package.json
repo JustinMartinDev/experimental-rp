@@ -9,6 +9,10 @@
     "--------- WATCH ---------": "--------- WATCH ---------",
     "watch": "rollup -c -w"
   },
+  "dependencies": {
+    "@lib/event": "workspace:*",
+    "@lib/database": "workspace:*"
+  },
   "devDependencies": {
     "@citizenfx/server": "catalog:",
     "@rollup/plugin-commonjs": "catalog:",

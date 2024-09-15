@@ -3,6 +3,19 @@ model Inventory {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  player   Player @relation(fields: [playerId], references: [id])
-  playerId Int  @unique // relation scalar field (used in the `@relation` attribute above)
+  items     Item[]
+  player    Player   @relation(fields: [playerId], references: [id])
+  playerId  Int      @unique // relation scalar field (used in the `@relation` attribute above)
+}
+
+model Item {
+  id          Int      @id @default(autoincrement())
+  name        String   // Name of the item
+  quantity    Int      // Quantity of the item
+
+  inventory   Inventory @relation(fields: [inventoryId], references: [id])
+  inventoryId Int       // Foreign key to Inventory
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

@@ -48,6 +48,10 @@ importers:
   .: {}
 
   '[core]/inventory/client':
+    dependencies:
+      '@lib/event':
+        specifier: workspace:*
+        version: link:../../../lib/event
     devDependencies:
       '@citizenfx/client':
         specifier: 'catalog:'
@@ -81,6 +85,13 @@ importers:
         version: 5.5.4
 
   '[core]/inventory/server':
+    dependencies:
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+      '@lib/event':
+        specifier: workspace:*
+        version: link:../../../lib/event
     devDependencies:
       '@citizenfx/server':
         specifier: 'catalog:'
