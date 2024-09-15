@@ -6,13 +6,13 @@ on("onResourceStart", (resName: string) => {
   }
 });
 
-RegisterCommand("get-players", async () => {
-  console.log("get-players command called");
+RegisterCommand("player:get-me", async () => {
+  console.log("player:get-me command called");
 
-  const players = await triggerServerEvent({
-    event: "player:get-players",
+  const player = await triggerServerEvent({
+    event: "player:get-me",
     params: {}
   })
 
-  console.log("players", players)
+  console.log("player me", player)
 }, false);
