@@ -2,7 +2,8 @@
   "name": "@inventory/types",
   "version": "1.0.0",
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@lib/database": "workspace:*"
   },
   "engines": {
     "node": ">=18",

@@ -19,7 +19,7 @@ declare global {
   }
 }
 
-parent["GetParentResourceName"] = () => "forum-drive-spawner-ts-nui-react"
+parent["GetParentResourceName"] = () => "inventory"
 
 
 if (import.meta.env.MODE === "development" && isEnvBrowser()) {

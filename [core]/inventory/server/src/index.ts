@@ -9,7 +9,7 @@ on("onResourceStart", async (resName: string) => {
 });
 
 
-onClientEvent("inventory:get-me", async ({source}: {source: number}) => { 
+onClientEvent("inventory:get-my-inventory", async ({source}: {source: number}) => { 
   const steamId = GetPlayerIdentifier(`${source}`, 0);
 
   const inventory = await prisma.inventory.findFirst({

@@ -56,6 +56,9 @@ importers:
       '@citizenfx/client':
         specifier: 'catalog:'
         version: 2.0.9282-1
+      '@inventory/types':
+        specifier: workspace:*
+        version: link:../types
       '@rollup/plugin-commonjs':
         specifier: 'catalog:'
         version: 26.0.1(rollup@4.21.0)
@@ -96,6 +99,9 @@ importers:
       '@citizenfx/server':
         specifier: 'catalog:'
         version: 2.0.9282-1
+      '@inventory/types':
+        specifier: workspace:*
+        version: link:../types
       '@rollup/plugin-commonjs':
         specifier: 'catalog:'
         version: 26.0.1(rollup@4.21.0)
@@ -120,6 +126,9 @@ importers:
 
   '[core]/inventory/types':
     devDependencies:
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
       typescript:
         specifier: ^5.5.4
         version: 5.5.4

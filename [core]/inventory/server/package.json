@@ -7,7 +7,7 @@
     "--------- BUILD ---------": "--------- BUILD ---------",
     "build": "rollup -c",
     "--------- WATCH ---------": "--------- WATCH ---------",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w --watch.include src/*.ts"
   },
   "dependencies": {
     "@lib/event": "workspace:*",
@@ -21,7 +21,8 @@
     "@types/node": "catalog:",
     "rollup": "catalog:",
     "tslib": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "@inventory/types": "workspace:*"
   },
   "engines": {
     "node": ">=18",

@@ -4,11 +4,11 @@ type TriggerNetEventParams = {
   callback: Function;
 };
 
-export const triggerServerEvent = ({
+export const triggerServerEvent = <ResolveType>({
   event,
   params = {}
 }: Omit<TriggerNetEventParams, "callback">) => {
-  return new Promise((resolve) => {
+  return new Promise<ResolveType>((resolve) => {
     triggerServerEventWithCallback({
       event,
       params,
