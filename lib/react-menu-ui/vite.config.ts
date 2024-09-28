@@ -1,34 +1,24 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import { resolve } from "path";
-import dts from "vite-plugin-dts";
-import tailwindcss from "tailwindcss";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, "./lib/index.ts"),
-      name: "@lib/react-menu-ui",
-      fileName: (format) => `index.${format}.js`,
+      entry: path.resolve(__dirname, "src/index.tsx"),
+      name: "RectMenuUi",
+      formats: ["es", "umd"],
+      fileName: (format) => `react-menu-ui.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom", "tailwindcss"],
+      external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          tailwindcss: "tailwindcss",
         },
       },
-    },
-    sourcemap: true,
-    emptyOutDir: true,
-  },
-  plugins: [react(), dts({ rollupTypes: true })],
-  css: {
-    postcss: {
-      plugins: [tailwindcss],
     },
   },
 });

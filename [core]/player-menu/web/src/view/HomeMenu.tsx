@@ -1,5 +1,5 @@
-import "@lib/react-menu-ui-v2/dist/style.css";
-import { Menu } from "@lib/react-menu-ui-v2";
+import "@lib/react-menu-ui/dist/style.css";
+import { Menu } from "@lib/react-menu-ui";
 
 type Props = {
   footer: React.ReactElement;
