@@ -62,7 +62,7 @@ const Menu = ({
   }, [onKeyDown]);
 
   return (
-    <div className="bg-gray-900/30 rounded-lg text-white w-64">
+    <div className="bg-gray-900/75 rounded-lg text-white w-64">
       <div
         className="text-center pt-4 pb-5 rounded-t-lg"
         style={{
