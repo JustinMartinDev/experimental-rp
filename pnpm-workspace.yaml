@@ -8,6 +8,7 @@ packages:
   - "**/prisma/"
   - "[core]/*"
   - "lib/*"
+  - "docs"
 
 catalog:
   typescript: ^5.5.4
