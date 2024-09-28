@@ -26,9 +26,14 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Handle pressing escape/backspace
   useEffect(() => {
+    if (isEnvBrowser()) return;
+
     // Only attach listener when we are visible
     const resourceName = parent.GetParentResourceName();
-    parent.citFrames[resourceName].style.setProperty("visibility", visible ? "visible" : "hidden")
+    parent.citFrames[resourceName].style.setProperty(
+      "visibility",
+      visible ? "visible" : "hidden"
+    );
 
     const keyHandler = (e: KeyboardEvent) => {
       if (["Backspace", "Escape"].includes(e.code)) {
@@ -48,14 +53,12 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
         setVisible,
       }}
     >
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </VisibilityCtx.Provider>
   );
 };
 
 export const useVisibility = () =>
   useContext<VisibilityProviderValue>(
-    VisibilityCtx as Context<VisibilityProviderValue>,
+    VisibilityCtx as Context<VisibilityProviderValue>
   );

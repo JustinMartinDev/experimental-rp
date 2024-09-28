@@ -15,7 +15,7 @@
     "declaration": true,
     "jsx": "react-jsx",
     "typeRoots": ["./dist/index.d.ts"],
-
+    
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -24,4 +24,4 @@
   },
   "include": ["lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
-}
+} 

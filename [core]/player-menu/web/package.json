@@ -12,8 +12,11 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@lib/react-menu-ui": "workspace:*",
+    "@lib/react-menu-ui-v2": "workspace:*",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-query": "3.39.3"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -24,6 +27,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "tailwindcss": "^3.4.11",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   }
