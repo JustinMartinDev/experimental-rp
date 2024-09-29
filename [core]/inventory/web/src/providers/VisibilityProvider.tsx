@@ -20,7 +20,7 @@ interface VisibilityProviderValue {
 export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
@@ -56,7 +56,9 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
         setVisible,
       }}
     >
-      <div>{children}</div>
+      <div className="flex justify-center w-full h-full">
+        {children}
+      </div>
     </VisibilityCtx.Provider>
   );
 };

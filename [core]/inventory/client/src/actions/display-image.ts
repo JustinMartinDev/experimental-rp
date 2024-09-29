@@ -1,4 +1,4 @@
-import { sendReactMessage, toggleNuiFrame } from "../nui";
+import { sendReactMessage, toggleNuiFrame } from "../nui/utils";
 
 type DisplayImageParams = {
   url: string;
@@ -13,12 +13,11 @@ export const displayImage = (params: object) => {
 
   console.log(`Displaying image from ${url}`);
 
+  toggleNuiFrame(true);
   sendReactMessage("setView", {
     viewId: "display-image",
     data: {
       url,
     },
   });
-
-  toggleNuiFrame(true);
 };

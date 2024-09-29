@@ -1,5 +1,7 @@
 import { Context, createContext, useContext, useState } from "react";
 import { useNuiEvent } from "../hooks/useNuiEvent";
+import { DisplayImage } from "../view/DisplayImage";
+
 
 if (window.mockTriggerNuiEvent) {
   window.mockTriggerNuiEvent({ action: "setVisible", data: false });
@@ -7,10 +9,11 @@ if (window.mockTriggerNuiEvent) {
 
 const RouterCtx = createContext<RouterProvider | null>(null);
 
-type ViewId = "default";
+type ViewId = "default" | "disply-image";
 
 const RouterMap: Record<ViewId, React.ReactElement> = {
   default: <div>default</div>,
+  "display-image": <DisplayImage/>,
 };
 
 interface RouterProvider {
@@ -28,6 +31,7 @@ export const RouterProvider = () => {
   const [viewId, setViewId] = useState<ViewId>("default");
 
   const onNuiEventSetView = ({ viewId, data }: onNuiEventSetViewParams) => {
+    console.log("setView", viewId, data);
     setContext({ ...context, [viewId]: data });
     setViewId(viewId);
   };

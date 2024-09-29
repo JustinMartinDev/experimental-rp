@@ -3,7 +3,7 @@ import { useRouter } from "../providers/RouterProvider";
 export const DisplayImage = () => {
   const { context } = useRouter();
 
-  console.log("context", context);
+  const { url } = context["display-image"] as { url: string };
 
-  return <div>My image</div>;
+  return <img src={url} className="mt-64"/>;
 };
