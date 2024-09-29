@@ -23,17 +23,17 @@ export async function fetchNui<T = unknown>(
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data, null, 0),
   };
 
   if (isEnvBrowser() && mockData) return mockData;
 
   const resource =
-    resourceName ?? window.GetParentResourceName
+    resourceName ?? (window.GetParentResourceName
       ? window.GetParentResourceName()
-      : "nui-frame-app";
+      : "nui-frame-app");
 
-  const resp = await fetch(`https://${resource}/${eventName}`, options);
+  const resp = await fetch(`https://${resource}/${resource}:${eventName}`, options);
 
   const respFormatted = await resp.json();
 

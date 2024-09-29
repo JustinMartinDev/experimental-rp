@@ -30,6 +30,7 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
 
     // Only attach listener when we are visible
     const resourceName = parent.GetParentResourceName();
+
     parent.citFrames[resourceName].style.setProperty(
       "visibility",
       visible ? "visible" : "hidden"

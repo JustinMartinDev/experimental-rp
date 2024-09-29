@@ -7,3 +7,6 @@ const inventoryWithItems = Prisma.validator<Prisma.InventoryDefaultArgs>()({
 
 export type InventoryWithItems = Prisma.InventoryGetPayload<typeof inventoryWithItems>
 
+const item = Prisma.validator<Prisma.ItemDefaultArgs>()({});
+
+export type Item = Prisma.ItemGetPayload<typeof item>

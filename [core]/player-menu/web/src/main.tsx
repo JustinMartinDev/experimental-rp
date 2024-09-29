@@ -20,7 +20,7 @@ declare global {
   }
 }
 
-parent["GetParentResourceName"] = () => "inventory";
+parent["GetParentResourceName"] = () => "player-menu";
 
 if (import.meta.env.MODE === "development" && isEnvBrowser()) {
   window.mockTriggerNuiEvent = mockTriggerNuiEvent;

@@ -12,7 +12,7 @@ const ItemMenu = ({ footer }: Props) => {
 
   const onSelectItem = async (id: string) => {
     if (id === "use") {
-      await fetchNui("use-item", "item", {
+      await fetchNui("use-item", "inventory", {
         // @ts-ignore
         id: context.item.id,
       });

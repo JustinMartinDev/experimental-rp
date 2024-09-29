@@ -20,9 +20,23 @@ onClientEvent("inventory:get-my-inventory", async ({source}: {source: number}) =
     },
     include: {
       player: false,      // Include the player details
-      items: true,       // Include the items in the inventory
+      items: {
+        include: {
+          item: true,      // Include the item details
+        }
+      }
     },
-  })
+  });
   
   return inventory;
+});
+
+onClientEvent("inventory:get-item", async ({source, itemId}: {source: number, itemId: string}) => { 
+  const item = await prisma.item.findUnique({
+    where: {
+      id: itemId
+    },
+  });
+
+  return item;
 });

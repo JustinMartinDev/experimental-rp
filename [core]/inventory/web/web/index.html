@@ -11,7 +11,7 @@
     </style>
     <script>
       window.onload = () => {
-        parent["GetParentResourceName"] = () => "inventory"
+        parent["GetParentResourceName"] = () => "item"
 
         parent.citFrames[parent.GetParentResourceName()].style.setProperty("visibility", "hidden")
         parent.citFrames[parent.GetParentResourceName()].style.setProperty("z-index", "0")

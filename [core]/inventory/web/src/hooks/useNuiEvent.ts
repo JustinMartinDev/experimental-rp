@@ -36,7 +36,7 @@ export const useNuiEvent = <T = unknown>(
       const { action: eventAction, data } = event.data;
 
       if (savedHandler.current) {
-        if (eventAction === action) {
+        if (eventAction === `inventory:${action}`) {
           savedHandler.current(data);
         }
       }

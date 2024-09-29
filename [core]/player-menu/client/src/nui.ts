@@ -5,12 +5,12 @@ export const registerNUICallback = <T = any>(
   cb: NUICallbackFunction<T>
 ) => {
   RegisterNuiCallbackType(name);
-  on(`__cfx_nui:${name}`, cb);
+  on(`__cfx_nui:player-menu:${name}`, cb);
 };
 
 const sendReactMessage = (action: string, data: any) =>
   SendNUIMessage({
-    action,
+    action: `player-menu:${action}`,
     data,
   });
 

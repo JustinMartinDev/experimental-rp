@@ -1,14 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
-const toReplace = `
-const alternativePath = alternativePaths.find((altPath) => {
-  return fs.existsSync(path.join(process.cwd(), altPath, 'schema.prisma'))
-}) ?? alternativePaths[0]
-
-config.dirname = path.join(process.cwd(), alternativePath)
-config.isBundled = true
-`;
+const toReplaceRegex = /const alternativePath =(.|\n)+config.isBundled = true/g;
 
 const replaceValue = `
 const alternativePath = alternativePaths.find((altPath) => {
@@ -30,6 +23,6 @@ const file = join(process.cwd(), 'prisma', 'generated', 'index.js');
 
 const indexContent = readFileSync(file, { encoding: 'utf-8'});
 
-const newIndexContent = indexContent.replace(toReplace, replaceValue);
+const newIndexContent = indexContent.replace(toReplaceRegex, replaceValue);
 
 writeFileSync(file, newIndexContent);

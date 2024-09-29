@@ -1,8 +1,4 @@
 import { Context, createContext, useContext, useState } from "react";
-import { HomePlayerMenu } from "./view/HomeMenu";
-import { Footer } from "./components/Footer";
-import { InventoryMenu } from "./view/InventoryMenu";
-import { ItemMenu } from "./view/ItemMenu";
 
 if (window.mockTriggerNuiEvent) {
   window.mockTriggerNuiEvent({ action: "setVisible", data: false });
@@ -10,12 +6,10 @@ if (window.mockTriggerNuiEvent) {
 
 const RouterCtx = createContext<RouterProvider | null>(null);
 
-type ViewId = "home" | "inventory" | "item";
+type ViewId = "default"
 
 const RouterMap: Record<ViewId, React.ReactElement> = {
-  home: <HomePlayerMenu footer={<Footer />} />,
-  inventory: <InventoryMenu footer={<Footer />} />,
-  item: <ItemMenu footer={<Footer />} />,
+  default: <div>default</div>,
 };
 
 interface RouterProvider {
@@ -25,7 +19,7 @@ interface RouterProvider {
 
 export const RouterProvider = () => {
   const [context, setContext] = useState<object>({});
-  const [viewId, setViewId] = useState<ViewId>("home");
+  const [viewId, setViewId] = useState<ViewId>("default");
 
   return (
     <RouterCtx.Provider
@@ -37,7 +31,7 @@ export const RouterProvider = () => {
         context,
       }}
     >
-      <div className="inventory-menu-popup">{RouterMap[viewId]}</div>
+      {RouterMap[viewId]}
     </RouterCtx.Provider>
   );
 };

@@ -1,16 +1,18 @@
+import { useItem } from "./use-item";
+
 type NUICallbackFunction<ReqBody> = (data: ReqBody, res: Function) => void;
 
 export const registerNUICallback = <T = any>(
   name: string,
   cb: NUICallbackFunction<T>
 ) => {
-  RegisterNuiCallbackType(name);
-  on(`__cfx_nui:${name}`, cb);
+  RegisterNuiCallbackType(`inventory:${name}`);
+  on(`__cfx_nui:inventory:${name}`, cb);
 };
 
 const sendReactMessage = (action: string, data: any) =>
   SendNUIMessage({
-    action,
+    action: `inventory:${action}`,
     data,
   });
 
@@ -20,24 +22,6 @@ export const toggleNuiFrame = (shouldShow: boolean) => {
 };
 
 export const initNui = () => {
-  RegisterCommand(
-    "show-nui",
-    () => {
-      toggleNuiFrame(true);
-      console.log("Show NUI frame");
-    },
-    false
-  );
-
-  RegisterCommand(
-    "hide-nui",
-    () => {
-      toggleNuiFrame(false);
-      console.log("Hide NUI frame");
-    },
-    false
-  );
-
   registerNUICallback("hideFrame", () => {
     toggleNuiFrame(false);
   });
@@ -51,5 +35,10 @@ export const initNui = () => {
 
     const retData = { x: curCoords[0], y: curCoords[1], z: curCoords[2] };
     cb(retData);
+  });
+
+  registerNUICallback<{id: string}>("use-item", async (data, cb) => {
+    await useItem(data.id);
+    cb();
   });
 };

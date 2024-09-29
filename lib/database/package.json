@@ -8,6 +8,7 @@
   "scripts": {
     "studio": "prisma studio",
     "--------- BUILD ---------": "--------- BUILD ---------",
+    "prebuild-only": "pnpm postgenerate",
     "build-only": "rollup -c",
     "build": "pnpm generate && rollup -c",
     "pregenerate": "npx merge-prisma-schema && rm -rf ./prisma/generated",

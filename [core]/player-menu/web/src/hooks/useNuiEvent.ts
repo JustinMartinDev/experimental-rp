@@ -34,9 +34,10 @@ export const useNuiEvent = <T = unknown>(
   useEffect(() => {
     const eventListener = (event: MessageEvent<NuiMessageData<T>>) => {
       const { action: eventAction, data } = event.data;
-
+      
       if (savedHandler.current) {
-        if (eventAction === action) {
+        console.log(eventAction === `player-menu:${action}`)
+        if (eventAction === `player-menu:${action}`) {
           savedHandler.current(data);
         }
       }
