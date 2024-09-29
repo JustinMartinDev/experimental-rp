@@ -1,4 +1,5 @@
 import { Context, createContext, useContext, useState } from "react";
+import { useNuiEvent } from "../hooks/useNuiEvent";
 
 if (window.mockTriggerNuiEvent) {
   window.mockTriggerNuiEvent({ action: "setVisible", data: false });
@@ -6,7 +7,7 @@ if (window.mockTriggerNuiEvent) {
 
 const RouterCtx = createContext<RouterProvider | null>(null);
 
-type ViewId = "default"
+type ViewId = "default";
 
 const RouterMap: Record<ViewId, React.ReactElement> = {
   default: <div>default</div>,
@@ -17,9 +18,21 @@ interface RouterProvider {
   context: object;
 }
 
+type onNuiEventSetViewParams = {
+  viewId: ViewId;
+  data: object;
+};
+
 export const RouterProvider = () => {
   const [context, setContext] = useState<object>({});
   const [viewId, setViewId] = useState<ViewId>("default");
+
+  const onNuiEventSetView = ({ viewId, data }: onNuiEventSetViewParams) => {
+    setContext({ ...context, [viewId]: data });
+    setViewId(viewId);
+  };
+
+  useNuiEvent<onNuiEventSetViewParams>("setView", onNuiEventSetView);
 
   return (
     <RouterCtx.Provider

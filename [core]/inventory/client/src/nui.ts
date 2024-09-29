@@ -10,7 +10,7 @@ export const registerNUICallback = <T = any>(
   on(`__cfx_nui:inventory:${name}`, cb);
 };
 
-const sendReactMessage = (action: string, data: any) =>
+export const sendReactMessage = (action: string, data: any) =>
   SendNUIMessage({
     action: `inventory:${action}`,
     data,
@@ -37,7 +37,7 @@ export const initNui = () => {
     cb(retData);
   });
 
-  registerNUICallback<{id: string}>("use-item", async (data, cb) => {
+  registerNUICallback<{ id: string }>("use-item", async (data, cb) => {
     await useItem(data.id);
     cb();
   });

@@ -8,7 +8,7 @@ import {
   mockTriggerNuiEvents,
 } from "./utils/mockTriggerNuiEvent";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { RouterProvider } from "./router";
+import { RouterProvider } from "./providers/RouterProvider";
 
 declare global {
   interface Window {
