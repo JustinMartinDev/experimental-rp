@@ -1,7 +1,8 @@
 import { triggerServerEvent } from "@lib/event/client";
+import { registerNUICallback } from "@lib/nui/utils";
+
 import { Item } from "@inventory/types/prisma";
 
-import { registerNUICallback } from "./nui/utils";
 import { mapperAction } from "./actions";
 
 export const useItem = async (itemId: string) => {
@@ -10,8 +11,8 @@ export const useItem = async (itemId: string) => {
   const itemJson = await triggerServerEvent<string>({
     event: "inventory:get-item",
     params: {
-      itemId
-    }
+      itemId,
+    },
   });
 
   const item = JSON.parse(itemJson) as Item;
@@ -21,11 +22,11 @@ export const useItem = async (itemId: string) => {
   const actionId = item.actionId as keyof typeof mapperAction;
 
   await mapperAction[actionId](JSON.parse(item.actionParam));
-}
+};
 
 export const initNuiHandler = () => {
   registerNUICallback<{ id: string }>("use-item", async (data, cb) => {
     await useItem(data.id);
     cb();
   });
-}
+};

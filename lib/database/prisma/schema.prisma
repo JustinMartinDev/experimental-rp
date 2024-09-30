@@ -1,4 +1,4 @@
-// Generated at 2024-09-29T03:08:45.069Z by "merge-prisma-schema"
+// Generated at 2024-09-30T23:26:00.946Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -7,7 +7,7 @@ generator client {
   provider      = "prisma-client-js"
   engineType    = "binary"
   binaryTargets = ["windows"]
-  output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
+  output        = "./generated"
 }
 
 datasource db {

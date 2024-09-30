@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@lib/react-menu-ui": "workspace:*",
+    "@lib/react-shared": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-query": "catalog:"

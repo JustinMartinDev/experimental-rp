@@ -1,18 +1,23 @@
-import { initNui, toggleNuiFrame } from "./nui";
+import { onStart } from "@lib/event/client";
+import { toggleNuiFrame } from "@lib/nui/utils";
+import { initNuiHandler } from "./nui-handler";
 
-initNui();
-
-on("onResourceStart", (resName: string) => {
-  if (resName === GetCurrentResourceName()) {
-    console.log("player-menu client started!");
-    toggleNuiFrame(false);
-  }
+onStart(() => {
+  initNuiHandler();
 });
 
-RegisterCommand("player-menu:close", () => {
-  toggleNuiFrame(false);
-}, false);
+RegisterCommand(
+  "player-menu:close",
+  () => {
+    toggleNuiFrame(false);
+  },
+  false
+);
 
-RegisterCommand("player-menu:open", async () => {
-  toggleNuiFrame(true);
-}, false);
+RegisterCommand(
+  "player-menu:open",
+  async () => {
+    toggleNuiFrame(true);
+  },
+  false
+);

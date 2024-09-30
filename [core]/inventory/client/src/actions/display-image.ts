@@ -1,4 +1,4 @@
-import { sendReactMessage, toggleNuiFrame } from "../nui/utils";
+import { sendReactMessage, toggleNuiFrame } from "@lib/nui/utils";
 
 type DisplayImageParams = {
   url: string;

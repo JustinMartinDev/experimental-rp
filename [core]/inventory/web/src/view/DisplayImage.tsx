@@ -1,9 +1,9 @@
-import { useRouter } from "../providers/RouterProvider";
+import { useRouter } from "@lib/react-shared/providers/RouterProvider";
 
 export const DisplayImage = () => {
-  const { context } = useRouter();
+  const { getStepContext } = useRouter();
 
-  const { url } = context["display-image"] as { url: string };
+  const { url } = getStepContext<{ url: string }>("display-image");
 
-  return <img src={url} className="mt-64"/>;
+  return <img src={url} className="mt-64" />;
 };

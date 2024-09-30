@@ -1,7 +1,7 @@
 import "@lib/react-menu-ui/dist/style.css";
 import { Menu } from "@lib/react-menu-ui";
-import { useRouter } from "../router";
-import { fetchNui } from "../utils/fetchNui";
+import { useRouter } from "@lib/react-shared/providers/RouterProvider";
+import { fetchNui } from "@lib/react-shared/utils/fetchNui";
 
 type Props = {
   footer: React.ReactElement;

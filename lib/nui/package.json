@@ -1,0 +1,23 @@
+{
+  "name": "@lib/nui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@citizenfx/client": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

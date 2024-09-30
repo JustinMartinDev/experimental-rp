@@ -41,7 +41,7 @@ export const onClientEvent: OnClientEventParams = (
 
     const { source } = JSON.parse(params) as { source: number };
 
-    console.log("server", `request:${event}`, JSON.stringify(toReturn))
+    console.log("server", `request:${event}`, JSON.stringify(toReturn));
     emitNet(`response:${event}`, source, JSON.stringify(toReturn));
   });
 };
@@ -52,5 +52,14 @@ export const onEvent: OnEventParams = (event, callback = () => {}) => {
   on(`request:${event}`, async (params: string) => {
     const toReturn = await callback(JSON.parse(params));
     emit(`response:${event}`, JSON.stringify(toReturn));
+  });
+};
+
+export const onStart = (callback: Function) => {
+  on("onResourceStart", (resource: string) => {
+    if (resource === GetCurrentResourceName()) {
+      console.log(`Started server resource ${resource}`);
+      callback();
+    }
   });
 };

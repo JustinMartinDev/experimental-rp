@@ -6,7 +6,7 @@ type TriggerNetEventParams = {
 
 export const triggerServerEvent = <ResolveType>({
   event,
-  params = {}
+  params = {},
 }: Omit<TriggerNetEventParams, "callback">) => {
   return new Promise<ResolveType>((resolve) => {
     triggerServerEventWithCallback({
@@ -24,15 +24,10 @@ export const triggerServerEventWithCallback = ({
   params,
   callback = () => {},
 }: TriggerNetEventParams) => {
-  const source = GetPlayerServerId(
-    PlayerId()
-  )
+  const source = GetPlayerServerId(PlayerId());
 
   onNet(`response:${event}`, callback);
-  emitNet(
-    `request:${event}`,
-    JSON.stringify({ ...params, source })
-  );
+  emitNet(`request:${event}`, JSON.stringify({ ...params, source }));
 };
 
 type OnServerEventParams = (event: string, callback?: Function) => void;
@@ -44,5 +39,14 @@ export const onServerEvent: OnServerEventParams = (
   onNet(`request:${event}`, async (params: string) => {
     const toReturn = await callback(JSON.parse(params));
     emitNet(`response:${event}`, JSON.stringify(toReturn));
+  });
+};
+
+export const onStart = (callback: Function) => {
+  on("onResourceStart", (resource: string) => {
+    if (resource === GetCurrentResourceName()) {
+      console.log(`Started client resource ${resource}`);
+      callback();
+    }
   });
 };

@@ -43,3 +43,4 @@ catalog:
   clsx: ^2.1.1
   autoprefixer: ^10.4.20
   postcss: ^8.4.47
+  vitest: ^2.1.1
