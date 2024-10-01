@@ -12,4 +12,8 @@ const MapView = {
   item: <ItemMenu footer={<Footer />} />,
 };
 
-export const Router = () => <RouterProvider mapView={MapView} />;
+export const Router = () => (
+  <div className="inventory-menu-popup">
+    <RouterProvider mapView={MapView} />
+  </div>
+);

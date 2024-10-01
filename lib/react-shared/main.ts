@@ -15,8 +15,6 @@ declare global {
 }
 
 export const initNuiFrame = (frameId: string) => {
-  parent["GetParentResourceName"] = () => frameId;
-
   if (import.meta.env.MODE === "development" && isEnvBrowser()) {
     window.mockTriggerNuiEvent = mockTriggerNuiEvent;
     window.mockTriggerNuiEvents = mockTriggerNuiEvents;

@@ -12,7 +12,12 @@
     "------BUILD------": "--------------------------------",
     "clean": "pnpm --recursive clean",
     "clean:all": "rm -rf node_modules && pnpm --recursive clean",
-    "build": "pnpm --recursive build",
+    "buid:lib": "pnpm --filter=@lib/!database build",
+    "build:res:client": "pnpm --filter=*/client build",
+    "build:res:server": "pnpm --filter=*/server build",
+    "build:res:web": "pnpm --filter=*/web build",
+    "build:res": "pnpm build:res:client && pnpm build:res:server && pnpm build:res:web",
+    "build": "pnpm --filter=@lib/ build && pnpm --filter=*/(client|",
     "watch": "pnpm --recursive --workspace-concurrency=Infinity watch"
   },
   "engines": {

@@ -5,7 +5,7 @@ generator client {
   provider      = "prisma-client-js"
   engineType    = "binary"
   binaryTargets = ["windows"]
-  output        = "./generated"
+  output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
 }
 
 datasource db {

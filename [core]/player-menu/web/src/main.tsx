@@ -8,7 +8,7 @@ import { VisibilityProvider } from "@lib/react-shared/providers/VisibilityProvid
 
 import { Router } from "./Router";
 
-initNuiFrame("inventory");
+initNuiFrame("player-menu");
 
 const queryClient = new QueryClient();
 
