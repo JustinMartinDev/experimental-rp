@@ -25,8 +25,9 @@ const InventoryMenu = ({ footer }: Props) => {
       subtitle="Inventaire"
       items={[
         { title: "Carte Kitty", id: "card-kitty" },
-        { title: "Carte Junior", id: "card-junior" },
+        { title: "Carte Gunter", id: "card-gunter" },
         { title: "Carte Flash", id: "card-flash" },
+        { title: "Booster FD", id: "fd-booster"}
       ]}
       onQuit={onQuit}
       onSelectItem={onSelectItem}

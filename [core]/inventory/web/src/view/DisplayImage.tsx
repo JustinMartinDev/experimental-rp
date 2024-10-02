@@ -5,5 +5,8 @@ export const DisplayImage = () => {
 
   const { url } = getStepContext<{ url: string }>("display-image");
 
-  return <img src={url} className="mt-64" />;
+  return (
+  <div className="flex justify-center w-full h-full">
+    <img src={url} className="mt-64" />
+  </div>);
 };

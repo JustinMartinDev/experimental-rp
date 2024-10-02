@@ -11,8 +11,6 @@ export const displayImage = (params: object) => {
     throw new Error("url is required");
   }
 
-  console.log(`Displaying image from ${url}`);
-
   toggleNuiFrame(true);
   sendReactMessage("setView", {
     viewId: "display-image",

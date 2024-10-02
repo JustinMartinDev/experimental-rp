@@ -54,7 +54,7 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
         setVisible,
       }}
     >
-      <div className="flex justify-center w-full h-full">
+      <div>
         {children}
       </div>
     </VisibilityCtx.Provider>

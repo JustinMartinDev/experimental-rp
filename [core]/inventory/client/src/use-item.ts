@@ -17,8 +17,6 @@ export const useItem = async (itemId: string) => {
 
   const item = JSON.parse(itemJson) as Item;
 
-  console.log("item", item);
-
   const actionId = item.actionId as keyof typeof mapperAction;
 
   await mapperAction[actionId](JSON.parse(item.actionParam));
@@ -26,7 +24,7 @@ export const useItem = async (itemId: string) => {
 
 export const initNuiHandler = () => {
   registerNUICallback<{ id: string }>("use-item", async (data, cb) => {
-    await useItem(data.id);
     cb();
+    await useItem(data.id);
   });
 };
