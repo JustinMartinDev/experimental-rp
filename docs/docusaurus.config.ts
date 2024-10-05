@@ -36,10 +36,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
       } satisfies Preset.Options,
     ],
@@ -57,9 +53,21 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "conceptionModuleSidebar",
           position: "left",
-          label: "Tutorial",
+          label: "Conception",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "coreModuleSidebar",
+          position: "left",
+          label: "Core modules",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "featureModuleSidebar",
+          position: "left",
+          label: "Feature modules",
         },
         {
           href: "https://github.com/JustinMartinDev/experimental-rp",
@@ -67,21 +75,6 @@ const config: Config = {
           position: "right",
         },
       ],
-    },
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Tutorial",
-              to: "/docs/intro",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
