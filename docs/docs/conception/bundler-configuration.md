@@ -6,7 +6,7 @@ import TabItem from '@theme/TabItem';
 # Bundler configuration
 
 <ThemedImage
-alt="Docusaurus themed image"
+alt="Bundler schema"
 sources={{
     light: useBaseUrl('/docs/bundler-top-level-light.svg'),
     dark: useBaseUrl('/docs/bundler-top-level-dark.svg'),
