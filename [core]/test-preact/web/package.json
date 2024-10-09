@@ -7,12 +7,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.22.1"
+    "preact": "catalog:",
+    "@lib/preact-menu-ui": "workspace:*",
+    "@lib/preact-shared": "workspace:*"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.9.0",
-    "typescript": "^5.6.2",
-    "vite": "^5.3.3",
-    "vite-plugin-external": "^4.3.0"
+    "@preact/preset-vite": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-external": "catalog:"
   }
 }

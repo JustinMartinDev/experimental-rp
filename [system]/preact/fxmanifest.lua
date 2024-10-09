@@ -6,9 +6,9 @@ version '1.0.0'
 
 game 'gta5'
 
-ui_page 'web/index.html'
+ui_page 'index.html'
 
 files {
-  'web/index.html',
-  'web/preact.min.js',
+  'index.html',
+  'preact.min.js',
 }

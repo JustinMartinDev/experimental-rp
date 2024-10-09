@@ -1,5 +1,6 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { useEffect, useRef } from "preact/hooks";
 import { noop } from "../utils/misc";
+import { RefObject } from "preact";
 
 interface NuiMessageData<T = unknown> {
   action: string;
@@ -24,7 +25,7 @@ export const useNuiEvent = <T = unknown>(
   action: string,
   handler: (data: T) => void
 ) => {
-  const savedHandler: MutableRefObject<NuiHandlerSignature<T>> = useRef(noop);
+  const savedHandler: RefObject<NuiHandlerSignature<T>> = useRef(noop);
 
   // Make sure we handle for a reactive handler
   useEffect(() => {

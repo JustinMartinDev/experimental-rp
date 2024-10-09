@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": false,
+
+    /* Preact Config */
     "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "skipLibCheck": true,
+
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
     "isolatedModules": true,
-    "noEmit": false,
     "emitDeclarationOnly": true
   },
   "include": ["src"],

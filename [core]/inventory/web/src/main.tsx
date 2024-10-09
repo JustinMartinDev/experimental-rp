@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { initNuiFrame } from "@lib/react-shared/main";
-import { VisibilityProvider } from "@lib/react-shared/providers/VisibilityProvider";
+import { initNuiFrame } from "@lib/preact-shared/main";
+import { VisibilityProvider } from "@lib/preact-shared/providers/VisibilityProvider";
 
 import "./index.css";
 

@@ -1,6 +1,6 @@
-import "@lib/react-menu-ui/dist/style.css";
-import { Menu } from "@lib/react-menu-ui";
-import { useRouter } from "@lib/react-shared/providers/RouterProvider";
+import "@lib/preact-menu-ui/dist/style.css";
+import { Menu } from "@lib/preact-menu-ui";
+import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 
 type Props = {
   footer: React.ReactElement;

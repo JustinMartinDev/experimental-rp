@@ -1,4 +1,4 @@
-import { useRouter } from "@lib/react-shared/providers/RouterProvider";
+import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 
 export const BoosterView = () => {
   const { getStepContext } = useRouter();

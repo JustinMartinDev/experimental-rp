@@ -1,4 +1,4 @@
-import { RouterProvider } from "@lib/react-shared/providers/RouterProvider";
+import { RouterProvider } from "@lib/preact-shared/providers/RouterProvider";
 
 import { HomePlayerMenu } from "./view/HomeMenu";
 import { InventoryMenu } from "./view/InventoryMenu";

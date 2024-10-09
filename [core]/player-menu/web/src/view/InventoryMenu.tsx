@@ -1,6 +1,6 @@
-import "@lib/react-menu-ui/dist/style.css";
-import { Menu } from "@lib/react-menu-ui";
-import { useRouter } from "@lib/react-shared/providers/RouterProvider";
+import "@lib/preact-menu-ui/dist/style.css";
+import { Menu } from "@lib/preact-menu-ui";
+import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 
 type Props = {
   footer: React.ReactElement;
@@ -27,7 +27,7 @@ const InventoryMenu = ({ footer }: Props) => {
         { title: "Carte Kitty", id: "card-kitty" },
         { title: "Carte Gunter", id: "card-gunter" },
         { title: "Carte Flash", id: "card-flash" },
-        { title: "Booster FD", id: "fd-booster"}
+        { title: "Booster FD", id: "fd-booster" },
       ]}
       onQuit={onQuit}
       onSelectItem={onSelectItem}

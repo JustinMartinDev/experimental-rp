@@ -1,4 +1,6 @@
-import React, { Context, createContext, useContext, useState } from "react";
+import { Context, createContext, Fragment, FunctionalComponent } from "preact";
+
+import { useContext, useState } from "preact/hooks";
 import { useNuiEvent } from "../hooks/useNuiEvent";
 
 type onNuiEventSetViewParams = {
@@ -7,11 +9,11 @@ type onNuiEventSetViewParams = {
 };
 
 type Props = {
-  mapView: Record<string, React.ReactElement>;
+  mapView: Record<string, FunctionalComponent>;
 };
 
 interface RouterProvider {
-  setView: (viewId: string, context?: object) => void;
+  setView: (viewId: string, context?: object) => void; 
   getStepContext: <T>(viewId: string) => T;
   context: object;
 }
@@ -50,7 +52,7 @@ export const RouterProvider = ({ mapView }: Props) => {
         context,
       }}
     >
-      {!viewId && <>Not defined</>}
+      {!viewId && <Fragment>Not defined</Fragment>}
       {viewId && viewId in mapView && mapView[viewId]}
     </RouterCtx.Provider>
   );

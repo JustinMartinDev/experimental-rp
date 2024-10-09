@@ -1,22 +1,19 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  plugins: [react()],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
-      name: "RectMenuUi",
+      name: "PreactMenuUi",
       formats: ["es", "umd"],
-      fileName: (format) => `react-menu-ui.${format}.js`,
+      fileName: (format) => `preact-menu-ui.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["preact"],
       output: {
         globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
+          preact: "Preact",
         },
       },
     },

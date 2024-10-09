@@ -1,10 +1,10 @@
-import React, {
+import {
+  ComponentChildren,
   Context,
   createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+  FunctionComponent,
+} from "preact";
+import { useContext, useState, useEffect } from "preact/hooks";
 import { useNuiEvent } from "../hooks/useNuiEvent";
 import { fetchNui } from "../utils/fetchNui";
 import { isEnvBrowser } from "../utils/misc";
@@ -17,9 +17,9 @@ interface VisibilityProviderValue {
 
 // This should be mounted at the top level of your application, it is currently set to
 // apply a CSS visibility value. If this is non-performant, this should be customized.
-export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const VisibilityProvider: FunctionComponent<{
+  children: ComponentChildren;
+}> = ({ children }) => {
   const [visible, setVisible] = useState(false);
 
   useNuiEvent<boolean>("setVisible", setVisible);
@@ -54,9 +54,7 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
         setVisible,
       }}
     >
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </VisibilityCtx.Provider>
   );
 };

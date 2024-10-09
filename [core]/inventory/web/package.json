@@ -15,7 +15,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-query": "catalog:",
-    "@lib/react-shared": "workspace:*"
+    "@lib/preact-shared": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "catalog:",

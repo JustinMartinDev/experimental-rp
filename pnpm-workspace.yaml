@@ -11,21 +11,25 @@ packages:
   - "docs"
 
 catalog:
+  "@types/node": ^20.14.12
   typescript: ^5.5.4
   ts-node: ^10.9.2
-  "@types/node": ^20.14.12
   # FiveM
   "@citizenfx/client": 2.0.9282-1
   "@citizenfx/server": 2.0.9282-1
   # Bundle
-  rollup: ^4.20.0
-  tslib: ^2.6.3
   "@rollup/plugin-commonjs": ^26.0.1
   "@rollup/plugin-node-resolve": ^15.2.3
   "@rollup/plugin-typescript": ^11.1.6
+  rollup: ^4.20.0
+  tslib: ^2.6.3
   # Database
   "@prisma/client": ^5.18.0
   prisma: ^5.18.0
+  # Preact
+  "@preact/preset-vite": ^2.9.1
+  preact: ^10.24.2
+  vite-plugin-external: ^4.3.1
   # React
   react: ^18.3.1
   react-dom: ^18.3.1

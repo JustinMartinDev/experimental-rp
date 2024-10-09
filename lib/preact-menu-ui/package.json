@@ -1,8 +1,8 @@
 {
-  "name": "@lib/react-menu-ui",
+  "name": "@lib/preact-menu-ui",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "module": "dist/react-menu-ui.es.js",
+  "module": "dist/preact-menu-ui.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
@@ -10,17 +10,12 @@
     "serve": "vite preview"
   },
   "peerDependencies": {
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "preact": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
+    "@preact/preset-vite": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"

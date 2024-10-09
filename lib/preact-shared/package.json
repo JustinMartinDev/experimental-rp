@@ -1,0 +1,11 @@
+{
+  "name": "@lib/preact-shared",
+  "private": true,
+  "sideEffects": false,
+  "dependencies": {
+    "preact": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
+  }
+}

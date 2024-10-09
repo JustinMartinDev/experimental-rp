@@ -1,4 +1,4 @@
-import { useRouter } from "@lib/react-shared/providers/RouterProvider";
+import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 
 export const DisplayImage = () => {
   const { getStepContext } = useRouter();
@@ -6,7 +6,8 @@ export const DisplayImage = () => {
   const { url } = getStepContext<{ url: string }>("display-image");
 
   return (
-  <div className="flex justify-center w-full h-full">
-    <img src={url} className="mt-64" />
-  </div>);
+    <div className="flex justify-center w-full h-full">
+      <img src={url} className="mt-64" />
+    </div>
+  );
 };
