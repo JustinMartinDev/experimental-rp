@@ -2,6 +2,7 @@ import { Context, createContext, Fragment, FunctionalComponent } from "preact";
 
 import { useContext, useState } from "preact/hooks";
 import { useNuiEvent } from "../hooks/useNuiEvent";
+import { JSXInternal } from "preact/src/jsx";
 
 type onNuiEventSetViewParams = {
   viewId: string;
@@ -9,11 +10,11 @@ type onNuiEventSetViewParams = {
 };
 
 type Props = {
-  mapView: Record<string, FunctionalComponent>;
+  mapView: Record<string, JSXInternal.Element>;
 };
 
 interface RouterProvider {
-  setView: (viewId: string, context?: object) => void; 
+  setView: (viewId: string, context?: object) => void;
   getStepContext: <T>(viewId: string) => T;
   context: object;
 }
@@ -22,7 +23,7 @@ const RouterCtx = createContext<RouterProvider | null>(null);
 
 export const RouterProvider = ({ mapView }: Props) => {
   const [context, setContext] = useState<object>({});
-  const [viewId, setViewId] = useState<string>();
+  const [viewId, setViewId] = useState<string>("home");
 
   const onNuiEventSetView = ({ viewId, data }: onNuiEventSetViewParams) => {
     setContext({ ...context, [viewId]: data });

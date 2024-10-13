@@ -5,6 +5,7 @@ import { InventoryMenu } from "./view/InventoryMenu";
 import { ItemMenu } from "./view/ItemMenu";
 
 import { Footer } from "./components/Footer";
+import { VisibilityProvider } from "@lib/preact-shared/providers/VisibilityProvider";
 
 const MapView = {
   home: <HomePlayerMenu footer={<Footer />} />,
@@ -13,7 +14,9 @@ const MapView = {
 };
 
 export const Router = () => (
-  <div className="inventory-menu-popup">
-    <RouterProvider mapView={MapView} />
-  </div>
+  <VisibilityProvider>
+    <div className="inventory-menu-popup">
+      <RouterProvider mapView={MapView} />
+    </div>
+  </VisibilityProvider>
 );

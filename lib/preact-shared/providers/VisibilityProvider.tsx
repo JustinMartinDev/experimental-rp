@@ -15,11 +15,13 @@ interface VisibilityProviderValue {
   setVisible: (visible: boolean) => void;
 }
 
+type VisibilityProviderProps = {
+  children: ComponentChildren;
+};
+
 // This should be mounted at the top level of your application, it is currently set to
 // apply a CSS visibility value. If this is non-performant, this should be customized.
-export const VisibilityProvider: FunctionComponent<{
-  children: ComponentChildren;
-}> = ({ children }) => {
+export const VisibilityProvider = ({ children }: VisibilityProviderProps) => {
   const [visible, setVisible] = useState(false);
 
   useNuiEvent<boolean>("setVisible", setVisible);

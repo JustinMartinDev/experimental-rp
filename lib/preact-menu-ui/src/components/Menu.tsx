@@ -1,11 +1,12 @@
 import { useEffect, useState, useCallback } from "preact/hooks";
 import { MenuItem } from "./MenuItem";
+import { ComponentChildren } from "preact";
 
 type Props = {
   title: string;
   subtitle: string;
   items: { title: string; id: string }[];
-  footer?: React.ReactElement | string;
+  footer?: ComponentChildren | string;
   onSelectItem: (id: string) => void;
   onQuit: () => void;
 };

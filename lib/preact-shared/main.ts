@@ -19,4 +19,8 @@ export const initNuiFrame = (frameId: string) => {
     window.mockTriggerNuiEvent = mockTriggerNuiEvent;
     window.mockTriggerNuiEvents = mockTriggerNuiEvents;
   }
+
+  window.GetParentResourceName = () => {
+    return frameId;
+  };
 };
