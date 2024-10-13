@@ -32,6 +32,7 @@ catalog:
   preact: ^10.24.2
   vite-plugin-external: ^4.3.1
   # React
+  "@tanstack/react-query": ^5.59.13
   react: ^18.3.1
   react-dom: ^18.3.1
   react-query: ^3.39.3
