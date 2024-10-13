@@ -36,7 +36,7 @@ export const useNuiEvent = <T = unknown>(
     const eventListener = (event: MessageEvent<NuiMessageData<T>>) => {
       const { action: eventAction, data } = event.data;
 
-      const resourceName = parent.GetParentResourceName();
+      const resourceName = window.GetParentResourceName();
 
       if (savedHandler.current) {
         if (eventAction === `${resourceName}:${action}`) {
