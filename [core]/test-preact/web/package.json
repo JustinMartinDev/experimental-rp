@@ -7,9 +7,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "catalog:",
     "@lib/preact-menu-ui": "workspace:*",
-    "@lib/preact-shared": "workspace:*"
+    "@lib/preact-shared": "workspace:*",
+    "@tanstack/react-query": "^5.59.13",
+    "preact": "catalog:"
   },
   "devDependencies": {
     "@preact/preset-vite": "catalog:",

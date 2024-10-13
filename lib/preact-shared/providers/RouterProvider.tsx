@@ -23,7 +23,7 @@ const RouterCtx = createContext<RouterProvider | null>(null);
 
 export const RouterProvider = ({ mapView }: Props) => {
   const [context, setContext] = useState<object>({});
-  const [viewId, setViewId] = useState<string>();
+  const [viewId, setViewId] = useState<string>("home");
 
   const onNuiEventSetView = ({ viewId, data }: onNuiEventSetViewParams) => {
     setContext({ ...context, [viewId]: data });
