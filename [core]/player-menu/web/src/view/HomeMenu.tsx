@@ -1,9 +1,10 @@
 import "@lib/preact-menu-ui/dist/style.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
+import { ComponentChildren } from "preact";
 
 type Props = {
-  footer: React.ReactElement;
+  footer: ComponentChildren;
 };
 
 const HomePlayerMenu = ({ footer }: Props) => {
