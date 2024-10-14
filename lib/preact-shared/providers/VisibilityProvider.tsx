@@ -2,11 +2,9 @@ import {
   ComponentChildren,
   Context,
   createContext,
-  FunctionComponent,
 } from "preact";
 import { useContext, useState, useEffect } from "preact/hooks";
 import { useNuiEvent } from "../hooks/useNuiEvent";
-import { fetchNui } from "../utils/fetchNui";
 import { isEnvBrowser } from "../utils/misc";
 
 const VisibilityCtx = createContext<VisibilityProviderValue | null>(null);
@@ -24,30 +22,18 @@ type VisibilityProviderProps = {
 export const VisibilityProvider = ({ children }: VisibilityProviderProps) => {
   const [visible, setVisible] = useState(false);
 
-  useNuiEvent<boolean>("setVisible", setVisible);
+  useNuiEvent<boolean>("set-visible", setVisible);
 
-  // Handle pressing escape/backspace
   useEffect(() => {
     if (isEnvBrowser()) return;
 
     // Only attach listener when we are visible
-    const resourceName = parent.GetParentResourceName();
+    const resourceName = window.GetParentResourceName();
 
     parent.citFrames[resourceName].style.setProperty(
       "visibility",
       visible ? "visible" : "hidden"
     );
-
-    const keyHandler = (e: KeyboardEvent) => {
-      if (["Backspace", "Escape"].includes(e.code)) {
-        if (!isEnvBrowser()) fetchNui("hideFrame");
-        else setVisible(!visible);
-      }
-    };
-
-    window.addEventListener("keydown", keyHandler);
-
-    return () => window.removeEventListener("keydown", keyHandler);
   }, [visible]);
 
   return (

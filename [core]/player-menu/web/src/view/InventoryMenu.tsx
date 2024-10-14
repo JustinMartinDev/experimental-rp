@@ -2,13 +2,14 @@ import "@lib/preact-menu-ui/dist/style.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
+import { InventoryWithItems } from "@inventory/types/prisma";
 
 type Props = {
   footer: ComponentChildren;
 };
 
 const InventoryMenu = ({ footer }: Props) => {
-  const { setView } = useRouter();
+  const { setView, getStepContext } = useRouter();
 
   const onQuit = () => {
     setView("home");
@@ -20,16 +21,20 @@ const InventoryMenu = ({ footer }: Props) => {
     });
   };
 
+  const {inventory} = getStepContext<{inventory: InventoryWithItems}>("inventory");
+
+  console.log("inventory", inventory)
+
+  const items = inventory.items.map(({item}) => ({
+    title: item.name,
+    id: item.id,
+  }))
+
   return (
     <Menu
       title="Personnel"
       subtitle="Inventaire"
-      items={[
-        { title: "Carte Kitty", id: "card-kitty" },
-        { title: "Carte Gunter", id: "card-gunter" },
-        { title: "Carte Flash", id: "card-flash" },
-        { title: "Booster FD", id: "fd-booster" },
-      ]}
+      items={items}
       onQuit={onQuit}
       onSelectItem={onSelectItem}
       footer={footer}

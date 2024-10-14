@@ -2,6 +2,8 @@ import "@lib/preact-menu-ui/dist/style.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
+import { useEffect } from "preact/hooks";
+import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
 
 type Props = {
   footer: ComponentChildren;
@@ -10,11 +12,17 @@ type Props = {
 const HomePlayerMenu = ({ footer }: Props) => {
   const { setView } = useRouter();
 
-  const onSelectItem = (id: string) => {
+  const onSelectItem = async (id: string) => {
     if (id === "open-inventory") {
-      setView("inventory");
+      const inventoryJson = await fetchNui<string>("get-my-inventory", "inventory");
+
+      setView("inventory", { inventory: JSON.parse(inventoryJson) });
     }
   };
+
+  const onQuit = async () => {
+    await fetchNui("hide-frame")
+  }
 
   return (
     <Menu
@@ -27,7 +35,7 @@ const HomePlayerMenu = ({ footer }: Props) => {
         { title: "Ouvrir le coffre", id: "open-car-boot" },
         { title: "Donner Arme", id: "give-weapon" },
       ]}
-      onQuit={() => console.log("Quit menu")}
+      onQuit={onQuit}
       onSelectItem={onSelectItem}
       footer={footer}
     />

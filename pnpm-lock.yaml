@@ -297,6 +297,9 @@ importers:
         specifier: 'catalog:'
         version: 10.24.2
     devDependencies:
+      '@inventory/types':
+        specifier: workspace:*
+        version: link:../../inventory/types
       '@preact/preset-vite':
         specifier: 'catalog:'
         version: 2.9.1(@babel/core@7.25.2)(preact@10.24.2)(vite@5.4.2(@types/node@20.16.1)(terser@5.34.1))

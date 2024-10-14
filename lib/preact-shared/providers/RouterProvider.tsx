@@ -30,7 +30,7 @@ export const RouterProvider = ({ mapView }: Props) => {
     setViewId(viewId);
   };
 
-  useNuiEvent<onNuiEventSetViewParams>("setView", onNuiEventSetView);
+  useNuiEvent<onNuiEventSetViewParams>("set-view", onNuiEventSetView);
 
   const setView = (viewId: string, newContext: object = {}) => {
     setContext({ ...context, [viewId]: newContext });

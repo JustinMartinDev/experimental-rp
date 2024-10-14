@@ -14,13 +14,13 @@ declare global {
   }
 }
 
-export const initNuiFrame = (frameId: string) => {
+export const initNuiFrame = (frameWindow: Window, frameId: string) => {
   if (import.meta.env.MODE === "development" && isEnvBrowser()) {
-    window.mockTriggerNuiEvent = mockTriggerNuiEvent;
-    window.mockTriggerNuiEvents = mockTriggerNuiEvents;
+    frameWindow.mockTriggerNuiEvent = mockTriggerNuiEvent;
+    frameWindow.mockTriggerNuiEvents = mockTriggerNuiEvents;
   }
 
-  window.GetParentResourceName = () => {
+  frameWindow.GetParentResourceName = () => {
     return frameId;
   };
 };

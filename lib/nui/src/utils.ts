@@ -18,5 +18,5 @@ export const sendReactMessage = (action: string, data: any) =>
 
 export const toggleNuiFrame = (shouldShow: boolean) => {
   SetNuiFocus(shouldShow, shouldShow);
-  sendReactMessage("setVisible", shouldShow);
+  sendReactMessage("set-visible", shouldShow);
 };
