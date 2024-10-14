@@ -12,9 +12,11 @@ type Props = {
 const HomePlayerMenu = ({ footer }: Props) => {
   const { setView } = useRouter();
 
-  const onSelectItem = (id: string) => {
+  const onSelectItem = async (id: string) => {
     if (id === "open-inventory") {
-      setView("inventory");
+      const inventoryJson = await fetchNui<string>("get-my-inventory", "inventory");
+
+      setView("inventory", { inventory: JSON.parse(inventoryJson) });
     }
   };
 
