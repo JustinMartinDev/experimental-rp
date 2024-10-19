@@ -27,6 +27,7 @@
     "@types/node": "catalog:",
     "merge-prisma-schema": "^1.0.0",
     "prisma": "catalog:",
+    "prisma-dbml-generator": "0.12.0",
     "rollup": "catalog:",
     "rollup-plugin-node-polyfills": "0.2.1",
     "ts-node": "catalog:",
