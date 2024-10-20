@@ -28,13 +28,18 @@ export async function fetchNui<T = unknown>(
 
   if (isEnvBrowser() && mockData) return mockData;
 
-  const hostName = resourceName ?? (window.GetParentResourceName
-    ? window.GetParentResourceName()
-    : "nui-frame-app")
+  const hostName =
+    resourceName ??
+    (window.GetParentResourceName
+      ? window.GetParentResourceName()
+      : "nui-frame-app");
 
-  const resp = await fetch(`https://${hostName}/${hostName}:${eventName}`, options);
+  const resp = await fetch(
+    `https://${hostName}/${hostName}:${eventName}`,
+    options
+  );
 
-  const respFormatted = await resp.json();
+  const respFormatted = (await resp.json()) as T;
 
   return respFormatted;
 }

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+
+    "allowJs": true,
+
+    "jsx": "preserve",
+
+    "target": "esnext",
+    "module": "esnext",
+    // https://www.typescriptlang.org/tsconfig#moduleResolution
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+
+    // We don't care about TypeScript errors in node_modules
+    "skipLibCheck": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+    // Tried and not very useful: each time you have [0] you must write [0]!, that's the gist of it
+    // Counter productive: devs will use ? and check for undefined when they should use !
+    //"noUncheckedIndexedAccess": true
+
+    // https://stackoverflow.com/q/53113031
+    //"noErrorTruncation": true
+  },
+  "exclude": ["**/coverage"]
+}

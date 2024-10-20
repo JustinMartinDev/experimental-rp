@@ -1,6 +1,6 @@
 import { RouterProvider } from "@lib/preact-shared/providers/RouterProvider";
 
-import { HomePlayerMenu } from "./view/HomeMenu";
+import { HomePlayerMenu } from "./view/HomePlayerMenu";
 import { InventoryMenu } from "./view/InventoryMenu";
 import { ItemMenu } from "./view/ItemMenu";
 
