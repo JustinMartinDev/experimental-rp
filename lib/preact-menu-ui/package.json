@@ -1,12 +1,8 @@
 {
   "name": "@lib/preact-menu-ui",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "module": "dist/preact-menu-ui.es.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc --emitDeclarationOnly --declaration",
     "serve": "vite preview"
   },
   "peerDependencies": {
