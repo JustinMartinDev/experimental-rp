@@ -1,4 +1,4 @@
-import "@lib/preact-menu-ui/dist/style.css";
+import "@lib/preact-menu-ui/index.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
@@ -8,14 +8,21 @@ type Props = {
   footer: ComponentChildren;
 };
 
+type ItemStepContext = {
+  itemId: string;
+  inventoryId: number;
+};
+
 const ItemMenu = ({ footer }: Props) => {
-  const { setView, context } = useRouter();
+  const { setView, getStepContext } = useRouter();
+
+  const { itemId, inventoryId } = getStepContext<ItemStepContext>("item");
 
   const onSelectItem = async (id: string) => {
     if (id === "use") {
       await fetchNui("use-item", "inventory", {
-        // @ts-ignore
-        id: context.item.id,
+        itemId: itemId,
+        inventoryId,
       });
     }
   };
@@ -27,10 +34,7 @@ const ItemMenu = ({ footer }: Props) => {
   return (
     <Menu
       title="Personnel"
-      subtitle={
-        // @ts-ignore
-        context.item.id as string
-      }
+      subtitle={"Que faire ?"}
       items={[
         { title: "Utiliser", id: "use" },
         { title: "Donner", id: "give" },

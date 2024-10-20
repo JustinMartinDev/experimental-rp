@@ -1,0 +1,15 @@
+{
+  "name": "@test-tools/runner",
+  "sideEffects": false,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "vitest": "catalog:",
+    "@testing-library/preact": "catalog:",
+    "@preact/preset-vite": "catalog:",
+    "@test-tools/msw": "workspace:*",
+    "happy-dom": "catalog:"
+  }
+}

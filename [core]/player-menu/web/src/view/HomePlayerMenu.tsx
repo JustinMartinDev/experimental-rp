@@ -1,8 +1,7 @@
-import "@lib/preact-menu-ui/dist/style.css";
+import "@lib/preact-menu-ui/index.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
-import { useEffect } from "preact/hooks";
 import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
 
 type Props = {
@@ -14,15 +13,15 @@ const HomePlayerMenu = ({ footer }: Props) => {
 
   const onSelectItem = async (id: string) => {
     if (id === "open-inventory") {
-      const inventoryJson = await fetchNui<string>("get-my-inventory", "inventory");
+      const inventory = await fetchNui<string>("get-my-inventory", "inventory");
 
-      setView("inventory", { inventory: JSON.parse(inventoryJson) });
+      setView("inventory", { inventory: inventory });
     }
   };
 
   const onQuit = async () => {
-    await fetchNui("hide-frame")
-  }
+    await fetchNui("hide-frame");
+  };
 
   return (
     <Menu

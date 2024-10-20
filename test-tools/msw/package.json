@@ -1,0 +1,20 @@
+{
+  "name": "@test-tools/msw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@inventory/msw": "workspace:*",
+    "@player-menu/msw": "workspace:*"
+  },
+  "devDependencies": {
+    "msw": "catalog:",
+    "vitest": "catalog:"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

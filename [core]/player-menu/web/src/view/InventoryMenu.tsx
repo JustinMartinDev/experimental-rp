@@ -1,4 +1,4 @@
-import "@lib/preact-menu-ui/dist/style.css";
+import "@lib/preact-menu-ui/index.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
@@ -11,24 +11,25 @@ type Props = {
 const InventoryMenu = ({ footer }: Props) => {
   const { setView, getStepContext } = useRouter();
 
+  const { inventory } = getStepContext<{ inventory: InventoryWithItems }>(
+    "inventory"
+  );
+
+  const items = inventory.items.map(({ item }) => ({
+    title: item.name,
+    id: item.id,
+  }));
+
   const onQuit = () => {
     setView("home");
   };
 
   const onSelectItem = (id: string) => {
     setView("item", {
-      id: id,
+      itemId: id,
+      inventoryId: inventory.id,
     });
   };
-
-  const {inventory} = getStepContext<{inventory: InventoryWithItems}>("inventory");
-
-  console.log("inventory", inventory)
-
-  const items = inventory.items.map(({item}) => ({
-    title: item.name,
-    id: item.id,
-  }))
 
   return (
     <Menu
