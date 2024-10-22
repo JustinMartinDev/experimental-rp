@@ -21,3 +21,7 @@ About folder orgisation, we have
 `**/types` packages to share typings of resource exported methods or ORM based type. It is used inside `**/client` and `**/server` packages.
 
 `**/web` packages contain react app of resource NUI frame.
+
+`**/msw` packages contain mocked route handler for test managed by [msw](https://mswjs.io/docs/getting-started).
+
+`**/mocks` packages contain mocks used for test.

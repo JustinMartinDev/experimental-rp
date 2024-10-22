@@ -27,12 +27,12 @@ style={{marginBottom: "3vh"}}
 <Tabs>
   <TabItem value="client.ts" label="client.ts">
     ```ts
-      onNet("response:get-players", (params: string) => {
-        const players = JSON.parse(params);
-        console.log("players-data", players)
-      })
+    onNet("response:get-players", (params: string) => {
+      const players = JSON.parse(params);
+      console.log("players-data", players);
+    });
 
-      emitNet("request:get-players")
+    emitNet("request:get-players");
     ```
 
   </TabItem>
@@ -45,7 +45,7 @@ style={{marginBottom: "3vh"}}
         const players = await prisma.player.findMany();
 
         emitNet("response:get-players", source, JSON.stringify(players))
-      })
+      });
     ```
 
   </TabItem>  
@@ -56,21 +56,18 @@ style={{marginBottom: "3vh"}}
 <Tabs>
   <TabItem value="client.ts" label="client.ts">
     ```ts
-      const players = await triggerServerEvent("get-players")
-      console.log("players-data", players)
+      const players = await triggerServerEvent("get-players");
+      console.log("players-data", players);
     ```
 
   </TabItem>
 
   <TabItem value="server.ts" label="server.ts">
     ```ts
-      onClientEvent(
-        "get-player",
-        async ({ source }: { source: number }) => {
-          const players = await prisma.player.findMany();
-          return players;
-        }
-      );
+    onClientEvent("get-player", async ({ source }: { source: number }) => {
+      const players = await prisma.player.findMany();
+      return players;
+    });
     ```
 
   </TabItem>  

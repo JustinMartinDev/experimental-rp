@@ -52,8 +52,8 @@ game 'gta5'
 ui_page 'index.html'
 
 files {
-'index.html',
-'preact.min.js',
+  'index.html',
+  'preact.min.js',
 }
 
 ````
@@ -130,7 +130,7 @@ on("__cfx_nui:player-menu:open", cb);
 
 This event will be trigger when NUI frame request http://player-menu/player-menu:open so it possible to trigger NUI callback from other resource source. You can find this between `player-menu` and `inventory`, when `player-menu` NUI call the `use-item` callback from `iventory` resource.
 
-//Todo add exemple
+You can find an usage of `fetchNui` method [here](https://justinmartindev.github.io/experimental-rp/docs/core/preact-shared#fetchnui).
 
 ## App visibility
 
