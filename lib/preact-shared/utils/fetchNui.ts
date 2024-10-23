@@ -1,12 +1,12 @@
 import { isEnvBrowser } from "./misc";
 
-function isDateString(value) {
+function isDateString(value: string) {
   // This function checks if the string is a valid date
   const date = Date.parse(value);
   return !isNaN(date);
 }
 
-function convertDates(obj) {
+function convertDates(obj: unknown) {
   if (Array.isArray(obj)) {
     // If it's an array, iterate through each element and recursively call convertDates
     return obj.map(convertDates);

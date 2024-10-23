@@ -2,10 +2,19 @@
   "name": "@lib/preact-shared",
   "private": true,
   "sideEffects": false,
+  "scripts": {
+    "test": "vitest"
+  },
   "dependencies": {
     "preact": "catalog:"
   },
   "devDependencies": {
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "@testing-library/preact": "catalog:",
+    "@test-tools/runner": "workspace:*",
+    "vite": "catalog:",
+    "vite-plugin-external": "catalog:",
+    "@preact/preset-vite": "catalog:"
   }
 }
