@@ -1,7 +1,7 @@
 const config = {
   schemas: [
     "header.prisma",
-    "@player/prisma/player.schema.prisma",
+    "@player-manager/prisma/player.schema.prisma",
     "@inventory/prisma/inventory.schema.prisma",
   ],
   output: "prisma/schema.prisma",
@@ -10,4 +10,3 @@ const config = {
 };
 
 export default config;
-

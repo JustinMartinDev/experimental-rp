@@ -1,0 +1,21 @@
+model Player {
+  id      Int    @id @default(autoincrement())
+  steamId String @unique
+  pseudo  String
+
+  characters Character[]
+
+  default            Character @relation(fields: [defaultCharacterId], references: [id])
+  defaultCharacterId Int       @unique
+}
+
+model Character {
+  id      Int    @id @default(autoincrement())
+  steamId String @unique
+
+  lastname  String
+  firstname String
+
+  inventory Inventory?
+  player    Player
+}

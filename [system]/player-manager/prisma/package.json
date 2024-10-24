@@ -1,0 +1,11 @@
+{
+  "name": "@player-manager/prisma",
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9.5"
+  }
+}
