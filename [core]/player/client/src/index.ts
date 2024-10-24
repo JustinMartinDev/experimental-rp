@@ -1,4 +1,4 @@
-import { onStart, triggerServerEvent } from "@lib/event/client";
+import { onStart, triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 
 onStart(() => {});
 

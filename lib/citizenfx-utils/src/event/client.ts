@@ -12,8 +12,8 @@ export const triggerServerEvent = <ResolveType>({
     triggerServerEventWithCallback({
       event,
       params,
-      callback: (data: any) => {
-        resolve(data);
+      callback: (data: string) => {
+        resolve(JSON.parse(data) as ResolveType);
       },
     });
   });
@@ -26,8 +26,18 @@ export const triggerServerEventWithCallback = ({
 }: TriggerNetEventParams) => {
   const source = GetPlayerServerId(PlayerId());
 
-  onNet(`response:${event}`, callback);
-  emitNet(`request:${event}`, JSON.stringify({ ...params, source }));
+  const uuid = Math.random().toString(36).substring(7); // Random string
+
+  const requestEvent = `request:${event}`;
+  const responseEvent = `response:${event}:${uuid}`;
+
+  const onNetCallback = async (params: unknown) => {
+    removeEventListener(responseEvent, onNetCallback);
+    await callback(params);
+  };
+
+  onNet(responseEvent, onNetCallback);
+  emitNet(requestEvent, JSON.stringify({ ...params, source, eventUuid: uuid }));
 };
 
 type OnServerEventParams = (event: string, callback?: Function) => void;

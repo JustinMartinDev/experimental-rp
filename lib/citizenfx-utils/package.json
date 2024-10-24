@@ -1,0 +1,35 @@
+{
+  "name": "@lib/citizenfx-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    "./event/server": {
+      "types": "./dist/event/server.d.ts",
+      "import": "./dist/event/server.js"
+    },
+    "./event/client": {
+      "types": "./dist/event/client.d.ts",
+      "import": "./dist/event/client.js"
+    },
+    "./model/loadModel": {
+      "types": "./dist/model/loadModel.d.ts",
+      "import": "./dist/model/loadModel.js"
+    },
+    "./waitFor": {
+      "types": "./dist/waitFor.d.ts",
+      "import": "./dist/waitFor.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@citizenfx/client": "catalog:",
+    "@citizenfx/server": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "^2.0.5"
+  },
+  "author": "",
+  "license": "ISC"
+}

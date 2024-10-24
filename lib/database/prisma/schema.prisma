@@ -1,4 +1,4 @@
-// Generated at 2024-10-01T20:44:41.858Z by "merge-prisma-schema"
+// Generated at 2024-10-26T23:59:45.867Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -15,12 +15,41 @@ datasource db {
   url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
 }
 
+model Location {
+  id   Int     @id @default(autoincrement())
+  name String?
+  x    Float
+  y    Float
+  z    Float
+
+  character Character?
+}
+
 model Player {
-  id        Int        @id @default(autoincrement())
-  steamId   String     @unique
+  id      Int    @id @default(autoincrement())
+  steamId String @unique
+  pseudo  String @default("")
+
+  characters Character[]
+}
+
+model Character {
+  id Int @id @default(autoincrement())
+
   lastname  String
   firstname String
+
+  modelHash String @default("u_m_y_rsranger_01")
+
   inventory Inventory?
+
+  player   Player @relation(fields: [playerId], references: [id])
+  playerId Int    @unique
+
+  location   Location? @relation(fields: [locationId], references: [id])
+  locationId Int?      @unique
+
+  defaultPlayerCharacter Boolean @default(false)
 }
 
 model Inventory {
@@ -30,8 +59,8 @@ model Inventory {
 
   items ItemInInventory[]
 
-  player   Player @relation(fields: [playerId], references: [id])
-  playerId Int    @unique // relation scalar field (used in the `@relation` attribute above)
+  character   Character @relation(fields: [characterId], references: [id])
+  characterId Int       @unique // relation scalar field (used in the `@relation` attribute above)
 }
 
 model Item {

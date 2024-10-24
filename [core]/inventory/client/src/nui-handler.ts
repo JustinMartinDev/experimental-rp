@@ -1,4 +1,4 @@
-import { triggerServerEvent } from "@lib/event/client";
+import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { initNuiHandler as initUseItemNuiHandler } from "./use-item";
 import { registerNUICallback, toggleNuiFrame } from "@lib/nui/utils";
 

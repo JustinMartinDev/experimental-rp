@@ -1,18 +1,18 @@
-import { onStart, triggerServerEvent } from "@lib/event/client";
+import { onStart, triggerServerEvent } from "@lib/citizenfx-utils/event/client";
+import { forceSpawnCmd } from "./commands/force-spawn";
+import { saveLocationCmd } from "./commands/save-location";
 
 onStart(() => {});
 
 RegisterCommand(
-  "player:get-me",
-  async () => {
-    console.log("player:get-me command called");
+  "player:force-spawn",
+  forceSpawnCmd,
+  false
+);
 
-    const player = await triggerServerEvent({
-      event: "player:get-me",
-      params: {},
-    });
 
-    console.log("player me", player);
-  },
+RegisterCommand(
+  "player:save-location",
+  saveLocationCmd,
   false
 );

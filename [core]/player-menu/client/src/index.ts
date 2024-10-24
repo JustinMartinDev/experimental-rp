@@ -1,4 +1,4 @@
-import { onStart } from "@lib/event/client";
+import { onStart } from "@lib/citizenfx-utils/event/client";
 import { toggleNuiFrame, sendReactMessage } from "@lib/nui/utils";
 import { initNuiHandler } from "./nui-handler";
 

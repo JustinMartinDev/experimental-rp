@@ -1,5 +1,5 @@
 {
-  "name": "@forum-drive-spawnert-ts-vanilla/types",
+  "name": "@player-manager/types",
   "version": "1.0.0",
   "devDependencies": {
     "typescript": "^5.5.4"

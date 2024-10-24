@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@lib/database": "workspace:*",
-    "@lib/event": "workspace:*"
+    "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/server": "catalog:",

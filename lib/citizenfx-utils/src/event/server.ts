@@ -37,12 +37,12 @@ export const onClientEvent: OnClientEventParams = (
   callback = () => {}
 ) => {
   onNet(`request:${event}`, async (params: string, ...args: any[]) => {
-    const toReturn = await callback(JSON.parse(params));
+    const toReturn = (await callback(JSON.parse(params))) || {};
 
-    const { source } = JSON.parse(params) as { source: number };
-
-    console.log("server", `request:${event}`, JSON.stringify(toReturn));
-    emitNet(`response:${event}`, source, JSON.stringify(toReturn));
+    const { source, eventUuid } = JSON.parse(params) as { source: number; eventUuid: string; };
+    
+    console.log("server will respond", `request:${event}`, JSON.stringify(toReturn));
+    emitNet(`response:${event}:${eventUuid}`, source, JSON.stringify(toReturn));
   });
 };
 

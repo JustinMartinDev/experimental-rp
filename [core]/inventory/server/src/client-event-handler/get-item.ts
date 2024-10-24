@@ -1,4 +1,4 @@
-import { onClientEvent } from "@lib/event/server";
+import { onClientEvent } from "@lib/citizenfx-utils/event/server";
 import { prisma } from "@lib/database";
 
 export const init = () => {

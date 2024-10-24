@@ -1,5 +1,5 @@
 import { Item } from "@inventory/types/prisma";
-import { triggerServerEvent } from "@lib/event/client";
+import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { sendReactMessage, toggleNuiFrame } from "@lib/nui/utils";
 
 const CART_IDS = [

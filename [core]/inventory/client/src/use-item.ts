@@ -1,4 +1,4 @@
-import { triggerServerEvent } from "@lib/event/client";
+import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { registerNUICallback } from "@lib/nui/utils";
 
 import { Item } from "@inventory/types/prisma";

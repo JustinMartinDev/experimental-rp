@@ -1,4 +1,4 @@
-import { onStart } from "@lib/event/client";
+import { onStart } from "@lib/citizenfx-utils/event/client";
 import { initClientEventHandlers } from "./client-event-handler";
 
 onStart(() => {

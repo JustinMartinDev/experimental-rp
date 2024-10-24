@@ -10,10 +10,11 @@
     "watch": "rollup -c -w"
   },
   "dependencies": {
-    "@lib/event": "workspace:*"
+    "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/client": "catalog:",
+    "@player-manager/types": "workspace:*",
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-typescript": "catalog:",
