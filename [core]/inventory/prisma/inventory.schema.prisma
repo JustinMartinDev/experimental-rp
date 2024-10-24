@@ -5,8 +5,8 @@ model Inventory {
 
   items ItemInInventory[]
 
-  player    Player   @relation(fields: [playerId], references: [id])
-  playerId  Int      @unique // relation scalar field (used in the `@relation` attribute above)
+  character    Character   @relation(fields: [characterId], references: [id])
+  characterId  Int      @unique // relation scalar field (used in the `@relation` attribute above)
 }
 
 model Item {
