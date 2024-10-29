@@ -1,5 +1,5 @@
 import { prisma } from "@lib/database";
-import { onClientEvent } from "@lib/citizenfx-utils/event/server";
+import { onClientEvent, triggerClientEvent } from "@lib/citizenfx-utils/event/server";
 import { getInfoForSpawn } from "./command/getInfoForSpawn";
 import { saveLocation } from "./command/saveLocation";
 
@@ -33,15 +33,15 @@ on(
 
     deferrals.done();
 
-    
+    console.log("Player connected", source);
 
-    /*
-    try {
-      const spawnInfo = await getInfoForSpawn(player.id);
-      // Trigger client event to spawn player with the given spawn info
-    } catch (error) {
-      console.log("error", error);
-    }    */
+    await triggerClientEvent({
+      event: "player:force-spawn",
+      source: source,
+      params: {  
+        playerId: player.id,
+      }
+    });
   }
 );
 

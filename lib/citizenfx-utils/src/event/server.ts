@@ -1,6 +1,6 @@
 type TriggerNetEventParams = {
   event: string;
-  playerId?: number;
+  source?: number | string;
   params: any;
   callback?: Function;
 };
@@ -8,10 +8,12 @@ type TriggerNetEventParams = {
 export const triggerClientEvent = ({
   event,
   params,
+  source = -1,
 }: Omit<TriggerNetEventParams, "callback">) => {
   return new Promise((resolve) => {
     triggerClientEventWithCallback({
       event,
+      source,
       params,
       callback: (data: any) => {
         resolve(data);
@@ -22,12 +24,13 @@ export const triggerClientEvent = ({
 
 export const triggerClientEventWithCallback = ({
   event,
-  playerId = -1, // -1 is for all players
   params,
+  source = -1, // -1 is for all players
   callback = () => {},
 }: TriggerNetEventParams) => {
+  console.log("source", source);
   on(`response:${event}`, callback);
-  emitNet(`request:${event}`, JSON.stringify({ ...params, source: playerId }));
+  emitNet(`request:${event}`, source, JSON.stringify({ ...params, source: source }));
 };
 
 type OnClientEventParams = (event: string, callback?: Function) => void;

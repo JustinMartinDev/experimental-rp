@@ -26,7 +26,7 @@ test("triggerClientEvent", async () => {
   await triggerClientEvent({
     event: "myEvent",
     params: { name: "John" },
-    playerId: 10,
+    source: 10,
   });
 
   expect(globalMock.emitNet).toHaveBeenCalledTimes(1);
@@ -54,7 +54,7 @@ test("triggerClientEventWithCallback", async () => {
     event: "myEvent",
     params: { name: "John" },
     callback: vi.fn(),
-    playerId: 10,
+    source: 10,
   });
 
   expect(globalMock.emitNet).toHaveBeenCalledTimes(1);
