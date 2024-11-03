@@ -5,20 +5,27 @@ import { GetInfoForSpawnReturn } from "@player-manager/types/server";
 
 import { spawnPlayer } from "../spawnPlayer";
 
-export const forceSpawnCmd = async (source: number, args: [string]) => {
-  console.log("player:force-spawn command called");
+type ForceSpawnCmdParams = [string] | [string, string];
 
-  const [playerId] = args;
-
+export const forceSpawn = async (dbPlayerId: number, characterId?: number) => {
   const spawnInfo = await triggerServerEvent<GetInfoForSpawnReturn>({
     event: "player:get-info-for-spawn",
     params: {
-      playerSrc: source,
-      playerId: parseInt(playerId),
+      dbPlayerId,
+      characterId
     },
   });
 
-  console.log("spawnInfo", spawnInfo);
-
-  await spawnPlayer(spawnInfo);
+  await spawnPlayer(spawnInfo, dbPlayerId);
 };
+
+export const forceSpawnCmd = async (source: number, args: ForceSpawnCmdParams) => {
+  const dbPlayerId = parseInt(args[0]);
+  const characterId = args[1] ? parseInt(args[1]) : undefined;
+
+  console.log("player:force-spawn command called", dbPlayerId, characterId);
+
+  await forceSpawn(dbPlayerId, characterId);
+};
+
+

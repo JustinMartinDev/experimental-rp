@@ -10,7 +10,8 @@
     "watch": "rollup -c -w"
   },
   "dependencies": {
-    "@lib/citizenfx-utils": "workspace:*"
+    "@lib/citizenfx-utils": "workspace:*",
+    "@lib/nui": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/client": "catalog:",

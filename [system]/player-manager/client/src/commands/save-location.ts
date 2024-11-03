@@ -2,6 +2,8 @@ import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { loadModel } from "@lib/citizenfx-utils/model/loadModel";
 
 import { GetInfoForSpawnReturn } from "@player-manager/types/server";
+import { getActiveCharacterId } from "../spawnPlayer";
+
 
 import { spawnPlayer } from "../spawnPlayer";
 
@@ -18,7 +20,8 @@ export const saveLocationCmd = async (source: number) => {
         x: location[0],
         y: location[1],
         z: location[2],
-      }
+      },
+      characterId: getActiveCharacterId()
     },
   });
 
