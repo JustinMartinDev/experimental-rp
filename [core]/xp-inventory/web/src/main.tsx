@@ -20,5 +20,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Router />
       </VisibilityProvider>
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

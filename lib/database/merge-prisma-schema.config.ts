@@ -1,7 +1,7 @@
 const config = {
   schemas: [
     "header.prisma",
-    "@player-manager/prisma/player.schema.prisma",
+    "@xp-player/prisma/player.schema.prisma",
     "@xp-inventory/prisma/inventory.schema.prisma",
   ],
   output: "prisma/schema.prisma",

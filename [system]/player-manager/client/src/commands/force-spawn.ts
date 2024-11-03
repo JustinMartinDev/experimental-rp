@@ -12,14 +12,17 @@ export const forceSpawn = async (dbPlayerId: number, characterId?: number) => {
     event: "player:get-info-for-spawn",
     params: {
       dbPlayerId,
-      characterId
+      characterId,
     },
   });
 
   await spawnPlayer(spawnInfo, dbPlayerId);
 };
 
-export const forceSpawnCmd = async (source: number, args: ForceSpawnCmdParams) => {
+export const forceSpawnCmd = async (
+  source: number,
+  args: ForceSpawnCmdParams,
+) => {
   const dbPlayerId = parseInt(args[0]);
   const characterId = args[1] ? parseInt(args[1]) : undefined;
 
@@ -27,5 +30,3 @@ export const forceSpawnCmd = async (source: number, args: ForceSpawnCmdParams) =
 
   await forceSpawn(dbPlayerId, characterId);
 };
-
-

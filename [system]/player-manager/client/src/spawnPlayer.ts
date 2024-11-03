@@ -1,6 +1,6 @@
-import { waitFor } from '@lib/citizenfx-utils/waitFor';
-import { loadModel } from '@lib/citizenfx-utils/model/loadModel';
-import { unfreezePlayer } from './freezePlayer';
+import { waitFor } from "@lib/citizenfx-utils/waitFor";
+import { loadModel } from "@lib/citizenfx-utils/model/loadModel";
+import { unfreezePlayer } from "./freezePlayer";
 import { GetInfoForSpawnReturn } from "@player-manager/types/server";
 
 type SpawnInfo = {
@@ -20,9 +20,11 @@ export const getActiveDbPlayerId = () => activeDbPlayerId;
 
 export const getActiveCharacterId = () => activeCharacterId;
 
-
-export const spawnPlayer = async ({modelHash, spawnPoint, characterId}: GetInfoForSpawnReturn, dbPlayerId: number) => {
-  const {x, y, z} = spawnPoint;
+export const spawnPlayer = async (
+  { modelHash, spawnPoint, characterId }: GetInfoForSpawnReturn,
+  dbPlayerId: number,
+) => {
+  const { x, y, z } = spawnPoint;
 
   await loadModel(modelHash);
 
@@ -40,10 +42,7 @@ export const spawnPlayer = async ({modelHash, spawnPoint, characterId}: GetInfoF
   SetEntityCoordsNoOffset(ped, x, y, z, false, false, true);
   NetworkResurrectLocalPlayer(x, y, z, 1, 0, true);
 
-  await waitFor(
-    () => HasCollisionLoadedAroundEntity(ped),
-    500000
-  );
+  await waitFor(() => HasCollisionLoadedAroundEntity(ped), 500000);
 
   unfreezePlayer(playerId);
 

@@ -24,6 +24,6 @@ export const init = () => {
       });
 
       return inventory;
-    }
+    },
   );
 };

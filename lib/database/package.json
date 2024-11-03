@@ -21,7 +21,6 @@
   "devDependencies": {
     "@xp-inventory/prisma": "workspace:*",
     "@xp-player/prisma": "workspace:*",
-    "@player-manager/prisma": "workspace:*",
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-typescript": "catalog:",

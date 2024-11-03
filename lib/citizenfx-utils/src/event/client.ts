@@ -44,7 +44,7 @@ type OnServerEventParams = (event: string, callback?: Function) => void;
 
 export const onServerEvent: OnServerEventParams = (
   event,
-  callback = () => {}
+  callback = () => {},
 ) => {
   onNet(`request:${event}`, async (params: string) => {
     const toReturn = await callback(JSON.parse(params));

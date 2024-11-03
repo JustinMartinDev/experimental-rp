@@ -33,14 +33,14 @@ test("triggerClientEvent", async () => {
   expect(globalMock.emitNet).toHaveBeenNthCalledWith(
     1,
     "request:myEvent",
-    '{"name":"John","source":10}'
+    '{"name":"John","source":10}',
   );
 
   expect(globalMock.on).toHaveBeenCalledTimes(1);
   expect(globalMock.on).toHaveBeenNthCalledWith(
     1,
     "response:myEvent",
-    expect.any(Function)
+    expect.any(Function),
   );
 });
 
@@ -61,13 +61,13 @@ test("triggerClientEventWithCallback", async () => {
   expect(globalMock.emitNet).toHaveBeenNthCalledWith(
     1,
     "request:myEvent",
-    '{"name":"John","source":10}'
+    '{"name":"John","source":10}',
   );
 
   expect(globalMock.on).toHaveBeenCalledTimes(1);
   expect(globalMock.on).toHaveBeenNthCalledWith(
     1,
     "response:myEvent",
-    expect.any(Function)
+    expect.any(Function),
   );
 });

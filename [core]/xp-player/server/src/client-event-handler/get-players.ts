@@ -7,6 +7,6 @@ export const init = () => {
     async ({ source }: { source: number }) => {
       const players = await prisma.player.findMany();
       return players;
-    }
+    },
   );
 };

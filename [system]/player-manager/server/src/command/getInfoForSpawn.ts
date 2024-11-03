@@ -8,34 +8,38 @@ export const getInfoForSpawn = async (playerId: number) => {
       pseudo: true,
       characters: {
         where: {
-          defaultPlayerCharacter: true
+          defaultPlayerCharacter: true,
         },
         select: {
           firstname: true,
           lastname: true,
           location: true,
-          modelHash: true
-        }
-      }
+          modelHash: true,
+        },
+      },
     },
     where: {
       id: playerId,
-    }
+    },
   });
 
-  if(!player) {
+  if (!player) {
     throw new Error(`Player not found ${playerId}`);
   }
 
-  if(player.characters.length === 0) {
+  if (player.characters.length === 0) {
     throw new Error(`Player ${player.pseudo} has no characters`);
   }
 
   const [character] = player.characters;
 
-  const spawnPoint = character.location ?
-    { x: character.location.x, y: character.location.y, z: character.location.z } :
-    DEFAULT_SPAWN_POINT;
+  const spawnPoint = character.location
+    ? {
+        x: character.location.x,
+        y: character.location.y,
+        z: character.location.z,
+      }
+    : DEFAULT_SPAWN_POINT;
 
   return { spawnPoint, modelHash: character.modelHash };
-}
+};

@@ -12,7 +12,7 @@ const InventoryMenu = ({ footer }: Props) => {
   const { setView, getStepContext } = useRouter();
 
   const { inventory } = getStepContext<{ inventory: InventoryWithItems }>(
-    "inventory"
+    "inventory",
   );
 
   const items = inventory.items.map(({ item }) => ({

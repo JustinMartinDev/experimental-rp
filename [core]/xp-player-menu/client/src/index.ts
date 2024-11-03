@@ -12,26 +12,22 @@ const openMenu = () => {
   sendReactMessage("set-view", {
     viewId: "home",
   });
-}
+};
 
 const closeMenu = () => {
   toggleNuiFrame(false);
-}
+};
+
+RegisterCommand("player-menu:open", openMenu, false);
+
+RegisterCommand("player-menu:close", closeMenu, false);
 
 RegisterCommand(
-  "player-menu:open",
-  openMenu,
-  false
+  "+i-pressed",
+  () => {
+    openMenu();
+  },
+  false,
 );
 
-RegisterCommand(
-  "player-menu:close",
-  closeMenu,
-  false
-);
-
-RegisterCommand("+i-pressed", () => {
-  openMenu();
-}, false);
-
-RegisterKeyMapping('+i-pressed', 'Open Inventory', 'keyboard', 'i')
+RegisterKeyMapping("+i-pressed", "Open Inventory", "keyboard", "i");

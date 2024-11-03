@@ -8,6 +8,6 @@ export default {
     dir: "dist",
     format: "cjs",
     sourcemap: false,
-  },  
+  },
   plugins: [resolve(), typescript(), commonjs()],
 };

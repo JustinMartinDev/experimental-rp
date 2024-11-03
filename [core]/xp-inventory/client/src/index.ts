@@ -25,5 +25,5 @@ RegisterCommand(
 
     console.log("inventory", JSON.stringify(inventory, null, 2));
   },
-  false
+  false,
 );

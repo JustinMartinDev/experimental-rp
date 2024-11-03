@@ -1,8 +1,7 @@
-
 export const freezePlayer = (id: number) => {
   const player = id;
   SetPlayerControl(player, false, 0);
-  
+
   const ped = GetPlayerPed(player);
 
   if (IsEntityVisible(ped)) {
@@ -16,12 +15,12 @@ export const freezePlayer = (id: number) => {
   if (!IsPedFatallyInjured(ped)) {
     ClearPedTasksImmediately(ped);
   }
-}
+};
 
 export const unfreezePlayer = (id: number) => {
   const player = id;
   SetPlayerControl(player, true, 0);
-  
+
   const ped = GetPlayerPed(player);
 
   if (!IsEntityVisible(ped)) {
@@ -34,7 +33,4 @@ export const unfreezePlayer = (id: number) => {
 
   FreezeEntityPosition(ped, false);
   SetPlayerInvincible(player, false);
-}
-
-
-
+};

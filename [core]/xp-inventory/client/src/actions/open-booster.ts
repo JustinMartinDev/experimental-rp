@@ -2,31 +2,27 @@ import { Item } from "@xp-inventory/types/prisma";
 import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { sendReactMessage, toggleNuiFrame } from "@lib/nui/utils";
 
-const CART_IDS = [
-  "cart-flash",
-  "cart-kitty",
-  "cart-gunters"
-];
+const CART_IDS = ["cart-flash", "cart-kitty", "cart-gunters"];
 
 type OpenBoosterParams = {
-  size: number
-}
+  size: number;
+};
 
 export const openBooster = async (params: object) => {
-
   const { size } = params as OpenBoosterParams;
 
   if (!size) {
     throw new Error("size is required");
   }
 
-  const cartItems = await triggerServerEvent<Item[]>(
-    { event: "get-items", params: {
-      itemIds: CART_IDS
-    }}
-  );
+  const cartItems = await triggerServerEvent<Item[]>({
+    event: "get-items",
+    params: {
+      itemIds: CART_IDS,
+    },
+  });
 
-  console.log("cart", cartItems.length)
+  console.log("cart", cartItems.length);
 
   const opennedCarts = [];
   for (let i = 0; i < size - 3; i++) {

@@ -9,8 +9,8 @@ export const initNuiHandler = () => {
 
   registerNUICallback("get-my-inventory", async (_data, cb) => {
     const inventory = await triggerServerEvent({
-      event: "inventory:get-my-inventory"
-    })
+      event: "inventory:get-my-inventory",
+    });
 
     cb(inventory);
   });

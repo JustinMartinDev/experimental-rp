@@ -51,7 +51,7 @@ const Menu = ({
         onQuit();
       }
     },
-    [moveDown, moveUp, onSelectItem, activeItemId, onQuit]
+    [moveDown, moveUp, onSelectItem, activeItemId, onQuit],
   );
 
   useEffect(() => {

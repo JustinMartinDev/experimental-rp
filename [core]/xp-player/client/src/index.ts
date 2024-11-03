@@ -3,7 +3,7 @@ import { onStart, triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 onStart(() => {});
 
 RegisterCommand(
-  "player:get-me",
+  "xp-player:get-me",
   async () => {
     console.log("player:get-me command called");
 
@@ -14,5 +14,5 @@ RegisterCommand(
 
     console.log("player me", player);
   },
-  false
+  false,
 );

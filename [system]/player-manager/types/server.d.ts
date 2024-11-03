@@ -3,6 +3,6 @@ export type GetInfoForSpawnReturn = {
     x: number;
     y: number;
     z: number;
-  },
+  };
   modelHash: string;
-}
+};

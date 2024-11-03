@@ -2,10 +2,10 @@ type NUICallbackFunction<ReqBody> = (data: ReqBody, res: Function) => void;
 
 export const registerNUICallback = <T = any>(
   name: string,
-  cb: NUICallbackFunction<T>
+  cb: NUICallbackFunction<T>,
 ) => {
   const resourceName = GetCurrentResourceName();
-  
+
   RegisterNuiCallbackType(`${resourceName}:${name}`);
   on(`__cfx_nui:${resourceName}:${name}`, cb);
 };

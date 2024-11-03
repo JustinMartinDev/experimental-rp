@@ -3,15 +3,15 @@ import { prisma } from "@lib/database";
 
 export const init = () => {
   onClientEvent(
-    "inventory:get-item",
-    async ({ source, itemId }: { source: number; itemId: string }) => {
-      const item = await prisma.item.findUnique({
+    "inventory:get-items",
+    async ({ source, itemIds }: { source: number; itemIds: string[] }) => {
+      const item = await prisma.item.findMany({
         where: {
-          id: itemId,
+          id: itemIds,
         },
       });
 
       return item;
-    }
+    },
   );
 };

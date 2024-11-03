@@ -64,7 +64,7 @@ it("should call 'get-my-inventory' from NUI call when 'Inventaire' is selected",
     expect(fetchNuiSpy).toHaveBeenNthCalledWith(
       1,
       "get-my-inventory",
-      "inventory"
+      "inventory",
     );
   });
 
