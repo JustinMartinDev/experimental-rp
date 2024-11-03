@@ -1,18 +1,13 @@
 {
-  "name": "@test-tools/msw",
+  "name": "@xp-player-menu/msw",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@xp-inventory/msw": "workspace:*",
-    "@xp-player-menu/msw": "workspace:*"
-  },
   "devDependencies": {
-    "msw": "catalog:",
-    "vitest": "catalog:"
+    "msw": "catalog:"
   },
   "keywords": [],
   "author": "",

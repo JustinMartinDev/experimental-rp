@@ -19,8 +19,8 @@
     "migrate": "prisma migrate"
   },
   "devDependencies": {
-    "@inventory/prisma": "workspace:*",
-    "@player/prisma": "workspace:*",
+    "@xp-inventory/prisma": "workspace:*",
+    "@xp-player/prisma": "workspace:*",
     "@player-manager/prisma": "workspace:*",
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
