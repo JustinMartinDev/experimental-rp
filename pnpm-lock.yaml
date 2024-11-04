@@ -484,12 +484,6 @@ importers:
         specifier: "catalog:"
         version: 5.5.4
 
-  "[system]/player-manager/prisma":
-    devDependencies:
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
-
   "[system]/player-manager/server":
     dependencies:
       "@lib/citizenfx-utils":
