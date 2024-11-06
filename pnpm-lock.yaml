@@ -332,6 +332,17 @@ importers:
     devDependencies:
       "@preact/preset-vite":
         specifier: "catalog:"
+      '@inventory/mocks':
+        specifier: workspace:*
+        version: link:../../inventory/mocks
+      '@inventory/types':
+        specifier: workspace:*
+        version: link:../../inventory/types
+      '@player-manager/types':
+        specifier: workspace:*
+        version: link:../../../[system]/player-manager/types
+      '@preact/preset-vite':
+        specifier: 'catalog:'
         version: 2.9.1(@babel/core@7.25.2)(preact@10.24.2)(vite@5.4.2(@types/node@22.7.8)(terser@5.34.1))
       "@test-tools/runner":
         specifier: workspace:*
@@ -520,6 +531,9 @@ importers:
 
   "[system]/player-manager/types":
     devDependencies:
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
       typescript:
         specifier: ^5.5.4
         version: 5.5.4

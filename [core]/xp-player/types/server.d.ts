@@ -5,4 +5,5 @@ export type GetInfoForSpawnReturn = {
     z: number;
   };
   modelHash: string;
-};
+  characterId: number;
+}

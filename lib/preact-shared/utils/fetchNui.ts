@@ -67,8 +67,11 @@ export async function fetchNui<T = unknown>(
 
     const respFormatted = (await resp.json()) as T;
 
+    console.log("respFormatted", respFormatted);
+
     return convertDates(respFormatted);
   } catch (e) {
+    console.log("Failed to fetch NUI data", e);
     throw e;
   }
 }

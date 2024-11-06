@@ -27,9 +27,5 @@
     "vite": "catalog:",
     "vitest": "catalog:",
     "vite-plugin-external": "catalog:"
-  },
-  "alias": {
-    "@xp-player-menu/web": "./src",
-    "@xp-player-menu/web/": "./src/"
   }
 }

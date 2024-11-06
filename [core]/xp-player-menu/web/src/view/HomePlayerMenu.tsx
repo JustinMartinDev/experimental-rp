@@ -2,6 +2,8 @@ import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
 import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
+import { InventoryWithItems } from "@inventory/types/prisma";
+import { Character } from "@player-manager/types/prisma";
 
 import { InventoryWithItems } from "@xp-inventory/types/prisma";
 import { Character } from "@xp-player/types/prisma";
@@ -26,11 +28,11 @@ const HomePlayerMenu = ({ footer }: Props) => {
     if (id === "select-character") {
       const { characters } = await fetchNui<{ characters: Character[] }>(
         "get-my-characters",
-        "player-manager",
+        "xp-player",
       );
       const { characterId } = await fetchNui<{ characterId: number }>(
         "get-my-active-character-id",
-        "player-manager",
+        "xp-player",
       );
 
       setView("character-menu", { characters, characterId });

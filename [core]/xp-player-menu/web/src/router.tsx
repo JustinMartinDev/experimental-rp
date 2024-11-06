@@ -3,11 +3,10 @@ import { RouterProvider } from "@lib/preact-shared/providers/RouterProvider";
 import { HomePlayerMenu } from "./view/HomePlayerMenu";
 import { InventoryMenu } from "./view/InventoryMenu";
 import { ItemMenu } from "./view/ItemMenu";
+import { SelectCharacterMenu } from "./view/SelectCharacterMenu";
 
 import { Footer } from "./components/Footer";
 import { VisibilityProvider } from "@lib/preact-shared/providers/VisibilityProvider";
-
-import { SelectCharacterMenu } from "./view/SelectCharacterMenu";
 
 const MapView = {
   home: <HomePlayerMenu footer={<Footer />} />,
