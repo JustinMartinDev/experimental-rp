@@ -1,22 +1,24 @@
 import { prisma } from "@lib/database";
 
-type GetInfoForSpawnParams = { playerId: number };
+type GetInfoForSpawnParams = { playerId: number; characterId?: number };
 
 const DEFAULT_SPAWN_POINT = { x: 0, y: 0, z: 0 };
 
-const getInfoForSpawn = async ({ playerId }: GetInfoForSpawnParams) => {
+const getInfoForSpawn = async ({
+  playerId,
+  characterId,
+}: GetInfoForSpawnParams) => {
   const player = await prisma.player.findUnique({
     select: {
       pseudo: true,
       characters: {
-        where: {
-          defaultPlayerCharacter: true,
-        },
         select: {
+          id: true,
           firstname: true,
           lastname: true,
           location: true,
           modelHash: true,
+          defaultPlayerCharacter: true,
         },
       },
     },
@@ -33,7 +35,13 @@ const getInfoForSpawn = async ({ playerId }: GetInfoForSpawnParams) => {
     throw new Error(`Player ${player.pseudo} has no characters`);
   }
 
-  const [character] = player.characters;
+  const character = characterId
+    ? player.characters.find((c) => c.id === characterId)
+    : player.characters.find((c) => c.defaultPlayerCharacter === true);
+
+  if (!character) {
+    throw new Error(`Character not found ${characterId}`);
+  }
 
   const spawnPoint = character.location
     ? {
@@ -43,7 +51,11 @@ const getInfoForSpawn = async ({ playerId }: GetInfoForSpawnParams) => {
       }
     : DEFAULT_SPAWN_POINT;
 
-  return { spawnPoint, modelHash: character.modelHash };
+  return {
+    spawnPoint,
+    modelHash: character.modelHash,
+    characterId: character.id,
+  };
 };
 
 export const config = {

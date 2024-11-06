@@ -3,6 +3,7 @@ import { onClientEvent } from "@lib/citizenfx-utils/event/server";
 import { config as getInfoForSpawnConfig } from "./get-info-for-spawn";
 import { config as getMyPlayer } from "./get-my-player";
 import { config as saveLocationConfig } from "./save-location";
+import { config as getMyCharactersConfig } from "./get-my-characters";
 
 const registerClientEvent = (name: string, fn: Function) => {
   console.log(`xp-player:${name}`);
@@ -16,7 +17,8 @@ const initClientEvents = () => {
   registerClientEvent(getInfoForSpawnConfig.name, getInfoForSpawnConfig.fn);
   registerClientEvent(saveLocationConfig.name, saveLocationConfig.fn);
   registerClientEvent(getMyPlayer.name, getMyPlayer.fn);
- 
+  registerClientEvent(getMyCharactersConfig.name, getMyCharactersConfig.fn);
+
   console.groupEnd();
 };
 

@@ -17,6 +17,7 @@
   "devDependencies": {
     "@xp-inventory/types": "workspace:*",
     "@xp-inventory/mocks": "workspace:*",
+    "@xp-player/types": "workspace:*",
     "@preact/preset-vite": "catalog:",
     "@testing-library/preact": "catalog:",
     "@test-tools/runner": "workspace:*",

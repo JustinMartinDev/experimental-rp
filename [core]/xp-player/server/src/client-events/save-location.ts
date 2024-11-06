@@ -1,39 +1,31 @@
 import { prisma } from "@lib/database";
 
 type SaveLocationParams = {
-  source: string;
+  characterId: number;
   location: { x: number; y: number; z: number };
 };
 
-const saveLocation = async ({ source, location }: SaveLocationParams) => {
-  const steamId = GetPlayerIdentifierByType(source, "steam");
-
-  const player = await prisma.player.findUnique({
+const saveLocation = async ({ characterId, location }: SaveLocationParams) => {
+  const character = await prisma.character.findUnique({
     select: {
-      characters: {
-        select: {
-          id: true,
-          location: true,
-        },
-      },
+      id: true,
+      location: true,
     },
     where: {
-      steamId: steamId,
+      id: characterId,
     },
   });
 
-  const [character] = player!.characters;
-
-  if (character.location === null) {
+  if (character?.location === null) {
     await prisma.location.create({
       data: {
         name: "saved-location",
-        x: DEFAULT_SPAWN_POINT.x,
-        y: DEFAULT_SPAWN_POINT.y,
-        z: DEFAULT_SPAWN_POINT.z,
+        x: location.x,
+        y: location.y,
+        z: location.z,
         character: {
           connect: {
-            id: character.id,
+            id: characterId,
           },
         },
       },
@@ -48,7 +40,7 @@ const saveLocation = async ({ source, location }: SaveLocationParams) => {
       z: location.z,
     },
     where: {
-      id: character.location!.id,
+      id: character?.location.id,
     },
   });
 };

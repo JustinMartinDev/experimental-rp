@@ -17,7 +17,10 @@ export const waitFor = async (
         resolve();
       }
 
-      if (GetGameTimer() - start >= timeout) {
+      const elapsed = GetGameTimer() - start;
+
+      if (elapsed >= timeout) {
+        console.log("test", elapsed, timeout);
         clearInterval(interval);
         rejeact(new Error("Timeout"));
       }

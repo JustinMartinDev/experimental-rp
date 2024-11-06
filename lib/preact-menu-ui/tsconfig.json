@@ -1,9 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  }
+    "jsxImportSource": "preact",
+
+    "declaration": true,
+    "declarationDir": "dist",
+
+    "outDir": "dist",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true
+  },
+  "include": ["index.tsx", "components"]
 }
