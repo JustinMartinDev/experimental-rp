@@ -1,6 +1,7 @@
 {
   "name": "@xp-player/server",
   "version": "1.0.0",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./node_modules",
     "prebuild": "rm -rf ./dist",
@@ -11,7 +12,8 @@
   },
   "dependencies": {
     "@lib/database": "workspace:*",
-    "@lib/citizenfx-utils": "workspace:*"
+    "@lib/citizenfx-utils": "workspace:*",
+    "@xp-player/types": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/server": "catalog:",

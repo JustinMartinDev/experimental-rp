@@ -2,7 +2,7 @@ import { waitFor } from "@lib/citizenfx-utils/waitFor";
 import { loadModel } from "@lib/citizenfx-utils/model/loadModel";
 import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 
-import { GetInfoForSpawnReturn } from "@player-manager/types/server";
+import { GetInfoForSpawnReturn } from "@xp-player/types/server/get-info-for-spawn";
 
 import { unfreezePlayer } from "./freeze-player";
 import XpPlayerStore from "../../store";

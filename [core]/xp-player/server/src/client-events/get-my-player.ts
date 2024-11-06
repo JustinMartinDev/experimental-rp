@@ -1,6 +1,6 @@
 import { prisma } from "@lib/database";
 
-type GetMyPlayerParams = {
+export type GetMyPlayerParams = {
   source: number;
 };
 
@@ -15,6 +15,8 @@ export const getMyPlayer = async ({ source }: GetMyPlayerParams) => {
 
   return player;
 };
+
+export type GetMyPlayerReturn = ReturnType<typeof getMyPlayer>;
 
 export const config = {
   name: "get-my-player",

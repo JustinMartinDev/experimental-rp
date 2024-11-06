@@ -13,6 +13,7 @@
     "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
+    "@xp-player/types": "workspace:*",
     "@citizenfx/client": "catalog:",
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",

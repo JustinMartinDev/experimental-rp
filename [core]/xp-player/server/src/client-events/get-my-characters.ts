@@ -1,6 +1,6 @@
 import { prisma } from "@lib/database";
 
-type GetMyCharactersParams = {
+export type GetMyCharactersParams = {
   playerId: number;
 };
 
@@ -13,6 +13,8 @@ export const getMyCharacters = async ({ playerId }: GetMyCharactersParams) => {
 
   return characters;
 };
+
+export type GetMyCharactersReturn = ReturnType<typeof getMyCharacters>;
 
 export const config = {
   name: "get-my-characters",

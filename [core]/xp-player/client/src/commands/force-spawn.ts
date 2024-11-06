@@ -6,8 +6,6 @@ const forceSpawnCmd = async (source: number, args: ForceSpawnCmdParams) => {
   const dbPlayerId = parseInt(args[0]);
   const characterId = args[1] ? parseInt(args[1]) : undefined;
 
-  console.log("player:force-spawn command called", dbPlayerId, characterId);
-
   await forceSpawnCharacter(dbPlayerId, characterId);
 };
 

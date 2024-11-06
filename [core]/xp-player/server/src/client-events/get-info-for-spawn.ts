@@ -1,13 +1,15 @@
 import { prisma } from "@lib/database";
-
-type GetInfoForSpawnParams = { playerId: number; characterId?: number };
+import {
+  GetInfoForSpawnParam,
+  GetInfoForSpawnReturn,
+} from "@xp-player/types/server/get-info-for-spawn";
 
 const DEFAULT_SPAWN_POINT = { x: 0, y: 0, z: 0 };
 
 const getInfoForSpawn = async ({
   playerId,
   characterId,
-}: GetInfoForSpawnParams) => {
+}: GetInfoForSpawnParam) => {
   const player = await prisma.player.findUnique({
     select: {
       pseudo: true,
@@ -55,7 +57,7 @@ const getInfoForSpawn = async ({
     spawnPoint,
     modelHash: character.modelHash,
     characterId: character.id,
-  };
+  } as GetInfoForSpawnReturn;
 };
 
 export const config = {

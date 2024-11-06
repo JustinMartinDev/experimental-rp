@@ -2,9 +2,11 @@ import { config as getMyPlayerConfig } from "./get-my-player";
 import { config as forceSpawnConfig } from "./force-spawn";
 import { config as saveLocationConfig } from "./save-location";
 
+const resource = GetCurrentResourceName();
+
 const registerCommand = (name: string, fn: Function) => {
-  console.log(`xp-player:${name}`);
-  RegisterCommand(`xp-player:${name}`, fn, false);
+  console.log(`${resource}:${name}`);
+  RegisterCommand(`${resource}:${name}`, fn, false);
 };
 
 const initCommands = () => {

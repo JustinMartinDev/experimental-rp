@@ -5,9 +5,11 @@ import { config as getMyPlayer } from "./get-my-player";
 import { config as saveLocationConfig } from "./save-location";
 import { config as getMyCharactersConfig } from "./get-my-characters";
 
+const resourceName = GetCurrentResourceName();
+
 const registerClientEvent = (name: string, fn: Function) => {
-  console.log(`xp-player:${name}`);
-  onClientEvent(`xp-player:${name}`, fn);
+  console.log(`${resourceName}:${name}`);
+  onClientEvent(`${resourceName}:${name}`, fn);
 };
 
 const initClientEvents = () => {

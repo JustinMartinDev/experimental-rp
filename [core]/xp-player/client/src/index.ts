@@ -3,6 +3,7 @@ import { initCommands } from "./commands";
 import { forceSpawnCharacter } from "./commands/force-spawn/spawn-character";
 import { wait } from "@lib/citizenfx-utils/waitFor";
 import { initNuiEvents } from "./nui-events";
+import { GetMyPlayerReturn } from "@xp-player/types/server/get-my-player";
 
 onStart(() => {
   initCommands();
@@ -18,11 +19,11 @@ const startGame = async () => {
   const playerPed = PlayerPedId();
 
   if (playerPed && playerPed !== -1 && NetworkIsPlayerActive(PlayerId())) {
-    const { playerId: dbPlayerId } = await triggerServerEvent<{
-      playerId: number;
-    }>({ event: "xp-player:get-xp-player-id" });
+    const { player } = await triggerServerEvent<GetMyPlayerReturn>({
+      event: "xp-player:get-my-player",
+    });
 
-    await forceSpawnCharacter(dbPlayerId);
+    await forceSpawnCharacter(player.id);
   }
 };
 
@@ -33,4 +34,3 @@ startGameDetectThread = setTick(async () => {
     await startGame();
   }
 });
-

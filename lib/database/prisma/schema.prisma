@@ -1,4 +1,4 @@
-// Generated at 2024-10-26T23:59:45.867Z by "merge-prisma-schema"
+// Generated at 2024-11-06T14:40:45.034Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -6,13 +6,20 @@
 generator client {
   provider      = "prisma-client-js"
   engineType    = "binary"
-  binaryTargets = ["windows"]
-  output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
+  //Windows
+  //binaryTargets = ["windows"]
+  //output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
+  //Unix
+  binaryTargets = ["native"]
+  output        = "./generated"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
+  //Windows
+  //url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
+  //Unix
+  url      = "file:./dev.db"
 }
 
 model Location {
@@ -44,7 +51,7 @@ model Character {
   inventory Inventory?
 
   player   Player @relation(fields: [playerId], references: [id])
-  playerId Int    @unique
+  playerId Int
 
   location   Location? @relation(fields: [locationId], references: [id])
   locationId Int?      @unique

@@ -1,11 +1,7 @@
 import { prisma } from "@lib/database";
+import { SaveLocationParam } from "@xp-player/types/server/save-location";
 
-type SaveLocationParams = {
-  characterId: number;
-  location: { x: number; y: number; z: number };
-};
-
-const saveLocation = async ({ characterId, location }: SaveLocationParams) => {
+const saveLocation = async ({ characterId, location }: SaveLocationParam) => {
   const character = await prisma.character.findUnique({
     select: {
       id: true,
