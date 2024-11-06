@@ -10,8 +10,7 @@
     "watch": "rollup -c -w --watch.include src/*.ts"
   },
   "dependencies": {
-    "@lib/citizenfx-utils": "workspace:*",
-    "@lib/nui": "workspace:*"
+    "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
     "@citizenfx/client": "catalog:",
