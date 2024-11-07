@@ -31,7 +31,7 @@ const SelectCharacterMenu = () => {
     if (activeCharacterId === selectedCharacterId) return;
 
     try {
-      await fetchNui("set-active-character", "player-manager", {
+      await fetchNui("set-active-character", "xp-player", {
         characterId: selectedCharacterId,
       });
     } catch (err) {

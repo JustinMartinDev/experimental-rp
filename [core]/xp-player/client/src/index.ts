@@ -1,12 +1,17 @@
 import { onStart, triggerServerEvent } from "@lib/citizenfx-utils/event/client";
-import { initCommands } from "./commands";
-import { forceSpawnCharacter } from "./commands/force-spawn/spawn-character";
 import { wait } from "@lib/citizenfx-utils/waitFor";
-import { initNuiEvents } from "./nui-events";
+
 import { GetMyPlayerReturn } from "@xp-player/types/server/get-my-player";
+
+import { initCommands } from "./commands";
+import { initNuiEvents } from "./nui-events";
+import { initClientEvents } from "./client-events";
+
+import { forceSpawnCharacter } from "./commands/force-spawn/spawn-character";
 
 onStart(() => {
   initCommands();
+  initClientEvents();
   initNuiEvents();
 });
 

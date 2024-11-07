@@ -4,30 +4,26 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf /dist && rm -rf ./node_modules",
-    "watch": "vite build --watch",
     "dev": "vite",
-    "dev:game": "vite build --watch",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "react-query": "catalog:",
-    "@lib/preact-shared": "workspace:*"
+    "@lib/preact-menu-ui": "workspace:*",
+    "@lib/preact-shared": "workspace:*",
+    "@tanstack/react-query": "catalog:",
+    "preact": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@typescript-eslint/eslint-plugin": "catalog:",
-    "@typescript-eslint/parser": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
-    "eslint": "catalog:",
-    "eslint-plugin-react-hooks": "catalog:",
-    "eslint-plugin-react-refresh": "catalog:",
-    "tailwindcss": "catalog:",
+    "@preact/preset-vite": "catalog:",
+    "@testing-library/preact": "catalog:",
+    "@test-tools/runner": "workspace:*",
+    "happy-dom": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:"
+    "tailwindcss": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "vite-plugin-external": "catalog:"
   }
 }

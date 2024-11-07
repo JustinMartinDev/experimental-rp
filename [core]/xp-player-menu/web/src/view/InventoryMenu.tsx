@@ -2,7 +2,7 @@ import "@lib/preact-menu-ui/index.css";
 import { Menu } from "@lib/preact-menu-ui";
 import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
-import { InventoryWithItems } from "@xp-inventory/types/prisma";
+import { GetCharacterInventoryReturn } from "@xp-inventory/types/server/client-events/get-character-inventory";
 
 type Props = {
   footer: ComponentChildren;
@@ -11,7 +11,7 @@ type Props = {
 const InventoryMenu = ({ footer }: Props) => {
   const { setView, getStepContext } = useRouter();
 
-  const { inventory } = getStepContext<{ inventory: InventoryWithItems }>(
+  const { inventory } = getStepContext<GetCharacterInventoryReturn>(
     "inventory",
   );
 

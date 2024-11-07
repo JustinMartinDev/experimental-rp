@@ -21,7 +21,8 @@
     "rollup": "catalog:",
     "tslib": "catalog:",
     "typescript": "catalog:",
-    "@xp-inventory/types": "workspace:*"
+    "@xp-inventory/types": "workspace:*",
+    "@xp-player/types": "workspace:*"
   },
   "engines": {
     "node": ">=18",

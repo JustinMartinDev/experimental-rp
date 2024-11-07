@@ -3,8 +3,12 @@ import { useRouter } from "@lib/preact-shared/providers/RouterProvider";
 import { ComponentChildren } from "preact";
 import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
 
-import { InventoryWithItems } from "@xp-inventory/types/prisma";
-import { Character } from "@xp-player/types/prisma";
+import { GetMyInventory } from "@xp-inventory/types/server/client-events/get-character-inventory";
+
+import {
+  GetCharactersReturn,
+} from "@xp-player/types/server/get-characters";
+
 
 type Props = {
   footer: ComponentChildren;
@@ -15,22 +19,23 @@ const HomePlayerMenu = ({ footer }: Props) => {
 
   const onSelectItem = async (id: string) => {
     if (id === "open-inventory") {
-      const inventory = await fetchNui<InventoryWithItems>(
+      const inventory = await fetchNui<GetCharacterInventoryReturn>(
         "get-my-inventory",
-        "inventory",
+        "xp-inventory",
       );
 
-      setView("inventory", { inventory: inventory });
+      setView("inventory", inventory);
     }
 
     if (id === "select-character") {
-      const { characters } = await fetchNui<{ characters: Character[] }>(
+      const { characters } = await fetchNui<GetCharactersReturn>(
         "get-my-characters",
-        "player-manager",
+        "xp-player",
       );
+      
       const { characterId } = await fetchNui<{ characterId: number }>(
         "get-my-active-character-id",
-        "player-manager",
+        "xp-player",
       );
 
       setView("character-menu", { characters, characterId });

@@ -7,7 +7,7 @@ import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
 
 export function App() {
   useEffect(() => {
-    initNuiFrame(window, "player-menu");
+    initNuiFrame(window, "xp-player-menu");
 
     const onKeyDown = async (e: KeyboardEvent) => {
       if (e.key === "i") {

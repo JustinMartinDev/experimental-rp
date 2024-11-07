@@ -1,9 +1,9 @@
 import { Character } from "../prisma";
 
-export type GetMyCharactersParam = {
+export type GetCharactersParam = {
   playerId: number;
 };
 
-export type GetMyCharactersReturn = {
+export type GetCharactersReturn = {
   characters: Character[];
 };

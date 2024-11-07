@@ -64,8 +64,19 @@ type OnEventParams = (event: string, callback?: Function) => void;
 
 export const onEvent: OnEventParams = (event, callback = () => {}) => {
   on(`request:${event}`, async (params: string) => {
-    const toReturn = await callback(JSON.parse(params));
-    emit(`response:${event}`, JSON.stringify(toReturn));
+    const toReturn = (await callback(JSON.parse(params))) || {};
+
+    const { eventUuid } = JSON.parse(params) as {
+      eventUuid: string;
+    };
+
+    console.log(
+      "client will respond",
+      `request:${event}`,
+      JSON.stringify(toReturn),
+    );
+
+    emit(`response:${event}:${eventUuid}`, JSON.stringify(toReturn));
   });
 };
 

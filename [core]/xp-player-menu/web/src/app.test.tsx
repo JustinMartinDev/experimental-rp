@@ -7,7 +7,7 @@ import { App } from "./app";
 it("should set GetParentResourceName when render", () => {
   render(<App />);
 
-  expect(window.GetParentResourceName()).toBe("player-menu");
+  expect(window.GetParentResourceName()).toBe("xp-player-menu");
 });
 
 it("should set call player-menu:hide-frame when 'i' key pressed", () => {
@@ -15,7 +15,7 @@ it("should set call player-menu:hide-frame when 'i' key pressed", () => {
 
   const { container } = render(<App />);
 
-  expect(window.GetParentResourceName()).toBe("player-menu");
+  expect(window.GetParentResourceName()).toBe("xp-player-menu");
 
   fireEvent.keyDown(container, new KeyboardEvent("keydown", { key: "i" }));
 

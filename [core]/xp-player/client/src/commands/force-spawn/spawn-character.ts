@@ -2,13 +2,13 @@ import { waitFor } from "@lib/citizenfx-utils/waitFor";
 import { loadModel } from "@lib/citizenfx-utils/model/loadModel";
 import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 
-import { GetInfoForSpawnReturn } from "@xp-player/types/server/get-info-for-spawn";
+import { GetSpawnInfoReturn } from "@xp-player/types/server/get-spawn-info";
 
 import { unfreezePlayer } from "./freeze-player";
 import XpPlayerStore from "../../store";
 
 export const spawnCharacter = async (
-  { modelHash, spawnPoint, characterId }: GetInfoForSpawnReturn,
+  { modelHash, spawnPoint, characterId }: GetSpawnInfoReturn,
   dbPlayerId: number,
 ) => {
   const { x, y, z } = spawnPoint;
@@ -43,13 +43,15 @@ export const forceSpawnCharacter = async (
   dbPlayerId: number,
   characterId?: number,
 ) => {
-  const spawnInfo = await triggerServerEvent<GetInfoForSpawnReturn>({
+  console.log("forceSpawnCharacter", dbPlayerId, characterId);
+
+  const spawnInfo = await triggerServerEvent<GetSpawnInfoReturn>({
     event: characterId
       ? "xp-player:get-character-spawn-info"
       : "xp-player:get-default-character-spawn-info",
     params: {
-      dbPlayerId,
-      characterId,
+      playerId: dbPlayerId,
+      characterId: characterId,
     },
   });
 

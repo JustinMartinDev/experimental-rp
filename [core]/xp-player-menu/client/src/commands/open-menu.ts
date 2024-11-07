@@ -8,6 +8,6 @@ const openMenu = async () => {
 };
 
 export const config = {
-  name: "+i-pressed",
+  name: "open-menu",
   fn: openMenu,
 };

@@ -8,7 +8,9 @@ type OnGetItemsEventParams = {
 export const getItems = async ({ source, itemIds }: OnGetItemsEventParams) => {
   const items = await prisma.item.findMany({
     where: {
-      id: itemIds,
+      id: {
+        in: itemIds,
+      }
     },
   });
 
