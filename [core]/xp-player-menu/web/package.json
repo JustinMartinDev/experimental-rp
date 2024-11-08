@@ -1,0 +1,31 @@
+{
+  "name": "@xp-player-menu/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@lib/preact-menu-ui": "workspace:*",
+    "@lib/preact-shared": "workspace:*",
+    "@tanstack/react-query": "catalog:",
+    "preact": "catalog:"
+  },
+  "devDependencies": {
+    "@xp-inventory/types": "workspace:*",
+    "@xp-inventory/mocks": "workspace:*",
+    "@xp-player/types": "workspace:*",
+    "@preact/preset-vite": "catalog:",
+    "@testing-library/preact": "catalog:",
+    "@test-tools/runner": "workspace:*",
+    "happy-dom": "catalog:",
+    "typescript": "catalog:",
+    "tailwindcss": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "vite-plugin-external": "catalog:"
+  }
+}

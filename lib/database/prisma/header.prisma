@@ -4,11 +4,18 @@
 generator client {
   provider      = "prisma-client-js"
   engineType    = "binary"
+  //Windows
   binaryTargets = ["windows"]
   output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
+  //Unix
+  //binaryTargets = ["native"]
+  //output        = "./generated"
 }
 
 datasource db {
   provider = "sqlite"
+  //Windows
   url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
+  //Unix
+  //url      = "file:./dev.db"
 }

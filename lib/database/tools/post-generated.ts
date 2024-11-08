@@ -19,9 +19,9 @@ if(alternativePath) {
 config.isBundled = true  
 `;
 
-const file = join(process.cwd(), 'prisma', 'generated', 'index.js');
+const file = join(process.cwd(), "prisma", "generated", "index.js");
 
-const indexContent = readFileSync(file, { encoding: 'utf-8'});
+const indexContent = readFileSync(file, { encoding: "utf-8" });
 
 const newIndexContent = indexContent.replace(toReplaceRegex, replaceValue);
 

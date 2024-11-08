@@ -12,7 +12,7 @@ interface DebugEvent<T = unknown> {
  */
 export const mockTriggerNuiEvents = <T>(
   events: DebugEvent<T>[],
-  timer = 1000
+  timer = 1000,
 ): void => {
   for (const event of events) {
     setTimeout(() => {
@@ -22,7 +22,7 @@ export const mockTriggerNuiEvents = <T>(
             action: event.action,
             data: event.data,
           },
-        })
+        }),
       );
     }, timer);
   }
@@ -30,5 +30,5 @@ export const mockTriggerNuiEvents = <T>(
 
 export const mockTriggerNuiEvent = <T>(
   event: DebugEvent<T>,
-  timer = 1000
+  timer = 1000,
 ): void => mockTriggerNuiEvents([event], timer);

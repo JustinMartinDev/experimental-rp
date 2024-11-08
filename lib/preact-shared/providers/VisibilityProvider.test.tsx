@@ -17,7 +17,7 @@ it("should setProperty 'visibility' to 'hidden' by default", () => {
   render(
     <VisibilityProvider>
       <div>Test</div>
-    </VisibilityProvider>
+    </VisibilityProvider>,
   );
 
   screen.getByText("Test");
@@ -39,7 +39,7 @@ it("should setProperty 'visibility' to 'visible' after nui event sent", () => {
   render(
     <VisibilityProvider>
       <div>Test</div>
-    </VisibilityProvider>
+    </VisibilityProvider>,
   );
 
   screen.getByText("Test");
@@ -48,7 +48,7 @@ it("should setProperty 'visibility' to 'visible' after nui event sent", () => {
     window,
     new MessageEvent("message", {
       data: { action: "my-resource:set-visible", data: true },
-    })
+    }),
   );
 
   expect(setProperty).toHaveBeenNthCalledWith(2, "visibility", "visible");
@@ -68,7 +68,7 @@ it("should not call setProperty if invokeNavite not defined", () => {
   render(
     <VisibilityProvider>
       <div>Test</div>
-    </VisibilityProvider>
+    </VisibilityProvider>,
   );
 
   screen.getByText("Test");

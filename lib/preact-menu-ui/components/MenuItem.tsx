@@ -1,8 +1,9 @@
 import clsx from "clsx";
+import { JSX } from "preact";
 
 type Props = {
   active: boolean;
-  children: React.ReactElement | string;
+  children: JSX.Element | string;
 };
 
 const MenuItem = ({ active, children }: Props) => {

@@ -1,8 +1,9 @@
 const config = {
   schemas: [
     "header.prisma",
-    "@player-manager/prisma/player.schema.prisma",
-    "@inventory/prisma/inventory.schema.prisma",
+    "@xp-player/prisma/player.schema.prisma",
+    "@xp-inventory/prisma/inventory.schema.prisma",
+    "@xp-crimi/prisma/crimi.schema.prisma"
   ],
   output: "prisma/schema.prisma",
   schemaSearchFolders: ["node_modules", "prisma"],

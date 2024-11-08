@@ -1,8 +1,4 @@
-import {
-  ComponentChildren,
-  Context,
-  createContext,
-} from "preact";
+import { ComponentChildren, Context, createContext } from "preact";
 import { useContext, useState, useEffect } from "preact/hooks";
 import { useNuiEvent } from "../hooks/useNuiEvent";
 import { isEnvBrowser } from "../utils/misc";
@@ -32,7 +28,7 @@ export const VisibilityProvider = ({ children }: VisibilityProviderProps) => {
 
     parent.citFrames[resourceName].style.setProperty(
       "visibility",
-      visible ? "visible" : "hidden"
+      visible ? "visible" : "hidden",
     );
   }, [visible]);
 
@@ -49,5 +45,5 @@ export const VisibilityProvider = ({ children }: VisibilityProviderProps) => {
 
 export const useVisibility = () =>
   useContext<VisibilityProviderValue>(
-    VisibilityCtx as Context<VisibilityProviderValue>
+    VisibilityCtx as Context<VisibilityProviderValue>,
   );

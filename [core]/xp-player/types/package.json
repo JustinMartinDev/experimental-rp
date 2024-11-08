@@ -1,0 +1,12 @@
+{
+  "name": "@xp-player/types",
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@lib/database": "workspace:*"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  }
+}

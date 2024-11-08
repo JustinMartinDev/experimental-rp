@@ -55,13 +55,13 @@ As I use [pnpm](https://pnpm.io/) to manage multiple workspace in project, I use
 ├── player
 │   └── prisma
 │   │   ├── player.schema.prisma
-│   │   └── package.json // @player/prisma package
+│   │   └── package.json // @xp-player/prisma package
 │   │   ...
 │   └── fxmanifest.lua
 ├── inventory
 │   └── prisma
 │   │   ├── inventory.schema.prisma
-│   │   └── package.json // @inventory/prisma package
+│   │   └── package.json // @xp-inventory/prisma package
 │   │   ...
 │   └── fxmanifest.lua
 ├── lib
@@ -82,7 +82,7 @@ I use the package[merge-prisma-schema](https://www.npmjs.com/package/merge-prism
   <TabItem value="merge-prisma-schema.config.ts" label="merge-prisma-schema.config.ts">
     ```ts
     const config = {
-      schemas: ["header.prisma", "@player/prisma/player.schema.prisma", "@inventory/prisma/inventory.schema.prisma"],
+      schemas: ["header.prisma", "@xp-player/prisma/player.schema.prisma", "@xp-inventory/prisma/inventory.schema.prisma"],
       output: "prisma/schema.prisma",
       schemaSearchFolders: ["node_modules", "prisma"],
       prismaCli: "npx prisma",
@@ -304,7 +304,7 @@ export default {
 
 ## Example of use
 
-Inside `@player/server` which is a Typescript package with rollup config explained [here](https://justinmartindev.github.io/experimental-rp/docs/conception/bundler-configuration), I add `@lib/database` to the `dependencies`.
+Inside `@xp-player/server` which is a Typescript package with rollup config explained [here](https://justinmartindev.github.io/experimental-rp/docs/conception/bundler-configuration), I add `@lib/database` to the `dependencies`.
 
 `server.ts`
 

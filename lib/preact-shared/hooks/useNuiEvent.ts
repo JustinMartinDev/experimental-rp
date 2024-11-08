@@ -23,7 +23,7 @@ type NuiHandlerSignature<T> = (data: T) => void;
 
 export const useNuiEvent = <T = unknown>(
   action: string,
-  handler: (data: T) => void
+  handler: (data: T) => void,
 ) => {
   const savedHandler: RefObject<NuiHandlerSignature<T>> = useRef(noop);
 

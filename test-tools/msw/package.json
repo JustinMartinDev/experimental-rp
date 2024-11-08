@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@inventory/msw": "workspace:*",
-    "@player-menu/msw": "workspace:*"
+    "@xp-inventory/msw": "workspace:*",
+    "@xp-player-menu/msw": "workspace:*"
   },
   "devDependencies": {
     "msw": "catalog:",

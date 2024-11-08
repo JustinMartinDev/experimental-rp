@@ -1,0 +1,40 @@
+model Location {
+  id   Int     @id @default(autoincrement())
+  name String?
+  x    Float
+  y    Float
+  z    Float
+
+  character Character?
+  ped Ped?
+}
+
+model Player {
+  id      Int    @id @default(autoincrement())
+  steamId String @unique
+  pseudo  String @default("")
+
+  characters Character[]
+}
+
+model Character {
+  id Int @id @default(autoincrement())
+
+  lastname  String
+  firstname String
+
+  modelHash String @default("u_m_y_rsranger_01")
+
+  inventory Inventory?
+
+  player   Player @relation(fields: [playerId], references: [id])
+  playerId Int
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?
+
+  location   Location? @relation(fields: [locationId], references: [id])
+  locationId Int?      @unique
+
+  defaultPlayerCharacter Boolean @default(false)
+}

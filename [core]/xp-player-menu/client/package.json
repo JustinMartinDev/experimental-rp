@@ -1,0 +1,29 @@
+{
+  "name": "@xp-player-menu/client",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf ./dist && rm -rf ./node_modules",
+    "prebuild": "rm -rf ./dist",
+    "--------- BUILD ---------": "--------- BUILD ---------",
+    "build": "rollup -c",
+    "--------- WATCH ---------": "--------- WATCH ---------",
+    "watch": "rollup -c -w --watch.include src/*.ts"
+  },
+  "dependencies": {
+    "@lib/citizenfx-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@citizenfx/client": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "@types/node": "catalog:",
+    "rollup": "catalog:",
+    "tslib": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9.5"
+  }
+}

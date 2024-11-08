@@ -19,7 +19,9 @@ const Menu = ({
   onQuit,
   onSelectItem,
 }: Props) => {
-  const [activeItemId, setActiveItemId] = useState<string>(items[0].id);
+  const [activeItemId, setActiveItemId] = useState<string>(
+    items.length > 0 ? items[0].id : "",
+  );
 
   const moveDown = useCallback(() => {
     const currentIndex = items.findIndex((item) => item.id === activeItemId);
@@ -35,6 +37,14 @@ const Menu = ({
 
   const onKeyDown = useCallback(
     ({ code }: KeyboardEvent) => {
+      if (code === "Backspace" || code === "Escape") {
+        onQuit();
+      }
+
+      if(items.length === 0) {
+        return;
+      }
+
       if (code === "ArrowDown") {
         moveDown();
       }
@@ -46,12 +56,8 @@ const Menu = ({
       if (code === "Enter" || code === "NumpadEnter") {
         onSelectItem(activeItemId);
       }
-
-      if (code === "Backspace" || code === "Escape") {
-        onQuit();
-      }
     },
-    [moveDown, moveUp, onSelectItem, activeItemId, onQuit]
+    [moveDown, moveUp, onSelectItem, activeItemId, onQuit],
   );
 
   useEffect(() => {

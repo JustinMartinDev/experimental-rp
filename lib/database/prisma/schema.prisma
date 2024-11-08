@@ -1,4 +1,4 @@
-// Generated at 2024-10-26T23:59:45.867Z by "merge-prisma-schema"
+// Generated at 2024-11-08T14:22:54.197Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -6,13 +6,20 @@
 generator client {
   provider      = "prisma-client-js"
   engineType    = "binary"
+  //Windows
   binaryTargets = ["windows"]
   output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
+  //Unix
+  //binaryTargets = ["native"]
+  //output        = "./generated"
 }
 
 datasource db {
   provider = "sqlite"
+  //Windows
   url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
+  //Unix
+  //url      = "file:./dev.db"
 }
 
 model Location {
@@ -23,6 +30,7 @@ model Location {
   z    Float
 
   character Character?
+  ped       Ped?
 }
 
 model Player {
@@ -44,7 +52,10 @@ model Character {
   inventory Inventory?
 
   player   Player @relation(fields: [playerId], references: [id])
-  playerId Int    @unique
+  playerId Int
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?
 
   location   Location? @relation(fields: [locationId], references: [id])
   locationId Int?      @unique
@@ -83,4 +94,26 @@ model ItemInInventory {
   quantity Int @default(1)
 
   @@id([itemId, inventoryId])
+}
+
+model Ped {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int      @unique // relation scalar field (used in the `@relation` attribute above)
+
+  actionId    String // Id of action
+  actionParam String // Params of action
+
+  radius Int @default(1)
+}
+
+model Organization {
+  id   Int    @id @default(autoincrement())
+  name String // Name of the organization
+
+  type String // Type of the organization "government", "criminal", "company"
+
+  characters Character[] // Characters in the organization
 }

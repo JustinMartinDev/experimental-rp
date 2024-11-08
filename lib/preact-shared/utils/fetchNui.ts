@@ -41,7 +41,7 @@ export async function fetchNui<T = unknown>(
   eventName: string,
   resourceName?: string,
   data?: unknown,
-  mockData?: T
+  mockData?: T,
 ): Promise<T> {
   const options = {
     method: "post",
@@ -62,7 +62,7 @@ export async function fetchNui<T = unknown>(
   try {
     const resp = await fetch(
       `https://${hostName}/${hostName}:${eventName}`,
-      options
+      options,
     );
 
     const respFormatted = (await resp.json()) as T;

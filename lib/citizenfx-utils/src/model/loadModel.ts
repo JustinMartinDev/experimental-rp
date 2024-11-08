@@ -11,7 +11,7 @@ export const loadModel = (hash: string, timeout = 1000) => {
     const isModelValid = IsModelValid(hash);
     const isInCdImage = IsModelInCdimage(hash);
 
-    if(!isModelValid) {
+    if (!isModelValid) {
       reject(`Model ${hash} is not valid`);
     }
 
@@ -24,19 +24,18 @@ export const loadModel = (hash: string, timeout = 1000) => {
       const isTimeout = GetGameTimer() - start >= timeout;
 
       // If model is loaded or timeout, so clear the interval before resolving
-      if(isLoaded || isTimeout) {
+      if (isLoaded || isTimeout) {
         clearInterval(interval);
       }
 
-      if(isLoaded) {
+      if (isLoaded) {
         resolve(true);
       }
 
-      if(isTimeout) {
+      if (isTimeout) {
         SetModelAsNoLongerNeeded(hash);
         reject(`Model ${hash} failed to load in ${timeout}ms`);
       }
     }, 1);
-
   });
-}
+};

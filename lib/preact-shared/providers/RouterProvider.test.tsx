@@ -12,7 +12,7 @@ it("should render the inventory view after setContext called", () => {
   render(
     <RouterProvider
       mapView={{ home: <div>Home</div>, inventory: <div>Inventory</div> }}
-    />
+    />,
   );
 
   screen.getByText("Home");
@@ -23,7 +23,7 @@ it("should render the inventory view after setContext called", () => {
     window,
     new MessageEvent("message", {
       data: { action: "my-resource:set-view", data: { viewId: "inventory" } },
-    })
+    }),
   );
 
   screen.getByText("Inventory");
@@ -33,7 +33,7 @@ it("should render 'Not defined' if viewId not exist", () => {
   render(
     <RouterProvider
       mapView={{ home: <div>Home</div>, inventory: <div>Inventory</div> }}
-    />
+    />,
   );
 
   screen.getByText("Home");
@@ -44,7 +44,7 @@ it("should render 'Not defined' if viewId not exist", () => {
     window,
     new MessageEvent("message", {
       data: { action: "my-resource:set-view", data: { viewId: null } },
-    })
+    }),
   );
 
   screen.getByText("Not defined");
