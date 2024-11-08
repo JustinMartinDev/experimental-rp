@@ -6,6 +6,7 @@ model Location {
   z    Float
 
   character Character?
+  ped Ped?
 }
 
 model Player {
@@ -28,6 +29,9 @@ model Character {
 
   player   Player @relation(fields: [playerId], references: [id])
   playerId Int
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?
 
   location   Location? @relation(fields: [locationId], references: [id])
   locationId Int?      @unique

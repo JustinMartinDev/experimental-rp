@@ -1,4 +1,4 @@
-// Generated at 2024-11-07T23:35:29.500Z by "merge-prisma-schema"
+// Generated at 2024-11-08T14:22:54.197Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -30,6 +30,7 @@ model Location {
   z    Float
 
   character Character?
+  ped       Ped?
 }
 
 model Player {
@@ -52,6 +53,9 @@ model Character {
 
   player   Player @relation(fields: [playerId], references: [id])
   playerId Int
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?
 
   location   Location? @relation(fields: [locationId], references: [id])
   locationId Int?      @unique
@@ -90,4 +94,26 @@ model ItemInInventory {
   quantity Int @default(1)
 
   @@id([itemId, inventoryId])
+}
+
+model Ped {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int      @unique // relation scalar field (used in the `@relation` attribute above)
+
+  actionId    String // Id of action
+  actionParam String // Params of action
+
+  radius Int @default(1)
+}
+
+model Organization {
+  id   Int    @id @default(autoincrement())
+  name String // Name of the organization
+
+  type String // Type of the organization "government", "criminal", "company"
+
+  characters Character[] // Characters in the organization
 }

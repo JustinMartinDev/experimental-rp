@@ -1,0 +1,21 @@
+model Ped {
+  id        Int      @id @default(autoincrement())
+  name    String
+
+  location    Location   @relation(fields: [locationId], references: [id])
+  locationId  Int      @unique // relation scalar field (used in the `@relation` attribute above)
+
+  actionId      String    // Id of action
+  actionParam   String    // Params of action
+
+  radius      Int      @default(1)
+}
+
+model Organization {
+  id        Int      @id @default(autoincrement())
+  name          String    // Name of the organization
+
+  type          String    // Type of the organization "government", "criminal", "company"
+  
+  characters    Character[] // Characters in the organization
+}

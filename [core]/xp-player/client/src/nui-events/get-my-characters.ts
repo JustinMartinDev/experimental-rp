@@ -9,6 +9,8 @@ import {
 const getMyCharacters: NUICallbackFunction = async (_data, cb) => {
   const dbPlayerId = XpPlayerStore.activeDbPlayerId;
 
+  console.log("dbPlayerId", dbPlayerId);
+
   const { characters } = await triggerServerEvent<GetCharactersReturn>({
     event: "xp-player:get-characters",
     params: {

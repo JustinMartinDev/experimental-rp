@@ -90,6 +90,92 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
 
+  '[core]/xp-crimi/client':
+    dependencies:
+      '@lib/citizenfx-utils':
+        specifier: workspace:*
+        version: link:../../../lib/citizenfx-utils
+    devDependencies:
+      '@citizenfx/client':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@rollup/plugin-commonjs':
+        specifier: 'catalog:'
+        version: 26.0.1(rollup@4.21.0)
+      '@rollup/plugin-node-resolve':
+        specifier: 'catalog:'
+        version: 15.2.3(rollup@4.21.0)
+      '@rollup/plugin-typescript':
+        specifier: 'catalog:'
+        version: 11.1.6(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      '@xp-crimi/types':
+        specifier: workspace:*
+        version: link:../types
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  '[core]/xp-crimi/prisma':
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
+
+  '[core]/xp-crimi/server':
+    dependencies:
+      '@lib/citizenfx-utils':
+        specifier: workspace:*
+        version: link:../../../lib/citizenfx-utils
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+    devDependencies:
+      '@citizenfx/server':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@rollup/plugin-commonjs':
+        specifier: 'catalog:'
+        version: 26.0.1(rollup@4.21.0)
+      '@rollup/plugin-node-resolve':
+        specifier: 'catalog:'
+        version: 15.2.3(rollup@4.21.0)
+      '@rollup/plugin-typescript':
+        specifier: 'catalog:'
+        version: 11.1.6(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      '@xp-crimi/types':
+        specifier: workspace:*
+        version: link:../types
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  '[core]/xp-crimi/types':
+    devDependencies:
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
+
   '[core]/xp-inventory/client':
     dependencies:
       '@lib/citizenfx-utils':
@@ -488,6 +574,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.1
+      '@xp-crimi/prisma':
+        specifier: workspace:*
+        version: link:../../[core]/xp-crimi/prisma
       '@xp-inventory/prisma':
         specifier: workspace:*
         version: link:../../[core]/xp-inventory/prisma
