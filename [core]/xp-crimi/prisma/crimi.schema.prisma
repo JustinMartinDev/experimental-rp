@@ -1,9 +1,13 @@
 model Ped {
   id        Int      @id @default(autoincrement())
   name    String
+  model   String    @default("g_m_m_casrn_01")// Model of the ped
 
   location    Location   @relation(fields: [locationId], references: [id])
   locationId  Int      @unique // relation scalar field (used in the `@relation` attribute above)
+
+  organization  Organization? @relation(fields: [organizationId], references: [id])
+  organizationId  Int?      @unique // relation scalar field (used in the `@relation` attribute above)
 
   actionId      String    // Id of action
   actionParam   String    // Params of action
@@ -17,5 +21,9 @@ model Organization {
 
   type          String    // Type of the organization "government", "criminal", "company"
   
+<<<<<<< HEAD
+=======
+  peds          Ped[]    // Peds in the organization
+>>>>>>> a39882e (add model and create resource for crimi managment)
   characters    Character[] // Characters in the organization
 }

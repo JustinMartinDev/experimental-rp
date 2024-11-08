@@ -1,4 +1,4 @@
-// Generated at 2024-11-08T14:22:54.197Z by "merge-prisma-schema"
+// Generated at 2024-11-08T17:46:15.917Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -97,11 +97,15 @@ model ItemInInventory {
 }
 
 model Ped {
-  id   Int    @id @default(autoincrement())
-  name String
+  id    Int    @id @default(autoincrement())
+  name  String
+  model String @default("g_m_m_casrn_01") // Model of the ped
 
   location   Location @relation(fields: [locationId], references: [id])
   locationId Int      @unique // relation scalar field (used in the `@relation` attribute above)
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?          @unique // relation scalar field (used in the `@relation` attribute above)
 
   actionId    String // Id of action
   actionParam String // Params of action
@@ -115,5 +119,6 @@ model Organization {
 
   type String // Type of the organization "government", "criminal", "company"
 
+  peds       Ped[] // Peds in the organization
   characters Character[] // Characters in the organization
 }
