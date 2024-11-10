@@ -12,7 +12,7 @@ const registerClientEvent = (name: string, fn: Function) => {
 const initClientEvents = () => {
   console.log("Registering client event :");
 
-  registerClientEvent(getCrimiPedsConfig.name, getCrimiPedsConfig.fn);  
+  registerClientEvent(getCrimiPedsConfig.name, getCrimiPedsConfig.fn);
 };
 
 export { initClientEvents };

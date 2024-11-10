@@ -2,9 +2,7 @@ import { NUICallbackFunction } from "@lib/citizenfx-utils/nui";
 import XpPlayerStore from "../store";
 import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 
-import {
-  GetCharactersReturn,
-} from "@xp-player/types/server/get-characters";
+import { GetCharactersReturn } from "@xp-player/types/server/get-characters";
 
 const getMyCharacters: NUICallbackFunction = async (_data, cb) => {
   const dbPlayerId = XpPlayerStore.activeDbPlayerId;
@@ -18,7 +16,7 @@ const getMyCharacters: NUICallbackFunction = async (_data, cb) => {
     },
   });
 
-  cb({characters});
+  cb({ characters });
 };
 
 export const config = {

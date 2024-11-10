@@ -5,10 +5,7 @@ import { fetchNui } from "@lib/preact-shared/utils/fetchNui";
 
 import { GetMyInventory } from "@xp-inventory/types/server/client-events/get-character-inventory";
 
-import {
-  GetCharactersReturn,
-} from "@xp-player/types/server/get-characters";
-
+import { GetCharactersReturn } from "@xp-player/types/server/get-characters";
 
 type Props = {
   footer: ComponentChildren;
@@ -32,7 +29,7 @@ const HomePlayerMenu = ({ footer }: Props) => {
         "get-my-characters",
         "xp-player",
       );
-      
+
       const { characterId } = await fetchNui<{ characterId: number }>(
         "get-my-active-character-id",
         "xp-player",

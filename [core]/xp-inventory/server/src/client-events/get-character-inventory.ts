@@ -1,7 +1,12 @@
 import { prisma } from "@lib/database";
-import { GetCharacterInventoryParam, GetCharacterInventoryReturn} from "@xp-inventory/types/server/client-events/get-character-inventory";
+import {
+  GetCharacterInventoryParam,
+  GetCharacterInventoryReturn,
+} from "@xp-inventory/types/server/client-events/get-character-inventory";
 
-export const getCharacterInventory = async ({ characterId }: GetCharacterInventoryParam) => {
+export const getCharacterInventory = async ({
+  characterId,
+}: GetCharacterInventoryParam) => {
   const inventory = await prisma.inventory.findFirst({
     where: {
       characterId,

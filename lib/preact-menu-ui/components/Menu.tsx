@@ -41,7 +41,7 @@ const Menu = ({
         onQuit();
       }
 
-      if(items.length === 0) {
+      if (items.length === 0) {
         return;
       }
 

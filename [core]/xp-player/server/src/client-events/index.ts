@@ -9,18 +9,24 @@ import { config as getDefaultCharacterSpawnInfoConfig } from "./get-default-char
 const resourceName = GetCurrentResourceName();
 
 const registerClientEvent = (name: string, fn: Function) => {
-  console.log(  `${resourceName}:${name}`);
+  console.log(`${resourceName}:${name}`);
   onClientEvent(`${resourceName}:${name}`, fn);
 };
 
 const initClientEvents = () => {
   console.log("Registering client event :");
-  
-  registerClientEvent(getCharacterSpawnInfoConfig.name, getCharacterSpawnInfoConfig.fn);
+
+  registerClientEvent(
+    getCharacterSpawnInfoConfig.name,
+    getCharacterSpawnInfoConfig.fn,
+  );
   registerClientEvent(saveLocationConfig.name, saveLocationConfig.fn);
   registerClientEvent(getMyPlayer.name, getMyPlayer.fn);
   registerClientEvent(getCharactersConfig.name, getCharactersConfig.fn);
-  registerClientEvent(getDefaultCharacterSpawnInfoConfig.name, getDefaultCharacterSpawnInfoConfig.fn);  
+  registerClientEvent(
+    getDefaultCharacterSpawnInfoConfig.name,
+    getDefaultCharacterSpawnInfoConfig.fn,
+  );
 };
 
 export { initClientEvents };

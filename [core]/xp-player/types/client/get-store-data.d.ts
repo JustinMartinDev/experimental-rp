@@ -1,5 +1,6 @@
 export type GetStoreDataParam = {
-  property: 'activeDbPlayerId', 'activeDbCharacterId'
+  property: "activeDbPlayerId";
+  activeDbCharacterId;
 };
 
 export type GetActiveDbPlayerIdReturn = {
@@ -10,4 +11,6 @@ export type GetActiveDbCharacterIdReturn = {
   activeDbCharacterId: number | null;
 };
 
-export type GetStoreDataReturn = GetActiveDbPlayerIdReturn | GetActiveDbCharacterIdReturn;
+export type GetStoreDataReturn =
+  | GetActiveDbPlayerIdReturn
+  | GetActiveDbCharacterIdReturn;

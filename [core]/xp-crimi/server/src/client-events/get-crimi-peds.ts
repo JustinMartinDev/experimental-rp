@@ -12,7 +12,7 @@ export const getCrimiPeds = async () => {
     },
     where: {
       organization: {
-        type: 'criminal',
+        type: "criminal",
       },
     },
   });

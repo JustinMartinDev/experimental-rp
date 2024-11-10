@@ -7,13 +7,13 @@ import {
 const resourceName = GetCurrentResourceName();
 
 const registerNui = (name: string, fn: NUICallbackFunction<any>) => {
-  console.log(  `${resourceName}:${name}`);
+  console.log(`${resourceName}:${name}`);
   registerNUICallback(name, fn);
 };
 
 const initNuiEvents = () => {
   console.log("Registering nui events :");
-  registerNui(hideFrameConfig.name, hideFrameConfig.fn);  
+  registerNui(hideFrameConfig.name, hideFrameConfig.fn);
 };
 
 export { initNuiEvents };

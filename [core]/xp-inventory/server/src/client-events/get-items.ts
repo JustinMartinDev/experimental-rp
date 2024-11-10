@@ -10,7 +10,7 @@ export const getItems = async ({ source, itemIds }: OnGetItemsEventParams) => {
     where: {
       id: {
         in: itemIds,
-      }
+      },
     },
   });
 

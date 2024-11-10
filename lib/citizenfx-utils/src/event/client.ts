@@ -1,4 +1,3 @@
-
 type TriggerNetEventParams = {
   event: string;
   params?: any;

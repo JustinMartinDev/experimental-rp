@@ -20,8 +20,6 @@ const initNuiEvents = () => {
   registerNui(getMyCharacter.name, getMyCharacter.fn);
   registerNui(getMyActiveCharacterId.name, getMyActiveCharacterId.fn);
   registerNui(setActiveCharacter.name, setActiveCharacter.fn);
-
-  
 };
 
 export { initNuiEvents };

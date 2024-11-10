@@ -1,5 +1,5 @@
-import { PedWithOrganizationAndLocation } from '../../prisma';
+import { PedWithOrganizationAndLocation } from "../../prisma";
 
 export type GetCrimiPedsReturn = {
   peds: PedWithOrganizationAndLocation[];
-}
+};

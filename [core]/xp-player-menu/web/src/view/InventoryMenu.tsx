@@ -11,9 +11,8 @@ type Props = {
 const InventoryMenu = ({ footer }: Props) => {
   const { setView, getStepContext } = useRouter();
 
-  const { inventory } = getStepContext<GetCharacterInventoryReturn>(
-    "inventory",
-  );
+  const { inventory } =
+    getStepContext<GetCharacterInventoryReturn>("inventory");
 
   const items = inventory.items.map(({ item }) => ({
     title: item.name,

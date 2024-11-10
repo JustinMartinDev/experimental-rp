@@ -6,8 +6,9 @@ import {
 
 const DEFAULT_SPAWN_POINT = { x: 0, y: 0, z: 0 };
 
-const getDefaultCharacterSpawnInfo = async ({playerId}: GetDefaultCharacterSpawnInfoParam) => {
-
+const getDefaultCharacterSpawnInfo = async ({
+  playerId,
+}: GetDefaultCharacterSpawnInfoParam) => {
   const player = await prisma.player.findUnique({
     select: {
       pseudo: true,

@@ -11,8 +11,11 @@ const registerCommand = (name: string, fn: Function) => {
 const initCommands = () => {
   console.log("Registering commands :");
 
-  registerCommand(startCarJackingMissionConfig.name, startCarJackingMissionConfig.fn);  
-  registerCommand(getVehicleModelConfig.name, getVehicleModelConfig.fn);  
+  registerCommand(
+    startCarJackingMissionConfig.name,
+    startCarJackingMissionConfig.fn,
+  );
+  registerCommand(getVehicleModelConfig.name, getVehicleModelConfig.fn);
 };
 
 export { initCommands };

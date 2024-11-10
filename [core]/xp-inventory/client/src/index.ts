@@ -8,16 +8,14 @@ onStart(() => {
 });
 
 const testFetchXpPlayerStore = async () => {
-  const data = await triggerClientEvent(
-    {
-      event: "xp-player:get-store-data",
-      params: {
-        property: "activeDbPlayerId"
-      }
-    }
-  );
+  const data = await triggerClientEvent({
+    event: "xp-player:get-store-data",
+    params: {
+      property: "activeDbPlayerId",
+    },
+  });
 
   console.log(data);
-}
+};
 
 RegisterCommand("test-player-store", testFetchXpPlayerStore, false);

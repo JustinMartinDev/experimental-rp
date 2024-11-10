@@ -4,7 +4,7 @@ const getVehiculeModel = async () => {
   const playerPed = PlayerPedId(); // Get player's ped (character)
   const vehicle = GetVehiclePedIsIn(playerPed, false); // Get vehicle player is in
 
-  if(vehicle === 0) {
+  if (vehicle === 0) {
     console.log("No vehicle");
     return;
   }

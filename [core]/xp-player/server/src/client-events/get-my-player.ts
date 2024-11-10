@@ -1,6 +1,9 @@
 import { prisma } from "@lib/database";
 
-import { GetMyPlayerParam, GetMyPlayerReturn } from "@xp-player/types/server/get-my-player";
+import {
+  GetMyPlayerParam,
+  GetMyPlayerReturn,
+} from "@xp-player/types/server/get-my-player";
 
 export const getMyPlayer = async ({ source }: GetMyPlayerParam) => {
   const steamId = GetPlayerIdentifier(`${source}`, 0);
@@ -11,7 +14,7 @@ export const getMyPlayer = async ({ source }: GetMyPlayerParam) => {
     },
   });
 
-  return { player } as  GetMyPlayerReturn;
+  return { player } as GetMyPlayerReturn;
 };
 
 export const config = {

@@ -17,9 +17,10 @@ const initClientEvents = () => {
   // for each call registerClientEvent with config.name and config.fn
   registerClientEvent(getItemConfig.name, getItemConfig.fn);
   registerClientEvent(getItemsConfig.name, getItemsConfig.fn);
-  registerClientEvent(getCharacterInventoryConfig.name, getCharacterInventoryConfig.fn);
-
-  
+  registerClientEvent(
+    getCharacterInventoryConfig.name,
+    getCharacterInventoryConfig.fn,
+  );
 };
 
 export { initClientEvents };

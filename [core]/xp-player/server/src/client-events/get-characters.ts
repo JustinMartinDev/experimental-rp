@@ -1,5 +1,8 @@
 import { prisma } from "@lib/database";
-import { GetCharactersParam, GetCharactersReturn } from "@xp-player/types/server/get-characters";
+import {
+  GetCharactersParam,
+  GetCharactersReturn,
+} from "@xp-player/types/server/get-characters";
 
 export const getCharacters = async ({ playerId }: GetCharactersParam) => {
   const characters = await prisma.character.findMany({

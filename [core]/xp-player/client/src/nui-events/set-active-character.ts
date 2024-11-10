@@ -10,7 +10,10 @@ const setActiveCharacter: NUICallbackFunction<SetActiveCharacterData> = async (
   { characterId },
   cb,
 ) => {
-  console.log(`Setting active character to ${characterId}`, XpPlayerStore.activeDbPlayerId);
+  console.log(
+    `Setting active character to ${characterId}`,
+    XpPlayerStore.activeDbPlayerId,
+  );
 
   await forceSpawnCharacter(XpPlayerStore.activeDbPlayerId!, characterId);
 

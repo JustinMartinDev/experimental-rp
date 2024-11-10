@@ -16,8 +16,6 @@ const initCommands = () => {
   registerCommand(getMyPlayerConfig.name, getMyPlayerConfig.fn);
   registerCommand(forceSpawnConfig.name, forceSpawnConfig.fn);
   registerCommand(saveLocationConfig.name, saveLocationConfig.fn);
-
-  
 };
 
 export { initCommands };

@@ -12,7 +12,7 @@ const registerClientEvent = (name: string, fn: Function) => {
 const initClientEvents = () => {
   console.log("Registering client :");
 
-  registerClientEvent(getStoreDataConfig.name, getStoreDataConfig.fn);  
+  registerClientEvent(getStoreDataConfig.name, getStoreDataConfig.fn);
 };
 
 export { initClientEvents };
