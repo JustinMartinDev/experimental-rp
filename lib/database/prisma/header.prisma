@@ -6,7 +6,7 @@ generator client {
   engineType    = "binary"
   //Windows
   binaryTargets = ["windows"]
-  output        = "C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/lib/database/prisma/generated"
+  output        = "C:/FXServer/txData/experimental-rp/resources/lib/database/prisma/generated"
   //Unix
   //binaryTargets = ["native"]
   //output        = "./generated"
@@ -15,7 +15,7 @@ generator client {
 datasource db {
   provider = "sqlite"
   //Windows
-  url      = "file:C:/gta-fivem/txData/CFXDefaultFiveM_8AE314.base/resources/dev.db"
+  url      = "file:C:/FXServer/txData/experimental-rp/resources/dev.db"
   //Unix
   //url      = "file:./dev.db"
 }
