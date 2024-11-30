@@ -1,5 +1,5 @@
 {
-  "name": "@test-tools/msw",
+  "name": "@tools/msw",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

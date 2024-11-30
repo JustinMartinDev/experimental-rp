@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./node_modules",
-    "prebuild": "rm -rf ./dist",
     "--------- BUILD ---------": "--------- BUILD ---------",
     "build": "rollup -c",
     "--------- WATCH ---------": "--------- WATCH ---------",
@@ -15,9 +14,7 @@
   "devDependencies": {
     "@xp-crimi/types": "workspace:*",
     "@citizenfx/client": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
+    "@tools/rollup": "workspace:",
     "@types/node": "catalog:",
     "rollup": "catalog:",
     "tslib": "catalog:",

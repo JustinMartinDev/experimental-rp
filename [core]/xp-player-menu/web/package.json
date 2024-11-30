@@ -20,7 +20,7 @@
     "@xp-player/types": "workspace:*",
     "@preact/preset-vite": "catalog:",
     "@testing-library/preact": "catalog:",
-    "@test-tools/runner": "workspace:*",
+    "@tools/runner": "workspace:*",
     "happy-dom": "catalog:",
     "typescript": "catalog:",
     "tailwindcss": "catalog:",

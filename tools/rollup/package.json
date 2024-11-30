@@ -1,0 +1,13 @@
+{
+  "name": "@tools/rollup",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "chalk": "^5.3.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.1"
+  }
+}

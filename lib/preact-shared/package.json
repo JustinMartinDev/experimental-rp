@@ -12,7 +12,7 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "@testing-library/preact": "catalog:",
-    "@test-tools/runner": "workspace:*",
+    "@tools/runner": "workspace:*",
     "vite": "catalog:",
     "vite-plugin-external": "catalog:",
     "@preact/preset-vite": "catalog:"
