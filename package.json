@@ -18,7 +18,7 @@
     "build:res:web": "pnpm --filter=*/web build",
     "build:res": "pnpm build:res:client && pnpm build:res:server && pnpm build:res:web",
     "build": "pnpm build:lib && pnpm build:res",
-    "watch": "pnpm --recursive --workspace-concurrency=Infinity watch",
+    "watch": "pnpm --filter=@tools/build watch",
     "------SERVER------": "--------------------------------",
     "start-server": "C:/FXServer/server/FXServer.exe"
   },

@@ -1,8 +1,10 @@
 import typescript from "@rollup/plugin-typescript";
-import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import { readFileSync } from "fs";
+
 import path from "path";
+import { readFileSync } from "fs";
+import { execSync } from "child_process";
+
 import chalk from "chalk";
 import { rimrafSync } from "rimraf";
 
@@ -74,14 +76,42 @@ function logBuild() {
   };
 }
 
-const resConfig = {
-  input: "src/index.ts",
+function triggerDependentBuild() {
+  return {
+    name: "trigger-dependent-build", // Name of the plugin
+    closeBundle() {
+      const { packageName, color, timestamp } = getLogInfo();
+
+      console.log(
+        "<Trigger dependant build>",
+        `[${chalk.hex(color)(packageName)}]`,
+        "-",
+        chalk.greenBright(timestamp),
+      );
+
+      // Run the build script for the dependent package
+      execSync("pnpm --filter=@tools/build build-dependent", {
+        stdio: "inherit",
+      });
+    },
+  };
+}
+
+const baseConfig = {
   output: {
     dir: "dist",
-    format: "cjs",
-    sourcemap: false,
   },
-  plugins: [cleanDist(), logBuild(), resolve(), typescript(), commonjs()],
+  plugins: [
+    cleanDist(),
+    logBuild(),
+    resolve(),
+    typescript(),
+    triggerDependentBuild(),
+  ],
 };
 
-export default resConfig;
+const getBaseConfig = () => ({
+  ...baseConfig,
+});
+
+export default getBaseConfig;
