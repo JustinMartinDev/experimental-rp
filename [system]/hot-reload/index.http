@@ -1,0 +1,7 @@
+# VSCode Rest Client file
+
+# @name getToken
+POST http://localhost:3000/restart?resource=xp-crimi
+
+Accept: application/json
+
