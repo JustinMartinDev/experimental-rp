@@ -1,13 +1,3 @@
-import typescript from "@rollup/plugin-typescript";
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
+import config from "@tools/build/res.rollup.config.js";
 
-export default {
-  input: "src/index.ts",
-  output: {
-    dir: "dist",
-    format: "cjs",
-    sourcemap: false,
-  },
-  plugins: [resolve(), typescript(), commonjs()],
-};
+export default config;

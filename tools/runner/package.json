@@ -1,5 +1,5 @@
 {
-  "name": "@test-tools/runner",
+  "name": "@tools/runner",
   "sideEffects": false,
   "version": "1.0.0",
   "scripts": {
@@ -9,7 +9,7 @@
     "vitest": "catalog:",
     "@testing-library/preact": "catalog:",
     "@preact/preset-vite": "catalog:",
-    "@test-tools/msw": "workspace:*",
+    "@tools/msw": "workspace:*",
     "happy-dom": "catalog:"
   }
 }

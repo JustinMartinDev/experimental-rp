@@ -1,5 +1,5 @@
 import "./jsdom.setupFiles";
-import "@test-tools/msw/vitest.setupFiles";
+import "@tools/msw/vitest.setupFiles";
 
 import { afterEach } from "vitest";
 

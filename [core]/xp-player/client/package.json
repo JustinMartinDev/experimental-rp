@@ -15,9 +15,7 @@
   "devDependencies": {
     "@xp-player/types": "workspace:*",
     "@citizenfx/client": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
+    "@tools/build": "workspace:",
     "@types/node": "catalog:",
     "rollup": "catalog:",
     "tslib": "catalog:",

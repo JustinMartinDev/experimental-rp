@@ -1,10 +1,12 @@
-import { defineConfig } from "vite";
-import path from "path";
-import { readFileSync } from "node:fs";
-import chalk from "chalk";
-import { execSync } from "node:child_process";
+import typescript from "@rollup/plugin-typescript";
+import resolve from "@rollup/plugin-node-resolve";
 
-import dts from "vite-plugin-dts";
+import path from "path";
+import { readFileSync } from "fs";
+import { execSync } from "child_process";
+
+import chalk from "chalk";
+import { rimrafSync } from "rimraf";
 
 function packageNameToHexColor(packageName) {
   // Create a hash from the package name
@@ -38,6 +40,42 @@ function getLogInfo() {
   return { packageName, color, timestamp };
 }
 
+function cleanDist() {
+  return {
+    name: "clean-dist", // Name of the plugin
+    buildStart() {
+      const { packageName, color, timestamp } = getLogInfo();
+
+      console.log(
+        "<Clean>",
+        "[" + chalk.hex(color)(packageName) + "]",
+        "-",
+        chalk.greenBright(timestamp),
+      );
+
+      // Remove the dist directory
+      const distPath = path.resolve(process.cwd(), "dist");
+      rimrafSync(distPath);
+    },
+  };
+}
+
+function logBuild() {
+  return {
+    name: "log-build", // Name of the plugin
+    buildStart() {
+      const { packageName, color, timestamp } = getLogInfo();
+
+      console.log(
+        "<Build>",
+        "[" + chalk.hex(color)(packageName) + "]",
+        "-",
+        chalk.greenBright(timestamp),
+      );
+    },
+  };
+}
+
 function triggerDependentBuild() {
   return {
     name: "trigger-dependent-build", // Name of the plugin
@@ -59,22 +97,21 @@ function triggerDependentBuild() {
   };
 }
 
-export default defineConfig({
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, "./index.tsx"),
-      name: "PreactMenuUi",
-      formats: ["es", "umd"],
-      fileName: (format) => `preact-menu-ui.${format}.js`,
-    },
-    rollupOptions: {
-      external: ["preact"],
-      output: {
-        globals: {
-          preact: "Preact",
-        },
-      },
-    },
+const baseConfig = {
+  output: {
+    dir: "dist",
   },
-  plugins: [dts(), triggerDependentBuild()],
+  plugins: [
+    cleanDist(),
+    logBuild(),
+    resolve(),
+    typescript(),
+    triggerDependentBuild(),
+  ],
+};
+
+const getBaseConfig = () => ({
+  ...baseConfig,
 });
+
+export default getBaseConfig;

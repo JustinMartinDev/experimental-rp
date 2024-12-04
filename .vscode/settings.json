@@ -1,0 +1,9 @@
+{
+  "vsicons.associations.files": [
+    {
+      "icon": "rollup",
+      "extensions": [".rollup.config.js"],
+      "format": "svg"
+    }
+  ]
+}

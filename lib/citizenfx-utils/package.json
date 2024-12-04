@@ -3,37 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "exports": {
-    "./event/server": {
-      "types": "./dist/event/server.d.ts",
-      "import": "./dist/event/server.js"
-    },
-    "./event/client": {
-      "types": "./dist/event/client.d.ts",
-      "import": "./dist/event/client.js"
-    },
-    "./model/loadModel": {
-      "types": "./dist/model/loadModel.d.ts",
-      "import": "./dist/model/loadModel.js"
-    },
-    "./waitFor": {
-      "types": "./dist/waitFor.d.ts",
-      "import": "./dist/waitFor.js"
-    },
-    "./nui": {
-      "types": "./dist/nui.d.ts",
-      "import": "./dist/nui.js"
-    }
-  },
   "scripts": {
-    "build": "tsc"
+    "watch": "tsc-watch --onSuccess \"pnpm --filter=@tools/build build-dependent\"",
+    "build": "tsc",
+    "postbuild": "pnpm --filter=@tools/build build-dependent"
   },
   "devDependencies": {
     "@citizenfx/client": "catalog:",
     "@citizenfx/server": "catalog:",
     "typescript": "catalog:",
+    "tsc-watch": "^6.2.1",
     "vitest": "^2.0.5"
   },
-  "author": "",
-  "license": "ISC"
+  "exports": {
+    "./event/*": {
+      "types": "./dist/event/*.d.ts",
+      "import": "./dist/event/*.js"
+    },
+    "./model/*": {
+      "types": "./dist/model/*.d.ts",
+      "import": "./dist/model/*.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    }
+  }
 }

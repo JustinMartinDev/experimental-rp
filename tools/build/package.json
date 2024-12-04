@@ -1,0 +1,21 @@
+{
+  "name": "@tools/build",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build-dependent": "node build-dependent.js",
+    "watch": "node watch.js"
+  },
+  "devDependencies": {
+    "normalize-path": "^3.0.0",
+    "glob-watcher": "6.0.0",
+    "matcher": "^5.0.0",
+    "watch": "^1.0.2",
+    "glob": "^11.0.0",
+    "rimraf": "^6.0.1",
+    "chalk": "^5.3.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.1"
+  }
+}

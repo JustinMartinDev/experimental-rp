@@ -3,16 +3,29 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "test": "vitest"
+    "build": "echo 'No build required'",
+    "postbuild": "pnpm --filter=@tools/build build-dependent",
+    "test": "vitest",
+    "watch": "npm-watch"
   },
   "dependencies": {
     "preact": "catalog:"
   },
+  "watch": {
+    "postbuild": {
+      "patterns": [
+        "."
+      ],
+      "extensions": "ts,tsx",
+      "ignore": "node_modules"
+    }
+  },
   "devDependencies": {
+    "npm-watch": "^0.13.0",
     "typescript": "catalog:",
     "vitest": "catalog:",
     "@testing-library/preact": "catalog:",
-    "@test-tools/runner": "workspace:*",
+    "@tools/runner": "workspace:*",
     "vite": "catalog:",
     "vite-plugin-external": "catalog:",
     "@preact/preset-vite": "catalog:"
