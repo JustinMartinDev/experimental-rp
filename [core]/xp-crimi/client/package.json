@@ -14,8 +14,8 @@
   "devDependencies": {
     "@xp-crimi/types": "workspace:*",
     "@citizenfx/client": "catalog:",
-    "@tools/rollup": "workspace:",
     "@types/node": "catalog:",
+    "@tools/build": "workspace:",
     "rollup": "catalog:",
     "tslib": "catalog:",
     "typescript": "catalog:"

@@ -8,7 +8,6 @@ export const registerNUICallback = <T = any>(
   cb: NUICallbackFunction<T>,
 ) => {
   const resourceName = GetCurrentResourceName();
-
   RegisterNuiCallbackType(`${resourceName}:${name}`);
   on(`__cfx_nui:${resourceName}:${name}`, cb);
 };

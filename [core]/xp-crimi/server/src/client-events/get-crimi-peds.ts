@@ -19,7 +19,6 @@ export const getCrimiPeds = async () => {
 
   return { peds } as GetCrimiPedsReturn;
 };
-
 export const config = {
   name: "get-crimi-peds",
   fn: getCrimiPeds,

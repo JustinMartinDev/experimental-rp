@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
+    "watch": "vite build --watch",
     "build": "vite build && tsc --emitDeclarationOnly --declaration",
     "serve": "vite preview"
   },
@@ -12,6 +13,9 @@
     "preact": "catalog:"
   },
   "devDependencies": {
+    "chalk": "^4.1.0",
+    "vite-plugin-dts": "^4.3.0",
+    "@tools/build": "workspace:*",
     "@preact/preset-vite": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",

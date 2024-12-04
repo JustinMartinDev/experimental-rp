@@ -7,16 +7,14 @@
     "--------- BUILD ---------": "--------- BUILD ---------",
     "build": "rollup -c",
     "--------- WATCH ---------": "--------- WATCH ---------",
-    "watch": "rollup -c -w --watch.include src/*.ts"
+    "watch": "rollup -c -w"
   },
   "dependencies": {
     "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
+    "@tools/build": "workspace:*",
     "@citizenfx/client": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
     "@types/node": "catalog:",
     "rollup": "catalog:",
     "tslib": "catalog:",

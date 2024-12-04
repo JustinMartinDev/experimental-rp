@@ -1,3 +1,3 @@
-import config from "@tools/rollup/res.rollup.config.js";
+import getResConfig from "@tools/build/res.rollup.config.js";
 
-export default config;
+export default getResConfig();
