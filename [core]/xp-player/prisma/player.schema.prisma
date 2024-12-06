@@ -5,8 +5,9 @@ model Location {
   y    Float
   z    Float
 
-  character Character?
-  ped Ped?
+  character       Character?
+  ped             Ped?
+  interactionArea InteractionArea?
 }
 
 model Player {
