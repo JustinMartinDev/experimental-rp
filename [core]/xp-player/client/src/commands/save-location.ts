@@ -24,6 +24,6 @@ const saveLocation = async () => {
 };
 
 export const config = {
-  name: "xp-player:save-location",
+  name: "save-location",
   fn: saveLocation,
 };

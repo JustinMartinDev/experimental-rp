@@ -10,6 +10,6 @@ const getMyPlayer = async () => {
 };
 
 export const config = {
-  name: "xp-player:get-my-player",
+  name: "get-my-player",
   fn: getMyPlayer,
 };

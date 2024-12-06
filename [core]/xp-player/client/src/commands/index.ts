@@ -5,7 +5,7 @@ import { config as saveLocationConfig } from "./save-location";
 const resource = GetCurrentResourceName();
 
 const registerCommand = (name: string, fn: Function) => {
-  console.log(`  ${resource}:${name}`);
+  console.log(`${resource}:${name}`);
   RegisterCommand(`${resource}:${name}`, fn, false);
 };
 

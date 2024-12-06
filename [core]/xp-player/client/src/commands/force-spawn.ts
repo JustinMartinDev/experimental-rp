@@ -10,6 +10,6 @@ const forceSpawnCmd = async (source: number, args: ForceSpawnCmdParams) => {
 };
 
 export const config = {
-  name: "xp-player:force-spawn",
+  name: "force-spawn",
   fn: forceSpawnCmd,
 };
