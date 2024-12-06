@@ -97,6 +97,10 @@ function triggerDependentBuild() {
   };
 }
 
+const isDependantBuildDisabled =
+  process.env.DISABLE_DEPENDANT_BUILD === "true" ||
+  process.env.DISABLE_DEPENDANT_BUILD === "1";
+
 const baseConfig = {
   output: {
     dir: "dist",
@@ -106,7 +110,7 @@ const baseConfig = {
     logBuild(),
     resolve(),
     typescript(),
-    triggerDependentBuild(),
+    isDependantBuildDisabled ? null : triggerDependentBuild(),
   ],
 };
 

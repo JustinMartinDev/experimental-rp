@@ -21,12 +21,6 @@ catalogs:
     '@rollup/plugin-commonjs':
       specifier: ^26.0.1
       version: 26.0.1
-    '@rollup/plugin-node-resolve':
-      specifier: ^15.2.3
-      version: 15.2.3
-    '@rollup/plugin-typescript':
-      specifier: ^11.1.6
-      version: 11.1.6
     '@tanstack/react-query':
       specifier: ^5.59.13
       version: 5.59.13
@@ -156,6 +150,80 @@ importers:
         version: 5.5.4
 
   '[core]/xp-crimi/types':
+    devDependencies:
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
+
+  '[core]/xp-interaction-area/client':
+    dependencies:
+      '@lib/citizenfx-utils':
+        specifier: workspace:*
+        version: link:../../../lib/citizenfx-utils
+    devDependencies:
+      '@citizenfx/client':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@tools/build':
+        specifier: 'workspace:'
+        version: link:../../../tools/build
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      '@xp-interaction-area/types':
+        specifier: workspace:*
+        version: link:../types
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  '[core]/xp-interaction-area/prisma':
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
+
+  '[core]/xp-interaction-area/server':
+    dependencies:
+      '@lib/citizenfx-utils':
+        specifier: workspace:*
+        version: link:../../../lib/citizenfx-utils
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+    devDependencies:
+      '@citizenfx/server':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@tools/build':
+        specifier: 'workspace:'
+        version: link:../../../tools/build
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      '@xp-interaction-area/types':
+        specifier: workspace:*
+        version: link:../types
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  '[core]/xp-interaction-area/types':
     devDependencies:
       '@lib/database':
         specifier: workspace:*
@@ -526,12 +594,6 @@ importers:
       '@rollup/plugin-commonjs':
         specifier: 'catalog:'
         version: 26.0.1(rollup@4.21.0)
-      '@rollup/plugin-node-resolve':
-        specifier: 'catalog:'
-        version: 15.2.3(rollup@4.21.0)
-      '@rollup/plugin-typescript':
-        specifier: 'catalog:'
-        version: 11.1.6(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)
       '@tools/build':
         specifier: workspace:*
         version: link:../../tools/build
@@ -541,6 +603,9 @@ importers:
       '@xp-crimi/prisma':
         specifier: workspace:*
         version: link:../../[core]/xp-crimi/prisma
+      '@xp-interaction-area/prisma':
+        specifier: workspace:*
+        version: link:../../[core]/xp-interaction-area/prisma
       '@xp-inventory/prisma':
         specifier: workspace:*
         version: link:../../[core]/xp-inventory/prisma
@@ -2178,15 +2243,6 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/plugin-node-resolve@15.2.3':
-    resolution: {integrity: sha512-j/lym8nf5E21LwBT4Df1VD6hRO2L2iwUeUmP7litikRsVp1H6NWx20NEp0Y7su+7XGc476GnXXc4kFeZNGmaSQ==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.78.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-
   '@rollup/plugin-node-resolve@15.3.0':
     resolution: {integrity: sha512-9eO5McEICxMzJpDW9OnMYSv4Sta3hmt7VtBFz5zR9273suNOydOyq/FrGeGy+KsTRFm8w0SLVhzig2ILFT63Ag==}
     engines: {node: '>=14.0.0'}
@@ -2194,19 +2250,6 @@ packages:
       rollup: ^2.78.0||^3.0.0||^4.0.0
     peerDependenciesMeta:
       rollup:
-        optional: true
-
-  '@rollup/plugin-typescript@11.1.6':
-    resolution: {integrity: sha512-R92yOmIACgYdJ7dJ97p4K69I8gg6IEHt8M7dUBxN3W6nrO8uUxX5ixl0yU/N3aZTi8WhPuICvOHXQvF6FaykAA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.14.0||^3.0.0||^4.0.0
-      tslib: '*'
-      typescript: '>=3.7.0'
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-      tslib:
         optional: true
 
   '@rollup/plugin-typescript@12.1.1':
@@ -3155,10 +3198,6 @@ packages:
 
   buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
-
-  builtin-modules@3.3.0:
-    resolution: {integrity: sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==}
-    engines: {node: '>=6'}
 
   bytes@3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
@@ -4597,10 +4636,6 @@ packages:
   is-boolean-object@1.1.2:
     resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
     engines: {node: '>= 0.4'}
-
-  is-builtin-module@3.2.1:
-    resolution: {integrity: sha512-BSLE3HnV2syZ0FK0iMA/yUGplUeMmNz4AW5fnTunbCIqZi4vG3WjJT9FHMy5D69xmAYBHXQhJdALdpwVxV501A==}
-    engines: {node: '>=6'}
 
   is-callable@1.2.7:
     resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
@@ -9657,17 +9692,6 @@ snapshots:
     optionalDependencies:
       rollup: 4.21.0
 
-  '@rollup/plugin-node-resolve@15.2.3(rollup@4.21.0)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
-      '@types/resolve': 1.20.2
-      deepmerge: 4.3.1
-      is-builtin-module: 3.2.1
-      is-module: 1.0.0
-      resolve: 1.22.8
-    optionalDependencies:
-      rollup: 4.21.0
-
   '@rollup/plugin-node-resolve@15.3.0(rollup@4.21.0)':
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
@@ -9677,15 +9701,6 @@ snapshots:
       resolve: 1.22.8
     optionalDependencies:
       rollup: 4.21.0
-
-  '@rollup/plugin-typescript@11.1.6(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
-      resolve: 1.22.8
-      typescript: 5.5.4
-    optionalDependencies:
-      rollup: 4.21.0
-      tslib: 2.7.0
 
   '@rollup/plugin-typescript@12.1.1(rollup@4.21.0)(tslib@2.7.0)(typescript@5.5.4)':
     dependencies:
@@ -10738,8 +10753,6 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-
-  builtin-modules@3.3.0: {}
 
   bytes@3.0.0: {}
 
@@ -12420,10 +12433,6 @@ snapshots:
     dependencies:
       call-bind: 1.0.7
       has-tostringtag: 1.0.2
-
-  is-builtin-module@3.2.1:
-    dependencies:
-      builtin-modules: 3.3.0
 
   is-callable@1.2.7: {}
 

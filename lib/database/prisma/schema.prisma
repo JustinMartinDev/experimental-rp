@@ -1,4 +1,4 @@
-// Generated at 2024-11-29T11:31:05.222Z by "merge-prisma-schema"
+// Generated at 2024-12-04T22:05:58.837Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -29,8 +29,9 @@ model Location {
   y    Float
   z    Float
 
-  character Character?
-  ped       Ped?
+  character       Character?
+  ped             Ped?
+  interactionArea InteractionArea?
 }
 
 model Player {
@@ -121,4 +122,17 @@ model Organization {
 
   peds       Ped[] // Peds in the organization
   characters Character[] // Characters in the organization
+}
+
+model InteractionArea {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int      @unique
+
+  radius Int
+
+  actionId    String // Id of action
+  actionParam String // Params of action
 }
