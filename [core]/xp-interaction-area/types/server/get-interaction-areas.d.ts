@@ -1,7 +1,7 @@
-import { interactionAreaWithLocation } from "../prisma";
+import { InteractionAreaWithLocation } from "../prisma";
 
 export type GetInteractionAreasParam = {};
 
 export type GetInteractionAreasReturn = {
-  interactionAreas: interactionAreaWithLocation[];
+  interactionAreas: InteractionAreaWithLocation[];
 };

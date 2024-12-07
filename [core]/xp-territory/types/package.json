@@ -1,0 +1,12 @@
+{
+  "name": "@xp-territory/types",
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@lib/database": "workspace:*"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9.5"
+  }
+}

@@ -1,0 +1,11 @@
+model Territory {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  points    String // JSON array string of points
+  minHeight Int
+  maxHeight Int
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?          @unique // relation scalar field (used in the `@relation` attribute above)
+}
