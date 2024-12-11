@@ -5,6 +5,7 @@ const config = {
     "@xp-inventory/prisma/inventory.schema.prisma",
     "@xp-crimi/prisma/crimi.schema.prisma",
     "@xp-interaction-area/prisma/interactionArea.schema.prisma",
+    "@xp-territory/prisma/territory.schema.prisma",
   ],
   output: "prisma/schema.prisma",
   schemaSearchFolders: ["node_modules", "prisma"],

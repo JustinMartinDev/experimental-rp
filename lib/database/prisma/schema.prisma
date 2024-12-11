@@ -1,4 +1,4 @@
-// Generated at 2024-12-04T22:05:58.837Z by "merge-prisma-schema"
+// Generated at 2024-12-06T19:24:36.457Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -120,8 +120,9 @@ model Organization {
 
   type String // Type of the organization "government", "criminal", "company"
 
-  peds       Ped[] // Peds in the organization
-  characters Character[] // Characters in the organization
+  territories Territory[] // Territories of the organization
+  peds        Ped[] // Peds in the organization
+  characters  Character[] // Characters in the organization
 }
 
 model InteractionArea {
@@ -135,4 +136,16 @@ model InteractionArea {
 
   actionId    String // Id of action
   actionParam String // Params of action
+}
+
+model Territory {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  points    String // JSON array string of points
+  minHeight Int
+  maxHeight Int
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?          @unique // relation scalar field (used in the `@relation` attribute above)
 }
