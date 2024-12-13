@@ -48,7 +48,7 @@ const config: Config = {
       title: "FiveM - TypeScript",
       logo: {
         alt: "FiveM - TypeScript Logo",
-        src: "img/logo.svg",
+        src: "img/ts-fivem-logo.png",
       },
       items: [
         {
