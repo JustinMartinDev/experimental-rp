@@ -19,6 +19,7 @@
     "migrate": "prisma migrate"
   },
   "devDependencies": {
+    "@xp-ped/prisma": "workspace:*",
     "@xp-inventory/prisma": "workspace:*",
     "@xp-player/prisma": "workspace:*",
     "@xp-crimi/prisma": "workspace:*",

@@ -3,7 +3,7 @@ import { config as openMenuConfig } from "./open-menu";
 const resourceName = GetCurrentResourceName();
 
 const registerCommand = (name: string, fn: Function) => {
-  console.log(`${resourceName}:${name}`);
+  console.log(`  ${resourceName}:${name}`);
   RegisterCommand(`${resourceName}:${name}`, fn, false);
 };
 

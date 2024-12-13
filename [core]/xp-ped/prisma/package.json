@@ -1,9 +1,8 @@
 {
-  "name": "@xp-crimi/types",
+  "name": "@xp-ped/prisma",
   "version": "1.0.0",
   "devDependencies": {
-    "typescript": "^5.5.4",
-    "@lib/database": "workspace:*"
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">=18",

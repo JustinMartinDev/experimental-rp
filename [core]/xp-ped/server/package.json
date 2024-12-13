@@ -1,5 +1,5 @@
 {
-  "name": "@xp-crimi/server",
+  "name": "@xp-ped/server",
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./node_modules",
@@ -18,7 +18,8 @@
     "@types/node": "catalog:",
     "rollup": "catalog:",
     "tslib": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "@xp-ped/types": "workspace:*"
   },
   "engines": {
     "node": ">=18",

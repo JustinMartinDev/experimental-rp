@@ -1,14 +1,13 @@
 import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { loadModel } from "@lib/citizenfx-utils/model/loadModel";
 
-import { GetCrimiPedsReturn } from "@xp-crimi/types/server/client-event/get-crimi-peds";
-import {
-  Location,
-  PedWithOrganizationAndLocation,
-} from "@xp-crimi/types/prisma";
+import { GetPedsReturn } from "@xp-ped/types/server/client-event/get-peds";
+import { PedWithLocation } from "@xp-ped/types/prisma";
 
-const spawnPed = async (pedInfo: PedWithOrganizationAndLocation) => {
+const spawnPed = async (pedInfo: PedWithLocation) => {
   const { name, location, model } = pedInfo;
+
+  console.log("model", model);
 
   // Load model
   await loadModel(model);
@@ -19,7 +18,7 @@ const spawnPed = async (pedInfo: PedWithOrganizationAndLocation) => {
     model,
     location.x,
     location.y,
-    location.z,
+    location.z - 0.5,
     0,
     false,
     true,
@@ -35,25 +34,19 @@ const spawnPed = async (pedInfo: PedWithOrganizationAndLocation) => {
   TaskSetBlockingOfNonTemporaryEvents(ped, true);
   SetPedFleeAttributes(ped, 0, false);
   SetPedCombatAttributes(ped, 46, true);
-
-  console.log(
-    "Spawn ped",
-    name,
-    "at",
-    location.x,
-    location.y,
-    location.z,
-    "with model",
-    model,
-  );
 };
 
-export const spawnCrimiPeds = async () => {
+export const spawnPeds = async () => {
   // Get crimi peds
-  const { peds } = await triggerServerEvent<GetCrimiPedsReturn>({
-    event: "xp-crimi:get-crimi-peds",
+  const { peds } = await triggerServerEvent<GetPedsReturn>({
+    event: "xp-ped:get-peds",
   });
 
   // Spawn crimi peds
   await Promise.all(peds.map(spawnPed));
+};
+
+export const config = {
+  name: "spawn-peds",
+  fn: spawnPeds,
 };

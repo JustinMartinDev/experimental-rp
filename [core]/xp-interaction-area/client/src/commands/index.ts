@@ -3,7 +3,8 @@ import { config as initInteractionAreasConfig } from "./init-interaction-areas";
 const resource = GetCurrentResourceName();
 
 const registerCommand = (name: string, fn: Function) => {
-  console.log(`${resource}:${name}`);
+  console.log(`  ${resource}:${name}`);
+
   RegisterCommand(`${resource}:${name}`, fn, false);
 };
 

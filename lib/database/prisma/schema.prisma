@@ -1,4 +1,4 @@
-// Generated at 2024-12-06T19:24:36.457Z by "merge-prisma-schema"
+// Generated at 2024-12-13T22:44:31.239Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -107,11 +107,6 @@ model Ped {
 
   organization   Organization? @relation(fields: [organizationId], references: [id])
   organizationId Int?          @unique // relation scalar field (used in the `@relation` attribute above)
-
-  actionId    String // Id of action
-  actionParam String // Params of action
-
-  radius Int @default(1)
 }
 
 model Organization {

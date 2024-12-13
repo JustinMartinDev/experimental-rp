@@ -9,7 +9,7 @@ import { config as getDefaultCharacterSpawnInfoConfig } from "./get-default-char
 const resourceName = GetCurrentResourceName();
 
 const registerClientEvent = (name: string, fn: Function) => {
-  console.log(`${resourceName}:${name}`);
+  console.log(`  ${resourceName}:${name}`);
   onClientEvent(`${resourceName}:${name}`, fn);
 };
 

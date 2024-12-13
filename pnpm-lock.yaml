@@ -99,9 +99,6 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.1
-      '@xp-crimi/types':
-        specifier: workspace:*
-        version: link:../types
       rollup:
         specifier: 'catalog:'
         version: 4.21.0
@@ -136,9 +133,6 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.1
-      '@xp-crimi/types':
-        specifier: workspace:*
-        version: link:../types
       rollup:
         specifier: 'catalog:'
         version: 4.21.0
@@ -147,15 +141,6 @@ importers:
         version: 2.7.0
       typescript:
         specifier: 'catalog:'
-        version: 5.5.4
-
-  '[core]/xp-crimi/types':
-    devDependencies:
-      '@lib/database':
-        specifier: workspace:*
-        version: link:../../../lib/database
-      typescript:
-        specifier: ^5.5.4
         version: 5.5.4
 
   '[core]/xp-interaction-area/client':
@@ -366,6 +351,80 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 2.1.3(@types/node@22.7.8)(happy-dom@15.7.4)(msw@2.4.11(typescript@5.5.4))(terser@5.34.1)
+
+  '[core]/xp-ped/client':
+    dependencies:
+      '@lib/citizenfx-utils':
+        specifier: workspace:*
+        version: link:../../../lib/citizenfx-utils
+    devDependencies:
+      '@citizenfx/client':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@tools/build':
+        specifier: 'workspace:'
+        version: link:../../../tools/build
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      '@xp-ped/types':
+        specifier: workspace:*
+        version: link:../types
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  '[core]/xp-ped/prisma':
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
+
+  '[core]/xp-ped/server':
+    dependencies:
+      '@lib/citizenfx-utils':
+        specifier: workspace:*
+        version: link:../../../lib/citizenfx-utils
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+    devDependencies:
+      '@citizenfx/server':
+        specifier: 'catalog:'
+        version: 2.0.9282-1
+      '@tools/build':
+        specifier: workspace:*
+        version: link:../../../tools/build
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.16.1
+      '@xp-ped/types':
+        specifier: workspace:*
+        version: link:../types
+      rollup:
+        specifier: 'catalog:'
+        version: 4.21.0
+      tslib:
+        specifier: 'catalog:'
+        version: 2.7.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  '[core]/xp-ped/types':
+    devDependencies:
+      '@lib/database':
+        specifier: workspace:*
+        version: link:../../../lib/database
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
 
   '[core]/xp-player-menu/client':
     dependencies:
@@ -683,6 +742,9 @@ importers:
       '@xp-inventory/prisma':
         specifier: workspace:*
         version: link:../../[core]/xp-inventory/prisma
+      '@xp-ped/prisma':
+        specifier: workspace:*
+        version: link:../../[core]/xp-ped/prisma
       '@xp-player/prisma':
         specifier: workspace:*
         version: link:../../[core]/xp-player/prisma

@@ -5,7 +5,7 @@ import path from "path";
 import { execSync } from "child_process";
 
 import { rimrafSync } from "rimraf";
-import { getLogInfo, log } from "./console";
+import { getLogInfo, log } from "./console.js";
 
 function pluginCleanDist() {
   return {

@@ -12,7 +12,6 @@
     "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
-    "@xp-crimi/types": "workspace:*",
     "@citizenfx/client": "catalog:",
     "@types/node": "catalog:",
     "@tools/build": "workspace:",

@@ -1,5 +1,5 @@
 {
-  "name": "@xp-crimi/server",
+  "name": "@xp-ped/client",
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./node_modules",
@@ -9,13 +9,13 @@
     "watch": "rollup -c -w"
   },
   "dependencies": {
-    "@lib/citizenfx-utils": "workspace:*",
-    "@lib/database": "workspace:*"
+    "@lib/citizenfx-utils": "workspace:*"
   },
   "devDependencies": {
-    "@citizenfx/server": "catalog:",
-    "@tools/build": "workspace:*",
+    "@xp-ped/types": "workspace:*",
+    "@citizenfx/client": "catalog:",
     "@types/node": "catalog:",
+    "@tools/build": "workspace:",
     "rollup": "catalog:",
     "tslib": "catalog:",
     "typescript": "catalog:"

@@ -5,7 +5,7 @@ import { config as getInteractionAreasConfig } from "./get-interaction-areas";
 const resourceName = GetCurrentResourceName();
 
 const registerClientEvent = (name: string, fn: Function) => {
-  console.log(`${resourceName}:${name}`);
+  console.log(`  ${resourceName}:${name}`);
   onClientEvent(`${resourceName}:${name}`, fn);
 };
 

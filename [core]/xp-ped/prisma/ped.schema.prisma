@@ -1,0 +1,11 @@
+model Ped {
+  id    Int    @id @default(autoincrement())
+  name  String
+  model String @default("g_m_m_casrn_01") // Model of the ped
+
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int      @unique // relation scalar field (used in the `@relation` attribute above)
+
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?          @unique // relation scalar field (used in the `@relation` attribute above)
+}
