@@ -4,7 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import path from "path";
 import { existsSync, readFileSync } from "fs";
 
-import chalk from "chalk";
+import { getLogInfo, log } from "./console.js";
 
 // Function to find the nearest fxmanifest.lua but stop if pnpm-workspace.yaml is found
 function findFxManifestWithStop(startDir) {
@@ -57,74 +57,25 @@ function extractResourceName(manifestPath) {
   return null; // No matching "name" property found
 }
 
-function packageNameToHexColor(packageName) {
-  // Create a hash from the package name
-  let hash = 0;
-  for (let i = 0; i < packageName.length; i++) {
-    hash = packageName.charCodeAt(i) + ((hash << 5) - hash);
-  }
-
-  // Convert hash to a 6-digit hex color
-  let color = "#";
-  for (let i = 0; i < 3; i++) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += ("00" + value.toString(16)).slice(-2);
-  }
-  return color;
-}
-
-function getLogInfo() {
-  // Resolve and read the package.json file
-  const pkgPath = path.resolve(process.cwd(), "package.json");
-  const packageJson = JSON.parse(readFileSync(pkgPath, "utf-8"));
-
-  // Extract the package name
-  const packageName = packageJson.name || "Unnamed Package";
-
-  const color = packageNameToHexColor(packageName);
-
-  const now = new Date();
-  const timestamp = now.toISOString().replace("T", " ").split(".")[0];
-
-  return { packageName, color, timestamp };
-}
-
-function triggerFivemResourceRestart() {
+function pluginTriggerResourceRestart() {
   return {
     name: "trigger-fivem-resource-restart", // Name of the plugin
     closeBundle() {
       const logInfo = getLogInfo();
 
-      console.log(
-        "<Restart>",
-        "[" + chalk.hex(logInfo.color)(logInfo.packageName) + "]",
-        "-",
-        chalk.greenBright(logInfo.timestamp),
-      );
+      log("Restart", null, logInfo);
 
       const manifestPath = findFxManifestWithStop(process.cwd());
 
       if (!manifestPath) {
-        console.log(
-          "<Restart>",
-          "[" + chalk.hex(logInfo.color)(logInfo.packageName) + "]",
-          "-",
-          "unable to locate fxmanifest.lua",
-        );
-
+        log("Restart", "unable to locate fxmanifest.lua", logInfo);
         return;
       }
 
       const resourceName = extractResourceName(manifestPath);
 
       if (!resourceName) {
-        console.log(
-          "<Restart>",
-          "[" + chalk.hex(logInfo.color)(logInfo.packageName) + "]",
-          "-",
-          "unable to extract resource name",
-        );
-
+        log("Restart", "unable to extract resource name", logInfo);
         return;
       }
 
@@ -134,29 +85,14 @@ function triggerFivemResourceRestart() {
       })
         .then((response) => {
           if (!response.ok) {
-            console.log(
-              "<Restart>",
-              "[" + chalk.hex(logInfo.color)(logInfo.packageName) + "]",
-              "-",
-              "unable to restart resource",
-            );
+            log("Restart", "unable to restart resource", logInfo);
           }
         })
         .then(() => {
-          console.log(
-            "<Restart>",
-            "[" + chalk.hex(logInfo.color)(logInfo.packageName) + "]",
-            "-",
-            "resource restarted",
-          );
+          log("Restart", "resource restarted", logInfo);
         })
         .catch(() => {
-          console.log(
-            "<Restart>",
-            "[" + chalk.hex(logInfo.color)(logInfo.packageName) + "]",
-            "-",
-            "unable to restart resource",
-          );
+          log("Restart", "unable to restart resource", logInfo);
         });
     },
   };
@@ -173,7 +109,11 @@ const getResConfig = () => {
       format: "cjs",
       sourcemap: false,
     },
-    plugins: [...baseConfig.plugins, commonjs(), triggerFivemResourceRestart()],
+    plugins: [
+      ...baseConfig.plugins,
+      commonjs(),
+      pluginTriggerResourceRestart(),
+    ],
   };
 };
 
