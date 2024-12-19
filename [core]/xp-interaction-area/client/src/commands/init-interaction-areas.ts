@@ -1,10 +1,6 @@
 import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
 import { InteractionAreaWithLocation } from "@xp-interaction-area/types/prisma";
 import { GetInteractionAreasReturn } from "@xp-interaction-area/types/server/get-interaction-areas";
-// Coordinates for the marker
-const markerPosition = { x: 200.0, y: 300.0, z: 20.0 }; // Set desired coordinates
-const markerRadius = 1.0; // Radius of the circle
-const markerColor = { r: 255, g: 0, b: 0, a: 150 }; // Red with some transparency
 
 const drawInteractionAreas = (interactionArea: InteractionAreaWithLocation) => {
   //@ts-ignore
@@ -19,8 +15,8 @@ const drawInteractionAreas = (interactionArea: InteractionAreaWithLocation) => {
     0,
     0,
     0,
-    1.001,
-    1.0001,
+    interactionArea.radius * 2,
+    interactionArea.radius * 2,
     0.5001,
     169,
     169,
@@ -33,6 +29,26 @@ const drawInteractionAreas = (interactionArea: InteractionAreaWithLocation) => {
   );
 };
 
+const isPlayerInInteractionArea = (
+  interactionArea: InteractionAreaWithLocation,
+) => {
+  const playerPed = PlayerPedId();
+  const playerCoords = GetEntityCoords(playerPed, true);
+
+  const distance = Vdist(
+    playerCoords[0],
+    playerCoords[1],
+    playerCoords[2],
+    interactionArea.location.x,
+    interactionArea.location.y,
+    interactionArea.location.z,
+  );
+
+  return distance / 2 < interactionArea.radius;
+};
+
+const DEBUG = false;
+
 const initInteractionAreas = async () => {
   const { interactionAreas } =
     await triggerServerEvent<GetInteractionAreasReturn>({
@@ -42,8 +58,15 @@ const initInteractionAreas = async () => {
 
   setTick(() => {
     for (const interactionArea of interactionAreas) {
-      drawInteractionAreas(interactionArea);
+      if (DEBUG) drawInteractionAreas(interactionArea);
+
+      if (isPlayerInInteractionArea(interactionArea)) {
+        console.log("you can interact with", interactionArea.name);
+        // Do something
+      }
     }
+
+    Wait(DEBUG ? 100 : 5000);
   });
 };
 
