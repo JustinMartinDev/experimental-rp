@@ -1,4 +1,7 @@
-import { triggerServerEvent } from "@lib/citizenfx-utils/event/client";
+import {
+  triggerClientEvent,
+  triggerServerEvent,
+} from "@lib/citizenfx-utils/event/client";
 import { InteractionAreaWithLocation } from "@xp-interaction-area/types/prisma";
 import { GetInteractionAreasReturn } from "@xp-interaction-area/types/server/get-interaction-areas";
 
@@ -33,12 +36,10 @@ const interactWithArea = async () => {
     return;
   }
 
-  console.log(
-    "Interacting with area",
-    areaToInteract.name,
-    areaToInteract.eventId,
-    JSON.stringify(areaToInteract.eventParams),
-  );
+  triggerClientEvent({
+    event: areaToInteract.eventId,
+    params: JSON.parse(areaToInteract.eventParams),
+  });
 };
 
 export const config = {

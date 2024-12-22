@@ -69,12 +69,12 @@ export const triggerClientEventWithCallback = ({
   const requestEvent = `request:${event}`;
   const responseEvent = `response:${event}:${uuid}`;
 
-  const onNetCallback = async (params: unknown) => {
-    removeEventListener(responseEvent, onNetCallback);
+  const onCallback = async (params: unknown) => {
+    removeEventListener(responseEvent, onCallback);
     await callback(params);
   };
 
-  on(responseEvent, onNetCallback);
+  on(responseEvent, onCallback);
   emit(requestEvent, JSON.stringify({ ...params, eventUuid: uuid }));
 };
 
