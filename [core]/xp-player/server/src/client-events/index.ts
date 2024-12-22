@@ -4,6 +4,7 @@ import { config as getCharacterSpawnInfoConfig } from "./get-character-spawn-inf
 import { config as getMyPlayer } from "./get-my-player";
 import { config as saveLocationConfig } from "./save-location";
 import { config as getCharactersConfig } from "./get-characters";
+import { config as getCharacterConfig } from "./get-character";
 import { config as getDefaultCharacterSpawnInfoConfig } from "./get-default-character-spawn-info";
 
 const resourceName = GetCurrentResourceName();
@@ -27,6 +28,7 @@ const initClientEvents = () => {
     getDefaultCharacterSpawnInfoConfig.name,
     getDefaultCharacterSpawnInfoConfig.fn,
   );
+  registerClientEvent(getCharacterConfig.name, getCharacterConfig.fn);
 };
 
 export { initClientEvents };

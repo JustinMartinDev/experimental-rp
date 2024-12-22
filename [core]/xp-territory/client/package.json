@@ -19,7 +19,8 @@
     "rollup": "catalog:",
     "tslib": "catalog:",
     "typescript": "catalog:",
-    "@xp-territory/types": "workspace:*"
+    "@xp-territory/types": "workspace:*",
+    "@xp-player/types": "workspace:*"
   },
   "engines": {
     "node": ">=18",

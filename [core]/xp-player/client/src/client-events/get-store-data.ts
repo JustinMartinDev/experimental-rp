@@ -6,8 +6,6 @@ import {
 } from "@xp-player/types/client/get-store-data";
 
 const getStoreData = async ({ property }: GetStoreDataParam) => {
-  console.log("getStoreData", property);
-
   const value = XpPlayerStore[property];
 
   return {

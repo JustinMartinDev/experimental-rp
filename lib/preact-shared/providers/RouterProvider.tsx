@@ -42,7 +42,8 @@ export const RouterProvider = ({ mapView }: Props) => {
       return context[viewId as keyof typeof context] as T;
     }
 
-    throw new Error(`View ${viewId} not found in context`);
+    console.warn(`View ${viewId} not found in context`);
+    return null;
   }
 
   return (

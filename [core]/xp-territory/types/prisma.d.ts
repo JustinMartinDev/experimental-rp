@@ -1,6 +1,6 @@
 import { Prisma } from "@lib/database";
 
-const territoryWthOrganization =
+const territoryWithOrganization =
   Prisma.validator<Prisma.TerritoryDefaultArgs>()({
     include: {
       organization: true,
@@ -8,5 +8,9 @@ const territoryWthOrganization =
   });
 
 export type TerritoryWithOrganization = Prisma.TerritoryGetPayload<
-  typeof territoryWthOrganization
+  typeof territoryWithOrganization
 >;
+
+const territory = Prisma.validator<Prisma.TerritoryDefaultArgs>()({});
+
+export type Territory = Prisma.TerritoryGetPayload<typeof territory>;

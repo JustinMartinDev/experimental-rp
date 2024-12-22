@@ -1,10 +1,10 @@
 import { RouterProvider } from "@lib/preact-shared/providers/RouterProvider";
 
-import { HomePlayerMenu } from "./view/HomeTerritoryMenu";
+import { HomeTerritoryMenu } from "./view/HomeTerritoryMenu";
 import { VisibilityProvider } from "@lib/preact-shared/providers/VisibilityProvider";
 
 const MapView = {
-  home: <HomePlayerMenu />,
+  home: <HomeTerritoryMenu />,
 };
 
 export const Router = () => (

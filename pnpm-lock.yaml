@@ -598,6 +598,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.1
+      '@xp-player/types':
+        specifier: workspace:*
+        version: link:../../xp-player/types
       '@xp-territory/types':
         specifier: workspace:*
         version: link:../types
@@ -681,6 +684,12 @@ importers:
       '@tools/runner':
         specifier: workspace:*
         version: link:../../../tools/runner
+      '@xp-player/types':
+        specifier: workspace:*
+        version: link:../../xp-player/types
+      '@xp-territory/types':
+        specifier: workspace:*
+        version: link:../types
       happy-dom:
         specifier: 'catalog:'
         version: 15.7.4
