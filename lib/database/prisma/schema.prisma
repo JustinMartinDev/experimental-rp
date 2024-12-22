@@ -1,4 +1,4 @@
-// Generated at 2024-12-13T22:44:31.239Z by "merge-prisma-schema"
+// Generated at 2024-12-22T10:39:29.331Z by "merge-prisma-schema"
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -129,8 +129,8 @@ model InteractionArea {
 
   radius Int
 
-  actionId    String // Id of action
-  actionParam String // Params of action
+  eventId     String // Id of event triggered
+  eventParams String // Params of event triggered
 }
 
 model Territory {

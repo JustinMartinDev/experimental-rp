@@ -1,4 +1,5 @@
-import { config as initInteractionAreasConfig } from "./init-interaction-areas";
+import { config as displayConfig } from "./display";
+import { config as interactWithAreaConfig } from "./interact-with-area";
 
 const resource = GetCurrentResourceName();
 
@@ -12,9 +13,15 @@ const initCommands = () => {
   console.log("Registering commands :");
   // dynamic require "config" from all file except index.ts
   // for each call RegisterCommand with config.name and config.fn and false as restricted
-  registerCommand(
-    initInteractionAreasConfig.name,
-    initInteractionAreasConfig.fn,
+  registerCommand(displayConfig.name, displayConfig.fn);
+
+  registerCommand(interactWithAreaConfig.name, interactWithAreaConfig.fn);
+
+  RegisterKeyMapping(
+    `${resource}:${interactWithAreaConfig.name}`,
+    "Inteact with ped",
+    "keyboard",
+    "f",
   );
 };
 

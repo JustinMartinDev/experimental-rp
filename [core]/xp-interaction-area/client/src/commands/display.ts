@@ -29,27 +29,7 @@ const drawInteractionAreas = (interactionArea: InteractionAreaWithLocation) => {
   );
 };
 
-const isPlayerInInteractionArea = (
-  interactionArea: InteractionAreaWithLocation,
-) => {
-  const playerPed = PlayerPedId();
-  const playerCoords = GetEntityCoords(playerPed, true);
-
-  const distance = Vdist(
-    playerCoords[0],
-    playerCoords[1],
-    playerCoords[2],
-    interactionArea.location.x,
-    interactionArea.location.y,
-    interactionArea.location.z,
-  );
-
-  return distance / 2 < interactionArea.radius;
-};
-
-const DEBUG = false;
-
-const initInteractionAreas = async () => {
+const display = async () => {
   const { interactionAreas } =
     await triggerServerEvent<GetInteractionAreasReturn>({
       event: "xp-interaction-area:get-interaction-areas",
@@ -58,19 +38,14 @@ const initInteractionAreas = async () => {
 
   setTick(() => {
     for (const interactionArea of interactionAreas) {
-      if (DEBUG) drawInteractionAreas(interactionArea);
-
-      if (isPlayerInInteractionArea(interactionArea)) {
-        console.log("you can interact with", interactionArea.name);
-        // Do something
-      }
+      drawInteractionAreas(interactionArea);
     }
 
-    Wait(DEBUG ? 100 : 5000);
+    Wait(150);
   });
 };
 
 export const config = {
-  name: "init-interaction-areas",
-  fn: initInteractionAreas,
+  name: "display",
+  fn: display,
 };

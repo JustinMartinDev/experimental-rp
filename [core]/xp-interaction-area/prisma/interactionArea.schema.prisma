@@ -7,6 +7,6 @@ model InteractionArea {
 
   radius Int
 
-  actionId    String // Id of action
-  actionParam String // Params of action
+  eventId     String // Id of event triggered
+  eventParams String // Params of event triggered
 }
